@@ -1,0 +1,142 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}		% Configuro la codificación
+\input{config.tex}				% Archivo con los comandos globales como Título y autores
+\input{preamble.tex}
+\input{aux_functions.tex}		% Se proveen un conjunto de funciones extras
+
+% Defino el path de los includegraphics
+\graphicspath{{./Figuras/}}		% Directorio que contiene los graficos
+
+% Defino el path para los input de .tex y de .eps
+\makeatletter
+\def\input@path{{./Figuras/}{./Secciones/}{./Cover_page/}{../Octave/graficos/}}
+\makeatother
+
+% Defino el path del listings
+\ifListings
+%% Cambiar el nombre de la carpeta si se utilizan Listings
+	\lstinputpath{{../Octave/}}
+\fi
+
+\definecolor{myred}{rgb}{0.5,0,0}
+\definecolor{mygreen}{rgb}{0,0.5,0}
+
+
+
+\begin{document}
+		% Carátula (formal o simple,_formal o _simple respectivamente) con Resumen
+		% incluido e Índice (si es necesario configurar en config.tex) del informe
+		\input{cover_formal.tex}
+	\setcounter{page}{1}
+
+	\part{Introducción}\label{part:intro}
+
+		\section{Objetivos}\label{sec:obj}
+			\input{I1_objetivos.tex}
+
+		\section{Requerimientos}\label{sec:req}
+			\input{I2_requerimientos.tex}
+
+	\part{Diseño conceptual}\label{part:concept}
+
+		\section{Alternativas de diseño}\label{sec:alt}
+			\input{II1_alternativas.tex}
+
+		\section{Diagrama en bloques}\label{sec:bloques}
+			\input{II2_bloques.tex}
+
+		\section{Funcionamiento general}\label{sec:func_gral} % Acá se explican los bloques
+			\input{II3_func_gral.tex}
+
+	\part{Diseño y análisis teórico}\label{part:teo}
+		\input{III0_diseno_teo.tex}	% Acá se introduce al cto propuesto y después se analiza
+
+%		\section{Polarización}\label{sec:pol}
+%			\input{III1_polarizacion.tex}
+%		
+%		\section{Ganancia de lazo}\label{sec:gan_lazo}
+%			\input{III2_gan_lazo.tex}
+%		
+%		\section{Ganancia global}\label{sec:gan_global}
+%			\input{I3_gan_global.tex}
+%	
+%		\section{Máxima potencia sobre la carga}\label{sec:pot_carga}
+%			\input{I4_pot_carga.tex}
+%	
+%		\section{Impedancia de entrada}\label{sec:zi}
+%			\input{I5_zi.tex}
+%	
+%		\section{Impedancia de salida}\label{sec:zo}
+%			\input{I6_zo.tex}
+%		
+%		\section{Factor de amortiguamiento}\label{sec:amort}
+%			\input{I7_amortiguamiento.tex}
+%	
+%		\section{Máxima tensión pico sobre la carga}\label{sec:pico_carga}
+%			\input{I8_pico_carga.tex}
+%		\pagebreak	
+%		\section{Máxima eficiencia del amplificador}\label{sec:eficiencia}
+%			\input{I9_eficiencia.tex}
+%		\pagebreak	
+%		\section{Disipadores}\label{sec:disipadores}
+%			\input{I10_disipadores.tex}
+
+	\part{Diseño del circuito impreso - \emph{PCB}}\label{part:pcb}
+
+		\section{Elección de componentes}\label{sec:componentes}
+			\input{IV1_componentes.tex}
+
+		\section{Criterios de Ruteo}\label{sec:ruteo}
+			\input{IV2_ruteo.tex}
+
+	\part{Análisis por simulación}\label{part:sim}
+
+%		\section{Polarización}\label{sec:sim_pol}
+%			\input{V_polarizacion.tex}
+%
+%		\section{Impedancia de entrada}\label{sec:sim_zi}
+%			\input{II2_zi.tex}
+%
+%		\section{Impedancia de salida}\label{sec:sim_zo}
+%			\input{II3_zo.tex}
+%
+%		\section{Respuesta en frecuencia}\label{sec:sim_rta_frec}
+%			\input{II4_rta_frec.tex}
+%
+%		\section{Ancho de banda de potencia}\label{sec:sim_bw}
+%			\input{II5_bw.tex}
+%
+%		\section{Respuesta al escalón}\label{sec:sim_escalon}
+%			\input{II6_escalon.tex}
+%	
+%		\section{Margen de fase}\label{sec:sim_fase}
+%			\input{II7_fase.tex}
+%		\pagebreak
+%		\section{Distorsión armónica}\label{sec:sim_thd}
+%			\input{II8_thd.tex}
+%		
+%		\section{Distorsión por intermodulación}\label{sec:sim_intermod}
+%			\input{II9_intermod.tex}
+%		\pagebreak
+%		\section{Rechazo de Ruido de la Fuente de Alimentación}\label{sec:sim_psnr}
+%			\input{II10_psrr.tex}
+%	\pagebreak
+
+	\part{Construcción del prototipo}\label{part:construccion}
+		\Juan{Ver pdf ''Grupo01\_informe\_final`` como referencia}
+%		\input{VI}
+
+	\part{Medición del prototipo}\label{part:mediciones}
+%		\input{VII}
+
+	\part{Conclusiones}\label{part:conclusiones}
+		\input{VIII_conclusiones.tex}
+
+	\part{Bibliografía}\label{part:bibliografia}
+		\input{IX_bibliografia.tex}
+
+	\appendix
+	\section{Listado de componentes}
+		\input{A_listado_comp.tex}
+\end{document}

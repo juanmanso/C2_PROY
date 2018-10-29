@@ -1,0 +1,46 @@
+\input{.command.tex}
+% En el siguiente archivo se configuran las variables del trabajo práctico
+%% \providecommand es similar a \newcommnad, salvo que el primero ante un 
+%% conflicto en la compilación, es ignorado.
+
+% Al comienzo de un TP se debe modificar los argumentos de los comandos
+
+\providecommand{\myTitle}{PROYECTO FINAL}
+\providecommand{\mySubtitle}{Amplificador de audio}
+
+\providecommand{\mySubject}{Diseño de Circuitos Electrónicos (86.10)}
+\providecommand{\myKeywords}{UBA, Ingeniería, C2}
+
+\providecommand{\myTutor}{Nombre del tutor}
+\providecommand{\myAuthorSurname}{Alonso, Manso, Russo, Zuccolo}
+\providecommand{\myTimePeriod}{Año 2018 - 2\textsuperscript{do} Cuatrimestre}
+
+% No es necesario modificar este %%%%%%%%%%%%%%
+\providecommand{\myHeaderLogo}{header_fiuba}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Si se utilizan listings, definir el lenguaje aquí
+\providecommand{\myLanguage}{matlab}
+
+% Crear los integrantes del TP con el comando \PutMember donde
+%%		1) Apellido, Nombre
+%%		2) Número de Padrón
+%%		3) E-Mail
+\providecommand{\MembersOnCover}[0]
+{		
+		\PutMember{Alonso, Gustavo Gabriel} {96119} {gustavoalon19@gmail.com}
+		\PutMember{Manso, Juan} {96133} {juanmanso@gmail.com}
+		\PutMember{Russo, Nicolas Emanuel} {93211} {nicolasrusso291@gmail.com}
+		\PutMember{Zuccolo, Florencia} {96628} {florenciaz618@gmail.com}
+}
+
+\providecommand{\myGroupNumber}{10}
+
+\Pagebreaktrue		% Setea si hay un salto de página en la carátula
+\Indextrue
+\Siunitxtrue			% Si quiero utilizar el paquete, \siunixtrue. Si no \siunixfalse
+\Todonotestrue		% Habilita/Deshabilita las To-Do Notes y las funciones \unsure, \change, \info, \improvement y \thiswillnotshow.
+\Listingsfalse
+\Keywordsfalse
+\Putgrouptrue		% Habilita/Deshabilita el \myGroup en los headers
+\Videofalse
