@@ -1,0 +1,76 @@
+	La etapa de salida clase G se caracteriza principalmente por el manejo eficiente de potencia debido a que conmuta la tensión de alimentación entre dos niveles según lo requiera la señal de entrada.
+
+	En la figura se muestra un esquema básico de la topología, denominada Clase G alternativa.  Los transistores $Q_1$ y $Q_2$ conforman la etapa interior que opera en clase B, siendo $Q3$ y $Q4$ los \textit{drivers} y $R1$ la resistencia de emisor compartida. 
+
+	\begin{figure}[H]
+		\centering
+		\scalebox{0.5}{\input{salida}}
+		\caption{Etapa de salida.}
+		\label{fig.salida}
+	\end{figure}
+
+	Los comparadores se encuentran conectados a la señal de entrada y a una tensión umbral Vth como referencia. Cuando la señal de entrada excede la tensión $+Vth$, el comparador (superior) hace que los transistores $Q5$ y $Q6$ se polaricen en saturación. Es decir que actúan como una llave que activa la alimentación $VccH$. A su vez el diodo $D1$ quedará polarizado en inversa ya que la tensión en el cátodo es $+VccH$, mayor que la tensión de ánodo $VccL$. Por lo tanto, el circuito queda alimentado solo mediante $+VccH$ y la potencia es manejada por dos transistores $Q6$ y $Q1$.
+
+	De forma análoga funcionan el comparador $C2$, $Q7$, $Q8$ y $D2$ para el semicilo negativo de la señal de entrada.
+
+	Las tensiones $Vbias1$ y $Vbias2$ permiten \textit{prepolarizar} a los transistores $Q1$ y $Q2$ con el fin de atenuar la distorsión de cruce por cero. Se deben ajustar de forma tal que la corriente de la malla de salida sea aproximadamente igual en el colector de ambos transistores ($Q1$ y $Q2$). Asimismo se debe considerar que si $ICQ$ es muy elevada se desperdicia potencia, y si es muy pequeña se obtendrá una distorsión de cruce por cero apreciable. 
+
+
+\subsection{Multiplicador de $V_{BE}$}
+
+	\begin{figure}[H]
+		\centering
+		\scalebox{0.5}{\input{multiplicador}}
+		\caption{Multiplicador de $V_{BE}$.}
+		\label{fig.multiplicador}
+	\end{figure}
+
+	La resistencia $R_{3M}$ se anexa para mejorar la independencia de la tensión $V_{BE}$ con la corriente de polarización.
+
+	\begin{equation}
+		\centering
+		V_M = \left( \frac{R_{1M}}{R_{1M} + R_{2M}} +1 \right) \cdot V_{BE} - I_C \cdot R_{3M} \approx  \left( \frac{R_{1M}}{R_{1M} + R_{2M}} +1 \right) \cdot V_{BE}
+	\end{equation}
+
+	 Considerando un valor de $V_{BE} \approx \SI{0.5}{\volt}$
+
+	 \begin{equation}
+	 	\centering
+		\frac{\SI{2.2}{\volt}}{\SI{0.5}{\volt}} -1 = \frac{R_{1M}}{R_{2M}} \implies \boxed{R_{1M} = \num{3,4} \cdot R_{2M}}
+	\end{equation}
+	Se eligen los resistores comerciales $R_{1M} = \SI{3.3}{\kilo\ohm}$, $R_{2M} = \SI{680}{\ohm}$ y un potenciómetro de $\SI{1}{\kilo\ohm}$. 
+
+
+\subsection{Comparadores}
+
+	\begin{figure}[H]
+		\centering
+		\scalebox{0.5}{\input{comparador}}
+		\caption{Comparador.}
+		\label{fig.comparador}
+	\end{figure}
+
+	Se propone la configuración de par diferencial de la figura para implementar los comparadores. Se utiliza una fuente de corriente espejo para lograr mayor estabilidad. En vez de comparar con la señal proveniente de la etapa VAS, se compara con la señal de salida $V_{o}$ para evitar cargar la VAS con la resistencia de entrada que presenta el par diferencial ($2\cdot r_\pi$). La señal de salida no resulta alterada por tratarse de un colector común que es separador de impedancias.
+	Por otra parte, es difícil lograr en la práctica que los transistores que conforman el par diferencial manejen una excursión de tensión de hasta \SI{30}{\volt}, por lo que se utiliza un divisor resistivo en ambas bases de los transistores para atenuar la amplitud de tensión. Es conveniente que la tensión de referencia $Vth'$ sea levemente menor que la prevista con el fin de contrarrestar el retardo de tiempo del comparador.
+
+\begin{equation}
+	\centering
+	V_{th}' = V_{th} \cdot \frac{R_4}{R_4 + R_3} \implies \SI{1.5}{\volt} = \SI{12}{\volt} \cdot \frac{R_4}{R_4 + R_3} \implies \boxed{R_3 = 7 \cdot R_4}
+\end{equation}
+
+\begin{equation}
+	\centering
+	V_o' = V_o \cdot \frac{R_2}{R_2 + R_1} \implies \SI{2}{\volt} = \SI{12}{\volt} \cdot \frac{R_2}{R_2 + R_1} \implies \boxed{R_1 = 5 \cdot R_2}
+	\end{equation}
+
+	El valor de la resistencia de emisor $R_{ec}$ se elige en función de la máxima tensión posible en $V_o$ y la corriente que circularía en reposo. Con $R_ec = \SI{500}{\ohm}$ se obtiene:
+
+	\begin{equation}
+		\centering
+		I_{e,max} = \frac{ \SI{1.3}{\volt} }{ \SI{500}{\ohm} } = \SI{2.6}{\milli\ampere}
+	\end{equation}
+
+	\begin{equation}
+		I_{e,pol} = \frac{ \SI{0.8}{\volt} }{ \SI{500}{\ohm} } = \SI{1.6}{\milli\ampere} \implies \SI{1.28}{\milli\watt}
+	\end{equation}
+
