@@ -40,6 +40,17 @@
 	\end{equation}
 	Se eligen los resistores comerciales $R_{1M} = \SI{3.3}{\kilo\ohm}$, $R_{2M} = \SI{680}{\ohm}$ y un potenciómetro de $\SI{1}{\kilo\ohm}$. 
 
+\subsection{Fuente de corriente}
+	El valor mínimo de la corriente necesaria para la etapa de salida se determina con el caso de máxima corriente de salida $I_{o,max} = \SI{26}{\volt}/ \SI{8}{\ohm} = \SI{3.25}{\ampere}$. Al tratarse de transistores de potencia, el factor $\beta$ es aproximadamente $\beta = 30$, por lo que la corriente de base en $Q1$ sería $I_{B,Q1} \approx \SI{110}{\milli\ampere}$. Dicha corriente es entregada por $Q_2$, siendo la corriente de base $I_{B,Q2} \approx \SI{110}{\milli\ampere}/50 \approx \SI{2}{\milli\ampere}$. A su vez la fuente polariza la etapa amplificadora de tensión (VAS), por lo que se considerará al menos el doble de dicha corriente. Se propone $I_{pol} = \SI{5}{\milli\ampere}$.
+
+	\begin{figure}[H]
+		\centering
+		\scalebox{0.5}{\input{fte}}
+		\caption{Fuente de corriente.}
+		\label{fig.fte}
+	\end{figure}
+
+
 
 \subsection{Comparadores}
 
