@@ -1,3 +1,6 @@
+	Mediante la herramienta de análisis de Fourier provista por \texttt{SPICE Orcad} se analizó la variación de la distorsión armónica \texttt{THD} producida en la salida, en función de la frecuencia y amplitud de la señal de entrada. Los resultados obtenidos se resumen en la tabla.
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{sim_salida1k_max.pdf}
@@ -35,6 +38,21 @@
 	\includegraphics[scale=0.4]{sim_salida_1k_8V.pdf}
 	\caption{8V, $0,35V, THD=0,23\%$.}
 \end{figure}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ccccc}
+		\toprule
+\multirow{2}{*}{Frecuencia} & \multicolumn{3}{c}{$P_{L,RMS}$} \\ 
+		\cmidrule{2-4}
+			& 4W & 30W & 42,5W \\
+		\midrule
+		\SI{1}{\kHz} & \num{0,061} & \num{0,0976} & \num{0,079} \\
+		\SI{20}{\kHz} & \num{0.23} & \num{0,21} & \num{0,34} \\
+		\bottomrule
+	\end{tabular}
+	\caption{Valores de $\mathrm{THD}_{\%}$ para distintos valores de frecuencia y potencias sobre la carga.}
+\end{table}
 
 
 

@@ -1,5 +1,6 @@
 \subsubsection{Respuesta la escalón para pequeña señal}
 
+\Flor{El escalón de salida quedó con un offset, esto pasó por cambiar el cap de 1m por el de 10u, pero era necesario para determinar la fl.}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{sim_rta_escalon_senial_peque.pdf}
@@ -44,11 +45,12 @@
 	\label{fig:sim_rta_escalon_gran_sr}
 \end{figure}
 
-	El parámetro \textit{Slew Rate} caracteriza el comportamiento de la salida del cirucito ante cambios súbitos de tensión en la entrada, ya que la tensión de salida no puede responder de forma instantánea ante alteraciones en la entrada. Para hallar su valor se impone un escalón en la entrada de gran amplitud y se mide la pendiente casi constante resultante. A partir de la figura se obtiene
+	El parámetro \textit{Slew Rate} caracteriza el comportamiento de la salida del cirucito ante cambios súbitos de tensión en la entrada, ya que la tensión de salida no puede responder de forma instantánea ante alteraciones en la entrada. Para hallar su valor se impone un escalón en la entrada de gran amplitud y se mide la pendiente casi constante resultante. A partir de la figura \ref{fig:sim_rta_escalon_gran_sr} se obtiene \eqref{ec:sr}.
 
 	\begin{equation}
-		\centering
-		\mathrm{SR} = \frac{\SI{23}{\volt}}{\SI{0.005}{\milli\second}} = \boxed{\SI{4.6}{\volt\per\micro\second}}
-	\end{equation}
+	\centering
+	\mathrm{SR} = \left. \frac{dV_o(t)}{dt} \right\rvert_{max} \cong \frac{\Delta V_o}{\Delta t} = \frac{\SI{27.515}{\volt}}{\SI{6.69}{\micro\second}} = \boxed{\SI{4.6}{\volt\per\micro\second}}
+	\label{ec:sr}
+\end{equation}
 
 
