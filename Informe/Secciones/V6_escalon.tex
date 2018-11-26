@@ -1,0 +1,54 @@
+\subsubsection{Respuesta la escalón para pequeña señal}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{sim_rta_escalon_senial_peque.pdf}
+	\caption{Respuesta al escalón en pequeña señal.}
+	\label{fig:rta_escalon_peque}
+\end{figure}
+
+\subsubsection{Respuesta al escalón para gran señal}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{sim_rta_escalon_gran_senial.pdf}
+	\caption{Respuesta al escalón en gran señal.}
+	\label{fig:rta_escalon_gran}
+\end{figure}
+
+\subsubsection{Ancho de banda}
+
+	Este parámetro se obtiene a partir de la simulación de la respuesta al escalón del circuito en pequeña señal (\SI{10}{\milli\volt}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{sim_rta_escalon_senial_peque_zoom.pdf}
+	\caption{Respuesta al escalón en pequeña señal.}
+	\label{fig:rta_escalon_peque}
+\end{figure}
+
+	Observando la figura \ref{fig:sim_bw} el tiempo de crecimiento ($\tau_r$), se puede determinar el ancho de banda mediante la ecuación \eqref{ec:bw}.
+
+	\begin{equation}
+		\centering
+		\mathrm{BW} = \frac{\num{0,35}}{\tau_r} = \frac{0,35}{\SI{2.2}{\micro\second}} = \boxed{\SI{159}{\kilo\hertz}}
+		\label{ec:bw}
+	\end{equation}
+
+\subsubsection{\textit{Slew Rate}}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{sim_rta_escalon_gran_senial_zoom_sr.pdf}
+	\caption{Respuesta al escalón en gran señal ampliado.}
+	\label{fig:sim_rta_escalon_gran_sr}
+\end{figure}
+
+	El parámetro \textit{Slew Rate} caracteriza el comportamiento de la salida del cirucito ante cambios súbitos de tensión en la entrada, ya que la tensión de salida no puede responder de forma instantánea ante alteraciones en la entrada. Para hallar su valor se impone un escalón en la entrada de gran amplitud y se mide la pendiente casi constante resultante. A partir de la figura se obtiene
+
+	\begin{equation}
+		\centering
+		\mathrm{SR} = \frac{\SI{23}{\volt}}{\SI{0.005}{\milli\second}} = \boxed{\SI{4.6}{\volt\per\micro\second}}
+	\end{equation}
+
+
