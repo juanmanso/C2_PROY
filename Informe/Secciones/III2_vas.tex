@@ -37,19 +37,15 @@ Para una tensión de entrada de 1Vrms, se busca que la salida sea aproximadament
 
 \begin{equation}
 	\centering
-	A \approx \frac{1}{f} = 21
-\end{equation}	
-
-
-\begin{equation}
-	\centering
-	af = 0,048 \cdot 31200 = 1485
+	af = 0,048 \cdot 31200 = 1485 \implies af >> 1 \implies A \approx \frac{1}{f} = 21
 \end{equation}
-
 
 \subsection{Resistencia de entrada}
 
 \begin{itemize}
+	
+	\HgraficarEPS{0.5}{ri}{Diagrama en bloque para hallar la resistencia de entrada.}{fig.esq_ri}
+		
 	\item Resistencia de entrada sin realimentación
 	
 	\begin{equation}
@@ -58,6 +54,7 @@ Para una tensión de entrada de 1Vrms, se busca que la salida sea aproximadament
 	\end{equation}
 	
 	\item Resistencia de entrada con realimentación
+	\HgraficarEPS{0.5}{ri_realim}{Diagrama en bloque para hallar la resistencia de entrada.}{fig.esq_ri_f}
 	\begin{equation}
 		\centering
 		R_{i,CR} = (1+ af) \cdot R_{i,SR} = (1 + 1485) \cdot \SI{1.1}{\kilo\ohm} = \SI{1.6}{\mega\hertz}
@@ -71,6 +68,12 @@ $$ \SI{100}{\kilo\ohm}//\SI{1.6}{\mega\hertz} = \boxed{\SI{94}{\kilo\ohm}} $$
 
 
 \subsection{Impedancia de salida}
+
+\begin{figure}[H]
+	 \centering
+	 \includegraphics[scale=0.5]{ro.eps}
+	 \caption{Diagrama para hallar la resistencia de salida del circuito sin realimentación.}
+\end{figure}
 
 \begin{itemize}
 	\item Resistencia de salida sin realimentador: en esta situación se supone que, a los efectos de este cálculo, las resistencias de salida de los colectores comunes son iguales.
