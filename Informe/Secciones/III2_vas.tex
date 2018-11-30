@@ -1,2 +1,56 @@
 A partir del diseño de la etapa de salida, se tiene el requerimiento de una corriente de al menos \SI{5}{\milli\ampere} para la polarización de la etapa amplificadora de tensión (VAS).
 
+Se propone una etapa de emisor común con realimentación local ($RE = \SI{10}{\ohm}$), con lo cuál la ganancia de tensión es \eqref{ec.av_vas}. Siendo $R_{ca}$ la resistencia equivalente de la etapa de salida que puede aproximarse $\beta \cdot \beta \cdot R_L = 75 \cdot 60 \cdot \SI{8}{\ohm} = \SI{36}{\kilo\ohm}$
+
+\begin{equation}
+	\centering
+	A_{v,vas} = \frac{-g_m \cdot R_{ca}}{1+g_m \cdot R_E} = 2400
+	\label{ec.av_vas}
+\end{equation}
+	
+
+Por otra parte la ganancia de tensión del comparador es
+
+\begin{equation}
+	\centering
+	A_{v,pd} = \frac{-g_m \cdot R_ca}{1+g_m \cdot R_e} = \frac{-80mA/V \cdot \SI{36}{\kilo\ohm} }{ 1 + 80mA/V \cdot \SI{100}{\ohm} } = -13
+	\label{ec.av_pd}
+\end{equation}
+
+Se propone una corriente de polarización para el par diferencial lo más pequeña posible con el fin de disminuir el ruido. Para contrarrestar la disminución de la ganancia se utilizó una reistencia de emisor $R_E=\SI{100}{\ohm}$.
+
+
+La ganancia de tensión total queda determinada por la ganancia de la VAS y el comparador de entrada \eqref{ec-av_vas} y \eqref{av_pd} ya que la etapa de salida presenta una ganancia aproximadamente unitaria.
+
+\begin{equation}
+	\centering
+	a = (-13) \cdot (-2400) = 31200
+	\label{ec.a}
+\end{equation}
+
+Para una tensión de entrada de 1Vrms, se busca que la salida sea aproximadamente la máxima posible \SI{27}{\volt}, por lo que se propone una ganancia a lazo cerrado de 20, establecida por el bloque realimentador f.
+
+\begin{equation}
+	\centering
+	f = \frac{RF1}{RF1 + RF2} = \frac{\SI{1.1}{\kilo\ohm}}{\SI{1.1}{\kilo\ohm} + \SI{22}{\kilo\ohm}} \approx 0,048
+\end{equation}
+
+\begin{equation}
+	\centering
+	A \approx \frac{1}{f} = 21
+\end{equation}	
+
+
+\begin{equation}
+	\centering
+	af = 0,048 \cdot 31200 = 1485
+	\end{equation}
+
+	
+	
+
+
+
+
+
+
