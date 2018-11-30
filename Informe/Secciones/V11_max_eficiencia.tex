@@ -1,0 +1,15 @@
+
+La eficiencia de un circuito se define como la relación entre la potencia promedio entregada a la carga (PL) y la potencia consumida por la fuente de alimentación ($P_{fuente}$). El cálculo es análogo al de clase B, salvo que en un clase G, la disipación de potencia es compartida entre dos transistores, y la disipación en los transistores externos es cero cuando no se supera la tensión umbral.
+
+\begin{equation}
+	\centering
+	\nu = \frac{P_L}{P_{fuente}} = \frac{\pi}{4} \cdot \frac{\hat{V}_o}{V_{CC}} = \frac{\pi}{4} \cdot \frac{26}{30}= \boxed{68\%}
+\end{equation}
+
+Siendo $ \hat{V}_o$ máxima tensión de salida sin que haya recorte.
+
+\HgraficarPNG{0.5}{potencia}{Potencia disipada en la carga y transistores de salida.}{fig.potencia}
+
+En la figura \ref{fig.potencia} se muestra la potencia disipada en la carga, siendo la máxima (sin distorsión) \SI{86}{\watt}, la curva rosa corresponde al transistor externo $Q_{62}$, $P_{max} = \SI{18}{\watt}$. La curva azul, la potencia disipada en el transistor interno de salida $Q_{63}$.
+
+

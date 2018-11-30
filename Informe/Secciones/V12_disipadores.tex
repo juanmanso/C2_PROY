@@ -1,0 +1,35 @@
+	A partir de la hoja de datos del \texttt{TIP41} y de las condiciones del ambiente se tiene:
+	\begin{itemize}
+		\item  Temperatura de Juntura $T_j = \SI{150}{\celsius} $
+		\item  Temperatura de Carcasa $T_c = \SI{25}{\celsius} $
+		\item  Temperatura de Ambiente $T_a = \SI{40}{\celsius} $
+		\item  $\theta_{cs} = \SI{1}{\celsius\per\W}$ 
+		%	\Gus{Esto es porque uno usa mica $\SI{2}{\celsius\per\W}$ y el otro no $\SI{0.5}{\celsius\per\W} - \SI{1}{\celsius\per\W}$}
+		\item  Disipación total del \texttt{TIP41} a $T_{case} = \SI{25}{\celsius}$ se obtiene $\theta_{jc} =  \frac{T_j - T_c}{P_{Ctip41_{\max}}} =\SI{1.92}{\celsius\per\W}$ 
+		\\	se usa el mas grande para no forzar tanto al TIP ( de esta forma te queda un disipador mas grande)
+	\end{itemize}
+
+	Dado estos valores se puede hallar:
+
+	\begin{equation}
+		P_{C_{\max}} = \frac{V^2_{CC}}{\pi^2 R_L} = \SI{11.4}{\W}
+	\end{equation}
+
+	\begin{equation}
+		\theta_{ja} =  \frac{T_j - T_a}{P_{C_{\max}}} =\SI{9.65}{\celsius\per\W}
+	\end{equation}
+	
+
+	\begin{equation}
+		\theta_{ja} = \theta_{jc} + \theta_{cs} + \theta_{sa}
+	\end{equation}
+
+	Despejando:
+
+	\begin{equation}
+		\theta_{sa} = \theta_{ja} - \theta_{jc} - \theta_{cs} = \boxed{\SI{6.72}{\celsius\per\W}}
+	\end{equation}
+
+	Buscando disipadores en \url{www.disipadores.com} se halló que el \texttt{Z36} es el más cercano a las especificaciones requeridas (con $\theta$ alrededor de \SI{8.5}{\celsius\per\W}). Otra alternativa es el disipador con aletas \texttt{Z66} que es más largo y tiene $\theta = \SI{7.5}{\celsius\per\W}$.
+
+
