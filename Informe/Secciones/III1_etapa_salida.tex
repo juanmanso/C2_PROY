@@ -11,7 +11,7 @@
 
 	Los comparadores se encuentran conectados a la señal de entrada y a una tensión umbral Vth como referencia. Cuando la señal de entrada excede la tensión $+Vth$, el comparador (superior) hace que los transistores $Q5$ y $Q6$ se polaricen en saturación. Es decir que actúan como una llave que activa la alimentación $VccH$. A su vez el diodo $D1$ quedará polarizado en inversa ya que la tensión en el cátodo es $+VccH$, mayor que la tensión de ánodo $VccL$. Por lo tanto, el circuito queda alimentado solo mediante $+VccH$ y la potencia es manejada por dos transistores $Q6$ y $Q1$.
 
-	De forma análoga funcionan el comparador $C2$, $Q7$, $Q8$ y $D2$ para el semicilo negativo de la señal de entrada.
+	De forma análoga funcionan el comparador $C2$, $Q7$, $Q8$ y $D2$ para el semicilo negativo de la señal de entrada. La salida se ilustra en la figura \ref{fig.teo_salida}.
 
 	Sin embargo, la topología propuesta presenta un inconveniente. Cuando $Q_6$ entra en conducción, se produce una alteración repentina en la tensión $V_{CE}$ del transistor de potencia de salida $Q_1$, que por efecto Early también modifica la corriente de colector. Esta alteración afecta la ganancia, produciendo picos de tensión en la señal de salida. Esta alinealidad se elimina al conectar los transistores internos $Q3$ y $Q4$ a la tensión $+V_{ccH}$ y $-V_{ccH}$ respectivamente, según indica la figura \ref{fig.salida_2}.
 
@@ -21,7 +21,8 @@
 		\caption{Etapa de salida.}
 		\label{fig.salida_2}
 	\end{figure}
-	
+
+	\HgraficarEPS{0.5}{salidaB}{Forma de la señal de salida, y tensiones umbrales}{fig.teo_salida}
 \subsection{Multiplicador de $V_{BE}$}
 
 	Las tensiones $V_{bias1}$ y $V_{bias2}$ permiten \textit{prepolarizar} a los transistores $Q_1$ y $Q_2$ con el fin de atenuar la distorsión de cruce por cero. Se deben ajustar de forma tal que la corriente de la malla de salida sea aproximadamente igual en el colector de ambos transistores ($Q_1$ y $Q_2$). Asimismo se debe considerar que si $I_{CQ}$ es muy elevada se desperdicia potencia, y si es muy pequeña se obtendrá una distorsión de cruce por cero apreciable. Ambas tensiones se implementaron con un multiplicador de $V_{BE}$ cuyo circuito se presenta en la figura \ref{fig.multiplicador}
