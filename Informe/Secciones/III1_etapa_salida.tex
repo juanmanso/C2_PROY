@@ -107,22 +107,30 @@ La corriente de polaización queda determinada por la resistencia $R_1$ de la ex
 
 Finalmente, los valores comerciales de resistores que se eligieron se muestran en el esquema \ref{fig.comparador}.	
 	
-\subsection{Cálculo de disipadores}
+\subsection{Compensación del embalamiento térmico}
 
-\subsection{Máxima eficiencia del amplificador}
-
-
-La eficiencia de un circuito se define como la relación entre la potencia promedio entregada a la carga (PL) y la potencia consumida por la fuente de alimentación ($P_{fuente}$). El cálculo es análogo al de clase B, salvo que en un clase G, la disipación de potencia es compartida entre dos transistores, y la disipación en los transistores externos es cero cuando no se supera la tensión umbral.
+	Se logra al agregar una resistencia al emisor de cada transistor equivalente de la etapa de salida. Si la señal de entrada se encuentra en su semiciclo positivo, sólo el transistor equivalente formado por $Q_{63}$ y $Q_{14}$ conduce. Ante un aumento de la temperatura, se produce un incremento de la corriente de colector, por ende aumenta la caída de tensión en $R_{32}$, entonces necesariamente la tensión $V_{BE}$ disminuye, produciendo un decremento en la corriente de colector. De esta manera se logra estabilizar la polarización de la etapa de salida mediante realimentación negativa local. El valor de dichas resistencias ($R_{32}$ y $R_{33}$) debe ser pequeño en comparación al valor de la carga con el fin de no alterar la tensión útil de salida. Asimismo para que la realimentación sea suficiente se debe cumplir la expresión \eqref{ec.re}
 
 \begin{equation}
 	\centering
-	\nu = \frac{P_L}{P_{fuente}} = \frac{\pi}{4} \cdot \frac{\hat{V}_o}{V_{CC}} = \frac{\pi}{4} \cdot \frac{26}{30}= \boxed{68\%}
+	R_E \geq \frac{\Theta_{ja,Q_{63}} V_{CC} \cdot \SI{2}{\milli\volt\per\celsius}}{\beta_{min} + 1}
+	\label{ec.re}
 \end{equation}
-
-Siendo $ \hat{V}_o$ máxima tensión de salida sin que haya recorte.
-
 	
+	Se utilizarán como transistores de salida los \texttt{TIP41C}. A partir de la hoja de datos, se obtiene $\Theta_{ja,Q_{63}} = \SI{150}{\celsius\per\watt}$ y $\beta_{min} = 15$, por lo que se obtiene el valor mínimo
+
+	\begin{equation}
+		\centering
+		R_E \geq \frac{ \SI{150}{\celsius\per\watt} \cdot \SI{30}{\volt} \cdot \SI{2}{\milli\volt\per\celsius} }{ \beta_{min} + 1 } = \SI{0.56}{\ohm}
+	\end{equation}
+
 	\Flor{Completar}
 	\subsection{Protección}
 	Se implementó una protección contra cortocircuito de la carga de salida, conformado por los transistores Q52 y Q53.
 
+	\begin{figure}[H]
+		\centering
+		\scalebox{0.5}{\input{proteccion}}
+		\caption{Protección contra cortocircuito en la salida.}
+		\label{fig.proteccion}
+	\end{figure}
