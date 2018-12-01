@@ -61,3 +61,27 @@
 \end{equation}
 
 
+A partir del parámetro obtenido se puede calcular la máxima frecuencia para la cual el amplificador es capaz de reproducir la máxima amplitud de salida sin deformación.
+
+\begin{equation}
+	\centering
+	f = \frac{SR}{2 \cdot \pi \hat{V} } = \frac{\SI{9}{\volt\per\micro\second}}{2 \cdot \pi \SI{26}{\volt}} = \SI{55}{\kilo\hertz}
+	\label{ec.max_f}
+\end{equation}
+
+Se realizó una simulación con una señal de entrada de $1 \hat{V}$ a frecuencia $\SI{55}{\kilo\hertz}$, la salida obtenida se muestra en la figura \ref{fig.sim_55k_alta}. La distorsión resultó ser $THD = 2,6\%$, y es debida a los transistores de conmutación. 
+
+\HgraficarPNG{0.5}{sim_55k_alta_26}{Simulación a máxima tensión de salida y \SI{55}{\kilo\hertz}.}{fig.sim_55k_alta}
+
+Se probó con una frecuencia de \SI{25}{\kilo\hertz} a máxima tensión de salida, y se obtuvo una $THD=0,2\%$, y a $\SI{20}{\kilo\hertz}$ $THD=0,099\%$. Dichos resultados se encuentran dentro de los valores especificados, ya que al tratarse de un amplificador de audio, la máxima frecuencia audible es como mucho \SI{20}{\kilo\hertz}.
+
+\HgraficarPNG{0.5}{sim_25k_02}{Simulación a máxima tensión de salida y \SI{25}{\kilo\hertz}.}{fig.sim_25k_alta}
+
+
+Asimismo se debe destacar que la distorsión a \SI{55}{\kilo\hertz} resulta mucho menor para amplitudes de señal que no logran conmutar. Por ejemplo, el la figura \ref{fig.sim_salida_55k_baja} se muestra la simulación para una salida de $4,5\hat{V}$ y se obtuvo una distorsión de $THD=0,03\%$. Se puede apreciar el efecto del \textit{slew rate} por la forma de las puntas de la señal que empiezan a formar rectas. Dicho efecto será más pronunciado al aumentar la frecuencia.
+
+\HgraficarPNG{0.5}{sim_55k_vo_baja_03}{Saldia a \SI{55}{\kilo\hertz}.}{fig.sim_salida_55k_baja}
+
+
+En resumen, para cualquier amplitud de señal de salida (hasta $26\hat{V}$), la señal puede ser reproducida correctamente hasta \SI{25}{\kilo\hertz}.
+

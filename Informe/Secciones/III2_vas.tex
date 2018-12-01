@@ -4,7 +4,7 @@ Se propone una etapa de emisor común con realimentación local ($RE = \SI{10}{\
 
 \begin{equation}
 	\centering
-	A_{v,vas} = \frac{-g_m \cdot R_{ca}}{1+g_m \cdot R_E} = 2400
+	A_{v,vas} = \frac{-g_m \cdot R_{ca}}{1+g_m \cdot R_E} = -2400
 	\label{ec.av_vas}
 \end{equation}
 	
@@ -20,7 +20,7 @@ Por otra parte la ganancia de tensión del comparador es
 Se propone una corriente de polarización para el par diferencial lo más pequeña posible con el fin de disminuir el ruido. Para contrarrestar la disminución de la ganancia se utilizó una reistencia de emisor $R_E=\SI{100}{\ohm}$.
 
 
-La ganancia de tensión total queda determinada por la ganancia de la VAS y el comparador de entrada \eqref{ec-av_vas} y \eqref{av_pd} ya que la etapa de salida presenta una ganancia aproximadamente unitaria.
+La ganancia de tensión total queda determinada por la ganancia de la VAS y el comparador de entrada \eqref{ec.av_vas} y \eqref{ec.av_pd} ya que la etapa de salida presenta una ganancia aproximadamente unitaria.
 
 \begin{equation}
 	\centering
@@ -28,7 +28,7 @@ La ganancia de tensión total queda determinada por la ganancia de la VAS y el c
 	\label{ec.a}
 \end{equation}
 
-Para una tensión de entrada de 1Vrms, se busca que la salida sea aproximadamente la máxima posible \SI{27}{\volt}, por lo que se propone una ganancia a lazo cerrado de 20, establecida por el bloque realimentador f.
+Para una tensión de entrada de $1V_{rms}$, se busca que la salida sea aproximadamente la máxima posible \SI{27}{\volt}, por lo que se propone una ganancia a lazo cerrado de 20, establecida por el bloque realimentador \textit{f}.
 
 \begin{equation}
 	\centering
@@ -46,14 +46,14 @@ Para una tensión de entrada de 1Vrms, se busca que la salida sea aproximadament
 	
 	\HgraficarEPS{0.5}{ri}{Diagrama en bloque para hallar la resistencia de entrada.}{fig.esq_ri}
 		
-	\item Resistencia de entrada sin realimentación
+\item \textbf{Resistencia de entrada sin realimentación}
 	
 	\begin{equation}
 		\centering
 		R_{i,SR} = \SI{100}{\ohm} + R_{F1}//R_{F2} = \SI{100}{\ohm} + \SI{22}{\kilo\ohm}//\SI{1.1}{\kilo\ohm}
 	\end{equation}
 	
-	\item Resistencia de entrada con realimentación
+\item \textbf{Resistencia de entrada con realimentación}
 	\HgraficarEPS{0.5}{ri_realim}{Diagrama en bloque para hallar la resistencia de entrada.}{fig.esq_ri_f}
 	\begin{equation}
 		\centering
