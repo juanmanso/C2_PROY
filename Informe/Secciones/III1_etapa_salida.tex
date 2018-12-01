@@ -124,9 +124,8 @@ Finalmente, los valores comerciales de resistores que se eligieron se muestran e
 		R_E \geq \frac{ \SI{150}{\celsius\per\watt} \cdot \SI{30}{\volt} \cdot \SI{2}{\milli\volt\per\celsius} }{ \beta_{min} + 1 } = \SI{0.56}{\ohm}
 	\end{equation}
 
-	\Flor{Completar}
 	\subsection{Protección}
-	Se implementó una protección contra cortocircuito de la carga de salida, conformado por los transistores Q52 y Q53.
+	Se implementó una protección contra cortocircuito de la carga de salida, conformado por los transistores Q52 y Q53. Dicho circuito sensa la corriente de salida y si supera cierto umbral, la tensión de $V_{BE}$ resulta lo suficientemente elevada como para que el transistor $Q53$ entre en conducción. De esta manera la corriente que circularía por lostransistores de salida se desvía hacia los transistores de protección.
 
 	\begin{figure}[H]
 		\centering
@@ -134,3 +133,6 @@ Finalmente, los valores comerciales de resistores que se eligieron se muestran e
 		\caption{Protección contra cortocircuito en la salida.}
 		\label{fig.proteccion}
 	\end{figure}
+
+	\Flor{No sé las cuentas}
+

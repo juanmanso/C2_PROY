@@ -1,7 +1,32 @@
-En el presente informe se logró analizar el circuito \textit{Turner 730}, obteniéndose resultados semejantes por inspección y simulación.
+%En el presente informe se logró analizar el circuito \textit{Turner 730}, obteniéndose resultados semejantes por inspección y simulación.
 
-La respuesta en frecuencia obtenida resultó ser plana dentro del rango de frecuencias audibles e invariante a la potencia disipada. 
+%La respuesta en frecuencia obtenida resultó ser plana dentro del rango de frecuencias audibles e invariante a la potencia disipada. 
 
-La eficiencia máxima del circuito (71,2\%) resultó cercana a la ideal (78,5\%), aunque nunca llegará a dicho valor ya que el nodo de salida no puede alcanzar los \SI{30}{\V} (por las caídas de tensión de control de los transistores equivalentes).
+%La eficiencia máxima del circuito (71,2\%) resultó cercana a la ideal (78,5\%), aunque nunca llegará a dicho valor ya que el nodo de salida no puede alcanzar los \SI{30}{\V} (por las caídas de tensión de control de los transistores equivalentes).
 
-La utilización de un par complementario (\textit{Sziklai}) en vez de un \textit{Darlington} reduce notablemente la distorsión armónica. Pero en el cirucito \textit{Turner 730}, uno de los transistores de etapa de salida es \textit{Darlington}. Esta elección de diseño puede deberse a que en los años 70 los transistores \textit{NPN} y \textit{PNP} no presentaban tanta simetría como hoy en día.
+%La utilización de un par complementario (\textit{Sziklai}) en vez de un \textit{Darlington} reduce notablemente la distorsión armónica. Pero en el cirucito \textit{Turner 730}, uno de los transistores de etapa de salida es \textit{Darlington}. Esta elección de diseño puede deberse a que en los años 70 los transistores \textit{NPN} y \textit{PNP} no presentaban tanta simetría como hoy en día.
+
+
+	En el presente informe se logró diseñar un amplificador de audio calse G alternativa, obteniéndose resultados por simulación congruentes con las especificaciones definidas. La comparación se resume en la tabla \ref{tab.resultados}. La tensión máxima posible sin distorsión logró llegar a \SI{26.1}{\volt} por simulación, esto produce una potencia sobre la carga de \SI{42.25}{\watt}, por lo que se tiene cierta tolerancia con respecto a la potencia nominal especificada.
+
+
+\begin{table}
+	\centering
+	\begin{tabular}{ccc}
+		\toprule
+		& Especificaciones & Simulaciones \\
+		\midrule
+		 THD a Prms \SI{39}{\watt} \SI{1}{\kilo\hertz}& $< 0,02\%$ &  0,018\% \\
+		 THD a \SI{1}{\watt}, \SI{1}{\kilo\hertz} & < $0,01\%$ & 0,005\% \\
+		 Respuesta en frecuencia & \SI{20}{\hertz} a \SI{20}{\kilo\hertz} & \SI{14}{\hertz} a \SI{156}{\kilo\hertz} \\
+		 Tensión de \textit{offset} & \SI{5}{\milli\volt} & \SI{2.5}{\milli\volt} \\
+		 \textit{Slew Rate} & \SI{10}{\volt\per\micro\second} &  \SI{9}{\volt\per\micro\second} \\
+		 IMD & 1\% & 1,4\% \\
+		 Margen de Fase & \SI{45}{\degree} &  \SI{44}{\degree} \\
+		 Factor de amortiguamiento & $>500$ & 3333 \\
+		 Impedancia de entrada & \SI{100}{\kilo\hertz} & \SI{94}{\kilo\hertz} \\
+		 Impedancia de salida & \SI{}{\milli\ohm} & \SI{2.4}{\milli\ohm}\\
+		 \bottomrule
+	\end{tabular}
+	\label{tab.resultados}
+\end{table}
