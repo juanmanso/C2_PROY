@@ -1,6 +1,6 @@
-A partir del diseño de la etapa de salida, se tiene el requerimiento de una corriente de al menos \SI{5}{\milli\ampere} para la polarización de la etapa amplificadora de tensión (VAS).
+	A partir del diseño de la etapa de salida, se tiene el requerimiento de una corriente de al menos \SI{5}{\milli\ampere} para la polarización de la etapa amplificadora de tensión (VAS).
 
-Se propone una etapa de emisor común con realimentación local ($RE = \SI{10}{\ohm}$), con lo cuál la ganancia de tensión es \eqref{ec.av_vas}. Siendo $R_{ca}$ la resistencia equivalente de la etapa de salida que puede aproximarse $\beta \cdot \beta \cdot R_L = 75 \cdot 60 \cdot \SI{8}{\ohm} = \SI{36}{\kilo\ohm}$
+Se propone una etapa de emisor común con realimentación local ($R_E = \SI{10}{\ohm}$), con lo cual la ganancia de tensión es la dada por la Ecuación \eqref{ec.av_vas}. Siendo $R_{ca}$ la resistencia equivalente de la etapa de salida que puede aproximarse $\beta \cdot \beta \cdot R_L = 75 \cdot 60 \cdot \SI{8}{\ohm} = \SI{36}{\kilo\ohm}$
 
 \begin{equation}
 	\centering
@@ -57,14 +57,14 @@ Para una tensión de entrada de $1V_{rms}$, se busca que la salida sea aproximad
 	\HgraficarEPS{0.5}{ri_realim}{Diagrama en bloque para hallar la resistencia de entrada.}{fig.esq_ri_f}
 	\begin{equation}
 		\centering
-		R_{i,CR} = (1+ af) \cdot R_{i,SR} = (1 + 1485) \cdot \SI{1.1}{\kilo\ohm} = \SI{1.6}{\mega\hertz}
+		R_{i,CR} = (1+ af) \cdot R_{i,SR} = (1 + 1485) \cdot \SI{1.1}{\kilo\ohm} = \SI{1.6}{\mega\ohm}
 	\end{equation}
 	
 \end{itemize}
 
 Finalmente la resistencia que ve el generador es
 
-$$ \SI{100}{\kilo\ohm}//\SI{1.6}{\mega\hertz} = \boxed{\SI{94}{\kilo\ohm}} $$
+$$ \SI{100}{\kilo\ohm}//\SI{1.6}{\mega\ohm} = \boxed{\SI{94}{\kilo\ohm}} $$
 
 
 \subsection{Impedancia de salida}
@@ -80,12 +80,12 @@ $$ \SI{100}{\kilo\ohm}//\SI{1.6}{\mega\hertz} = \boxed{\SI{94}{\kilo\ohm}} $$
 Entonces se calcula la resistencia de salida del circuito sin realimentar como
 	\begin{equation}
 		\centering
-		R_o = \frac{1}{2} \cdot R_E + \frac{ r_{\pi}^{*} + r_{o,Q9} }{\beta^{*} } = \frac{1}{2} \left ( \SI{0.1}{\ohm} + \frac{\SI{32}{\kilo\ohm}}{75 \cdot 60} \right) = \SI{3.6}{\ohm},
+		R_o = \frac{1}{2} \cdot R_E + \frac{ r_{\pi}^{*} + r_{o,Q9} }{\beta^{*} } = \frac{1}{2} \left ( \SI{0.1}{\ohm} + \frac{\SI{32}{\kilo\ohm}}{75 \cdot 60} \right) = \SI{3.6}{\ohm}
 	\end{equation}
 	siendo
 	\begin{equation}
 		\centering
-		r_{\pi}^{*} = 2 \cdot r_{\pi_Q14} = 2 \cdot 60 \cdot \frac{25mV}{ \SI{110}{\milli\ampere}} = \SI{14}{\ohm} 
+		r_{\pi}^{*} = 2 \cdot r_{\pi_{Q_{14}}} = 2 \cdot 60 \cdot \frac{25mV}{ \SI{110}{\milli\ampere}} = \SI{14}{\ohm} 
 	\end{equation}
 		
 	%\begin{equation}

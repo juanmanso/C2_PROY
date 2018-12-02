@@ -1,54 +1,76 @@
-En la tabla \ref{tab.componentes} se detallan todos los componentes necesarios para la implementación del circuito, teniendo en cuenta los valores comerciales disponibles.
+En las Tablas \ref{tab:lst_tr}, \ref{tab:lst_cap} y \ref{tab:lst_resist} se detallan todos los componentes necesarios para la implementación del circuito, teniendo en cuenta los valores comerciales disponibles.
 
-\begin{table}[H]
-	\begin{tabular}{ccccc}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{cccc}
 		\toprule
-		 & Código & Nombre & Características & Cantidad \\
+		Código & Nombre & Características & Cantidad \\
 		\midrule
-Transistores & TIP41C & Q62, Q63 & NPN & 2 \\
-		 & TIP42C & Q64, Q65 & PNP & 2 \\ 
-		 & MJE340 & Q14, Q16, Q26 & NPN & 3 \\
-		 & MJE350 & Q15, Q17 & PNP & 2 \\
-		 & MPSA56 & Q1, Q8, Q9, Q12, Q13, Q27, Q28& PNP   & 7 \\ 
-		 & MPSA06 & Q30, Q29, Q43, Q20 & NPN  & 4 \\
-		 & BC817  & Q56, Q59, Q61, Q60 & NPN SMD & 4 \\
-		 & BC807  & Q54, Q55, Q56, Q57 & PNP SMD & 4 \\
-		 & BC847  & Q52 & NPN SMD & 1  \\
-		 & BC857  & Q53 & PNP SMD & 1 \\
-		 \midrule
-Diodos	 & 1N4148 & D1,2,3,4,14,15,18,19,20,21  & Diodo de alta conmutación & 10 \\
-		 & MBRB1645T4G & D16, D17 & Diodo Schottky & 2 \\
-		 \midrule
-Capacitores & \SI{10}{\micro\farad} & C18 & Electrolítico & 1 \\	 
-		 &  \SI{47}{\micro\farad} & C1, C4, C20, & Electrolítico & 3 \\
-		 &  \SI{1}{\milli\farad} & C11 & Electrolítico & 1 \\
-		 &  \SI{100}{\nano\farad} & C2, C9, C12, C15 & Poliester & 3 \\
-		 & \SI{1}{\nano\farad} & C7 & Poliester & 1 \\
-		 & \SI{330}{\pico\farad} & C10 & Cerámico & 1 \\
-
-		 \midrule
-Resistores      & \SI{0.1}{\ohm} & R32, R33 & Alambre, 5W & 2 \\
-		& \SI{10}{\ohm} & R39 & Alambre, 5W & 1 \\		
-		& \SI{10}{\ohm} & R38 & Metalfilm 1W & 1 \\
-		& \SI{100}{\ohm} & R28, R29, R35, R36 & Metalfilm 1W & 4 \\
-		& \SI{22}{\kilo\ohm} & R27 & Metalfilm, 1W & 1 \\
-		& \SI{10}{\ohm} & R16, R23 & SMD 0805 & 2 \\
-		& \SI{15}{\ohm} & R42 & SMD 0805 & 1 \\
-		& \SI{56}{\ohm} & R49, R50, R53, R54 & SMD 0805 & 4 \\
-		& \SI{68}{\ohm} & R21, R25 & SMD 0805 & 2 \\
-		& \SI{100}{\ohm} & R1,13,14,20,76 & SMD 0805 & 5 \\
-		& \SI{270}{\ohm} & R59, R60 & SMD 0805 & 2 \\ 
-		& \SI{560}{\ohm} & R51, R62 & SMD 0805 & 2 \\
-		& \SI{680}{\ohm} & R44 & SMD 0805 & 1\\
-		& \SI{1}{\kilo\ohm} & R73, R74, R15, R62, R63, R67, R68,  & SMD 0805 & 7 \\
-		& \SI{2.2}{\kilo\ohm} & R5, R47 & SMD 0805 & 2 \\ 
-		& \SI{3.3}{\kilo\ohm} & R43 & SMD 0805 & 1 \\
-		& \SI{5.6}{\kilo\ohm} & R61, R66 & SMD 0805 & 2 \\
-		& \SI{8.2}{\kilo\ohm} & R64, R65 & SMD 0805 & 2 \\
-		& \SI{10}{\kilo\ohm} & R17, R18 & SMD 0805 & 2 \\
-		& \SI{100}{\kilo\ohm} & R19 & SMD 0805 & 2 \\
-\bottomrule
+		\texttt{TIP41C} & Q62, Q63 & NPN & 2 \\
+		\texttt{TIP42C} & Q64, Q65 & PNP & 2 \\ 
+		\texttt{MJE340} & Q14, Q16, Q26 & NPN & 3 \\
+		\texttt{MJE350} & Q15, Q17 & PNP & 2 \\
+		\texttt{MPSA56} & Q1, Q8, Q9, Q12, Q13, Q27, Q28& PNP   & 7 \\ 
+		\texttt{MPSA06} & Q30, Q29, Q43, Q20 & NPN  & 4 \\
+		\texttt{BC817}  & Q56, Q59, Q61, Q60 & NPN SMD & 4 \\
+		\texttt{BC807}  & Q54, Q55, Q56, Q57 & PNP SMD & 4 \\
+		\texttt{BC847}  & Q52 & NPN SMD & 1  \\
+		\texttt{BC857}  & Q53 & PNP SMD & 1 \\
+		\midrule
+		\texttt{1N4148} & D1,2,3,4,14,15,18,19,20,21  & Diodo de alta conmutación & 10 \\
+		\texttt{MBRB1645T4G} & D16, D17 & Diodo Schottky & 2 \\
+		\bottomrule
 	\end{tabular}
-	\caption{Componentes.}
-	\label{tab.componentes}
+	\caption{Transistores y diodos utilizados en el circuito.}
+	\label{tab:lst_tr}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{cccc}
+		\toprule
+		Valor & Nombre & Tecnología & Cantidad \\
+		\midrule
+		\SI{10}{\micro\farad} & C18 & Electrolítico & 1 \\	 
+		\SI{47}{\micro\farad} & C1, C4, C20, & Electrolítico & 3 \\
+		\SI{1}{\milli\farad} & C11 & Electrolítico & 1 \\
+		\SI{100}{\nano\farad} & C2, C9, C12, C15 & Poliester & 3 \\
+		\SI{1}{\nano\farad} & C7 & Poliester & 1 \\
+		\SI{330}{\pico\farad} & C10 & Cerámico & 1 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Capacitores y tecnología de los mismos para la implementación del circuito.}
+	\label{tab:lst_cap}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{cccc}
+		\toprule
+		Valor & Nombre & Tecnología & Cantidad \\
+		\midrule
+		\SI{0.1}{\ohm} & R32, R33 & Alambre, 5W & 2 \\
+		\SI{10}{\ohm} & R39 & Alambre, 5W & 1 \\		
+		\SI{10}{\ohm} & R38 & Metalfilm 1W & 1 \\
+		\SI{100}{\ohm} & R28, R29, R35, R36 & Metalfilm 1W & 4 \\
+		\SI{22}{\kilo\ohm} & R27 & Metalfilm, 1W & 1 \\
+		\SI{10}{\ohm} & R16, R23 & SMD 0805 & 2 \\
+		\SI{15}{\ohm} & R42 & SMD 0805 & 1 \\
+		\SI{56}{\ohm} & R49, R50, R53, R54 & SMD 0805 & 4 \\
+		\SI{68}{\ohm} & R21, R25 & SMD 0805 & 2 \\
+		\SI{100}{\ohm} & R1,13,14,20,76 & SMD 0805 & 5 \\
+		\SI{270}{\ohm} & R59, R60 & SMD 0805 & 2 \\ 
+		\SI{560}{\ohm} & R51, R62 & SMD 0805 & 2 \\
+		\SI{680}{\ohm} & R44 & SMD 0805 & 1\\
+		\SI{1}{\kilo\ohm} & R73, R74, R15, R62, R63, R67, R68,  & SMD 0805 & 7 \\
+		\SI{2.2}{\kilo\ohm} & R5, R47 & SMD 0805 & 2 \\ 
+		\SI{3.3}{\kilo\ohm} & R43 & SMD 0805 & 1 \\
+		\SI{5.6}{\kilo\ohm} & R61, R66 & SMD 0805 & 2 \\
+		\SI{8.2}{\kilo\ohm} & R64, R65 & SMD 0805 & 2 \\
+		\SI{10}{\kilo\ohm} & R17, R18 & SMD 0805 & 2 \\
+		\SI{100}{\kilo\ohm} & R19 & SMD 0805 & 2 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Lista de resistencias requeridas para el circuito.}
+	\label{tab:lst_resist}
 \end{table}

@@ -1,16 +1,54 @@
 El amplificador de audio a diseñar debe cumplir las siguientes especificaciones:
 
 \begin{itemize}
-	\item Tensión de alimentación $\pm \SI{30}{\volt}$ con una variación de \SI{5}{\volt}.
-	\item Potencia de salida nominal de \SI{39}{\watt} sobre \SI{8}{\ohm} a \SI{1}{\kilo\hertz} con $THD<0,02\%$.
 	\item Topología de la etapa de salida Clase G alternativa.
+	\item Tensión de alimentación $\pm \SI{30}{\volt}$ con una variación de \SI{5}{\volt}.
+%	\item Potencia de salida nominal de \SI{39}{\watt} sobre \SI{8}{\ohm} a \SI{1}{\kilo\hertz} con $THD<0,02\%$.
+	\item Potencia de salida nominal de \SI{40}{\watt} sobre \SI{8}{\ohm} a \SI{1}{\kilo\hertz} con $THD<0,02\%$.
 	\item Potencia de salida a \SI{1}{\watt} sobre \SI{8}{\ohm} con $THD<0,01\%$. 
 	\item Respuesta en frecuencia \SI{20}{\hertz} a \SI{20}{\kilo\hertz}.
-	\item Tensión de \textit{offset} en la salida en continua \SI{5}{\milli\volt}
-	\item \textit{Slew Rate} \SI{10}{\volt\per\micro\second}.
-	\item IMD 1\%
-	\item Impedancia de entrada \SI{100}{\kilo\ohm}
-	\item Impedancia de salida del orden de los \SI{}{\milli\ohm}
-	\item Factor de amortiguamiento, del orden de 500.
+	\item Tensión de \textit{offset} en la salida en continua \SI{5}{\milli\volt}.
+	\item \textit{Slew Rate} $\approx$ \SI{10}{\volt\per\micro\second}.
+	\item Distorsión IMD cercana al 1\%.
+	\item Impedancia de entrada del orden de \SI{100}{\kilo\ohm}.
+	\item Impedancia de salida del orden de los \SI{}{\milli\ohm}.
+	\item Factor de amortiguamiento del orden de 500.
 	\item Margen de fase mayor que \SI{45}{\degree}.
 \end{itemize}
+
+
+%
+%	\begin{table}[h!]
+%		\centering
+%		\begin{tabular}{*{2}{c}}
+%			\toprule
+%			Tipo de especificación & Valor\\
+%			\midrule
+%			$\pm V_{CC}$			& $\pm$\SI{30}{\V} con tolerancia de $\pm$\SI{1}{\V}\\
+%			Respuesta en frecuencia		& \SI{20}{\Hz} a \SI{20}{\kHz}\\
+%			Ancho de banda de potencia	& \SI{20}{\Hz} a \SI{20}{\kHz}\\
+%			Rango dinámico			& Mínimo = \SI{40}{\dB} para reproducir vinilos\\
+%			Distorsión armónica total (\emph{THD})& Mínimo = 1\%\\
+%			Relación señal a ruido (\emph{SNR})& \SI{60}{\dB}\\
+%			Sensibilidad			& 1 Vrms\\
+%			\emph{Slew Rate}		& \SI{15}{\micro\V\per\second}\\
+%			\emph{DC Offset}		& Máximo = \SI{1}{\mV}\\
+%			Impedancia de entrada		& $R_{in} \approx \SI{10}{\kilo\ohm}$\\
+%			Impedancia de salida		& $R_{out} \approx \SI{10}{\milli\ohm}$\\
+%			Factor de amortiguamiento	& $FA \approx 500$\\
+%			Margen de fase			& $\varphi_m= \SI{60}{\degree}$\\
+%			Margen de ganancia		& Sólo que sea positivo para que sea estable\\
+%			Potencia nominal (sin exigir mucho) & Suponiendo que no le dan con todo, todo el tiempo\\
+%			Potencia máxima			& Para 25V\\
+%			\bottomrule
+%		\end{tabular}
+%	\end{table}
+%
+%
+%	Poner las bases de los comporadares en Vout en vez de la salida de la 2nda.
+%	Bajar el Vth
+%	Ver qué queda en la corriente de salida a partir de la distorsión
+%	Bajar la resistencia de emisor del comparador para tener menos corriente.
+%	Ver las corrientes que necesitan los tr de salida.
+%	
+%

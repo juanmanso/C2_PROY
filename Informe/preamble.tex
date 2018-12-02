@@ -11,10 +11,12 @@
 \usepackage[usenames,dvipsnames]{color}						% \color{color deseado} {lo que querés que tenga color}
 \usepackage{subcaption}								% Permite captions del tipo 1a, 1b
 \usepackage{multirow}								% Para tablas
+\usepackage{multicol}
 %\usepackage{slashbox}								% Cuadro divido en tablas
 \usepackage{diagbox}
 \usepackage{float}
-\usepackage{multicol}
+\usepackage{booktabs}								% Permite hacer tablas sin separadores en el medio
+\usepackage[table,xcdraw]{xcolor}						% Para colorear tablas
 
 % Para video
 \ifVideo
@@ -71,7 +73,6 @@
 \fi
 
 
-\usepackage{booktabs}														% Permite hacer tablas sin separadores en el medio
 \usepackage{placeins}														
 		\let\Oldsection\section												%% Permite que los flotantes (como figuras) no aparescan
 	\renewcommand{\section}{\FloatBarrier\Oldsection}						%% antes o después de su sección correspondiente.
