@@ -1,3 +1,4 @@
+	\Juan{¿Hablar de la selección de componentes y valores?}
 	La etapa de salida clase G se caracteriza principalmente por el manejo eficiente de potencia debido a que conmuta la tensión de alimentación entre dos niveles según lo requiera la señal de entrada.
 
 	En la Figura \ref{fig.salida} se muestra un esquema básico de la topología, denominada clase G alternativa.  Los transistores $Q_1$ y $Q_2$ conforman la etapa interior que opera en clase B, siendo $Q_3$ y $Q_4$ los \textit{drivers} y $R_1$ la resistencia de emisor compartida. 
@@ -25,7 +26,7 @@
 
 \subsection{Multiplicador de $V_{BE}$}
 
-	Las tensiones $V_{bias1}$ y $V_{bias2}$ permiten \textit{prepolarizar} a los transistores $Q_1$ y $Q_2$ con el fin de atenuar la distorsión de cruce por cero. Se deben ajustar de forma tal que la corriente de la malla de salida sea aproximadamente igual en el colector de ambos transistores ($Q_1$ y $Q_2$). Asimismo se debe considerar que si $I_{CQ}$ es muy elevada se desperdicia potencia, y si es muy pequeña se obtendrá una distorsión de cruce por cero apreciable. Ambas tensiones se implementaron con un multiplicador de $V_{BE}$ cuyo circuito se presenta en la Figura \ref{fig.multiplicador}.
+	Las tensiones $V_{bias1}$ y $V_{bias2}$ permiten \textit{prepolarizar} a los transistores $Q_1$ y $Q_2$ con el fin de atenuar la distorsión de cruce por cero característica del clase B. Se deben ajustar de forma tal que la corriente de la malla de salida sea aproximadamente igual en el colector de ambos transistores ($Q_1$ y $Q_2$). Asimismo se debe considerar que si $I_{CQ}$ es muy elevada se desperdicia potencia, y si es muy pequeña se obtendrá una distorsión de cruce por cero apreciable. Ambas tensiones se implementaron con un multiplicador de $V_{BE}$ cuyo circuito se presenta en la Figura \ref{fig.multiplicador}.
 
 	\begin{figure}[H]
 		\centering
@@ -49,11 +50,11 @@
 
 	Se eligen los resistores comerciales $R_{1M} = \SI{3.3}{\kilo\ohm}$, $R_{2M} = \SI{680}{\ohm}$ y un potenciómetro de $\SI{1}{\kilo\ohm}$. 
 
-	La resistencia $R_{3M}$ se anexa para mejorar la independencia de la tensión $V_{CE}$ con la corriente de polarización. Asimismo se agrega un capacitor $C_M$ para no alterar el comportamiento del resto cirucito en señal, es decir que se obtiene una impedancia pequeña para un amplio rango de frecuencias. 
+	La resistencia $R_{3M}$ se anexa para mejorar la independencia de la tensión $V_{CE}$ con la corriente de polarización. Asimismo se agrega un capacitor $C_M$ para no alterar el comportamiento del resto circuito en señal, es decir que se obtiene una impedancia pequeña para un amplio rango de frecuencias. 
 
 
 \subsection{Fuente de corriente}
-	El valor mínimo de la corriente necesaria para la etapa de salida se determina con el caso de máxima corriente de salida $I_{o,\max} = \SI{26}{\volt}/ \SI{8}{\ohm} = \SI{3.25}{\ampere}$. Al tratarse de transistores de potencia, el factor $\beta$ es aproximadamente $\beta = 30$, por lo que la corriente de base en $Q_1$ sería $I_{B,Q1} \approx \SI{110}{\milli\ampere}$. Dicha corriente es entregada por $Q_2$, siendo la corriente de base $I_{B,Q2} \approx \SI{110}{\milli\ampere}/50 \approx \SI{2}{\milli\ampere}$. A su vez la fuente polariza la etapa amplificadora de tensión (VAS), por lo que se considerará al menos el doble de dicha corriente. Se propone $I_{pol} = \SI{5}{\milli\ampere}$.
+	El valor mínimo de la corriente necesaria para la etapa de salida se determina con el caso de máxima corriente de salida $I_{o,\max} = \SI{26}{\volt}/ \SI{8}{\ohm} = \SI{3.25}{\ampere}$. Al tratarse de transistores de potencia, el factor $\beta$ es aproximadamente se encuentra entre 30 y 50, por lo que la corriente de base en $Q_1$ sería $I_{B,Q1} \approx \SI{100}{\milli\ampere}$. Dicha corriente es entregada por $Q_3$, siendo la corriente de base $I_{B,Q2} \approx \SI{2}{\milli\ampere}$. A su vez la fuente polariza la etapa amplificadora de tensión (VAS), por lo que se considerará al menos el doble de dicha corriente. Se propone $I_{pol} = \SI{5}{\milli\ampere}$.
 
 	\begin{figure}[H]
 		\centering
@@ -82,8 +83,8 @@ La corriente de polarización queda determinada por la resistencia $R_1$ de la e
 		\label{fig.comparador}
 	\end{figure}
 
-	Se propone la configuración de par diferencial de la Figura \ref{fig.comparador} para implementar los comparadores. Se utiliza una fuente de corriente espejo para lograr mayor estabilidad. En vez de comparar con la señal proveniente de la etapa VAS, se compara con la señal de salida $V_{o}$ para evitar cargar dicha etapa con la resistencia de entrada que presenta el par diferencial ($2\cdot r_\pi$). La señal de salida no resulta alterada por tratarse de un colector común que es separador de impedancias.
-	Por otra parte, es difícil lograr en la práctica que los transistores que conforman el par diferencial manejen una excursión de tensión de hasta \SI{30}{\volt}, por lo que se utiliza un divisor resistivo en ambas bases de los transistores para atenuar la amplitud de tensión. Es conveniente que la tensión de referencia $V_{th}'$ sea levemente menor que la prevista con el fin de contrarrestar el retardo de tiempo del comparador.
+	Se propone la configuración de par diferencial de la Figura \ref{fig.comparador} para implementar los comparadores. Se utiliza una fuente de corriente espejo para lograr mayor estabilidad. En vez de comparar con la señal proveniente de la etapa VAS, se compara con la señal de salida $V_{o}$ para evitar cargar dicha etapa con la resistencia de entrada que presenta el par diferencial ($2\cdot r_\pi$). La señal de salida no resulta alterada por tratarse de un colector común que es separador de impedancias (nodo de baja impedancia).\\
+	\indent Por otra parte, es difícil lograr en la práctica que los transistores que conforman el par diferencial manejen una excursión de tensión de hasta \SI{30}{\volt}, por lo que se utiliza un divisor resistivo en ambas bases de los transistores para atenuar la amplitud de tensión. Es conveniente que la tensión de referencia $V_{th}'$ sea levemente menor que la prevista con el fin de contrarrestar el retardo de tiempo del comparador.
 
 \begin{equation}
 	\centering
@@ -125,8 +126,15 @@ Finalmente, los valores comerciales de resistores que se eligieron se muestran e
 		R_E \geq \frac{ \SI{150}{\celsius\per\watt} \cdot \SI{30}{\volt} \cdot \SI{2}{\milli\volt\per\celsius} }{ \beta_{min} + 1 } = \SI{0.56}{\ohm}
 	\end{equation}
 
+	\subsection{Compensación de la carga}
+		\subsubsection{Red Zobel}
+		
+		\subsubsection{Compensación}
+
 	\subsection{Protección}
 	Se implementó una protección contra cortocircuito de la carga de salida, conformado por los transistores $Q_{52}$ y $Q_{53}$. Dicho circuito sensa la corriente de salida y si supera cierto umbral, la tensión de $V_{BE}$ resulta lo suficientemente elevada como para que el transistor $Q_{53}$ entre en conducción. De esta manera la corriente que circularía por los transistores de salida se desvía hacia los transistores de protección.
+	Dicho circuito se expone en la Figura \ref{fig.proteccion}.
+	\Juan{Cambié el circuito porque el otro no funciona}
 
 	\begin{figure}[H]
 		\centering
@@ -135,7 +143,23 @@ Finalmente, los valores comerciales de resistores que se eligieron se muestran e
 		\label{fig.proteccion}
 	\end{figure}
 
+	La máxima diferencia de potencial que habrá sobre $R_L$ es $V_{CCL+} - V^{Q_{63}}_{CE_{sat}}$ cuando se opera con $V_{CCL+}$ y $V_{CCH+} - V^{Q_{62}}_{CE_{sat}} - V^{Q_{63}}_{CE_{sat}}$ para tensiones mayores a $V_{CCL+}$. Se puede ver que el peor caso es cuando las tensiones son mayores a $V_{CCL+}$ y por lo tanto (suponiendo $V_{CE_{sat}} \approx V_{BE_{ON}} \approx \SI{0.6}{\V}$) la potencia máxima que disipará la carga es:
+		\begin{equation*}
+			P_{RL_{\max}} = \frac{\left(V_{CCH+} - V^{Q_{62}}_{CE_{sat}} - V^{Q_{63}}_{CE_{sat}}\right)^2}{R_L} = \frac{\left(\SI{30}{\V} - \SI{1.2}{\V}\right)^2}{\SI{8}{\ohm}} = \SI{104}{\W}
+		\end{equation*}
+
+	De este modo la máxima corriente que circula sobre los transistores de salida es
+		\begin{equation*}
+			I_{O_{\max}} = \frac{P_{RL_{\max}}}{V_{CCH+}} = \SI{3.5}{\A}
+		\end{equation*}
+
+	Si se configurase al circuito protector de tal forma que al alcanzar dicho valor corte el circuito, no se podrá obtener la máxima potencia con baja distorsión dado que la característica de los transistores es exponencial y por tanto al acercarse al valor de corte comenzará a extraer corriente del multiplicador de $V_{BE}$. Es por tanto que se propone como peor caso que la fuente varíe positivamente un 20\%, es decir $V_{CCH+}=\SI{40}{\V}$. Realizando los mismos cálculos se optiene $I_{O_{\max}} = \SI{4.65}{\A}$. \\
+	
+	Para dicha corriente y $R_{E} = \SI{.33}{\ohm}$ se obtiene $V_{E} = \SI{1.535}{\V}$. Así se halla que la relación entre las resistencias del divisor resistivo es de 433. Se propone entonces los valores de componentes de la Figura \ref{fig.proteccion} que se consiguen comercialmente obteninedose efectivamente $I_{O_{\max}}=\SI{4.63}{\A}$.
+
+		
+
 	\subsection{Estabilización}
 
-	El grupo de resistencias y capacitores marcado en el diagrama \ref{fig.cto_completo}, cumple la función de estabilizar la tensión de alimentación del comparador ante alteraciones en los valores de la fuente de $\SI{30}{\volt}$. La tensión de \SI{12}{\volt} se tomará de la fuente de \SI{30}{\volt} mediante una fuente conmutada, por lo que no necesitaría estabilización.
+	El grupo de resistencias y capacitores marcado en el Figura \ref{fig.cto_completo}, cumple la función de estabilizar la tensión de alimentación del comparador a la entrada y el VAS ante alteraciones en los valores de la fuente de $\SI{30}{\volt}$. La tensión de \SI{12}{\volt} se tomará de la fuente de \SI{30}{\volt} mediante una fuente conmutada, por lo que no necesitaría estabilización.
 

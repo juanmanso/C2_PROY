@@ -40,14 +40,14 @@
 
 	\part{Diseño conceptual}\label{part:concept}
 
-%		\section{Alternativas de diseño}\label{sec:alt}
-%			\input{II1_alternativas.tex}
+		\section{Alternativas de diseño}\label{sec:alt}
+			\input{II1_alternativas.tex}
 
 		\section{Diagrama en bloques}\label{sec:bloques}
 			\input{II2_bloques.tex}
-%
-%		\section{Funcionamiento general}\label{sec:func_gral} % Acá se explican los bloques
-%			\input{II3_func_gral.tex}
+
+		\section{Funcionamiento general}\label{sec:func_gral} % Acá se explican los bloques
+			\input{II3_func_gral.tex}
 
 	\part{Diseño y análisis teórico}\label{part:teo}
 		\input{III0_diseno_teo.tex}	% Acá se introduce al cto propuesto y después se analiza
@@ -57,6 +57,18 @@
 
 		\section{Amplificación de tensión}
 			\input{III2_vas.tex}
+
+		\section{Comparador de entrada}
+			\input{III3_entrada.tex}
+
+		\section{Realimentación}
+			\input{III4_realimentacion.tex}
+
+		\section{Fuentes conmutadas}
+			\input{III5_switching.tex}
+
+		\section{Características del amplificador}
+			\input{III6_caract.tex}
 						
 %		\section{Polarización}\label{sec:pol}
 %			\input{III1_polarizacion.tex}
@@ -87,7 +99,7 @@
 %		\pagebreak	
 %		\section{Disipadores}\label{sec:disipadores}
 %			\input{I10_disipadores.tex}
-	\pagebreak
+%	\pagebreak
 	\part{Diseño del circuito impreso - \emph{PCB}}\label{part:pcb}
 
 		\section{Elección de componentes}\label{sec:componentes}
@@ -98,7 +110,7 @@
 
 		\section{Circuito Impreso}
 			\input{IV3_placa.tex}
-	\pagebreak
+%	\pagebreak
 	\part{Análisis por simulación}\label{part:sim}
 		
 		\section{Polarización}\label{sec:sim_pol}
@@ -139,17 +151,17 @@
 
 		\section{Cálculo de Disipadores}\label{sec:sim_disipadores}
 			\input{V12_disipadores.tex}
-	\pagebreak
+%	\pagebreak
 		\section{Resultados}
 			\input{VIII1_resultados.tex}
 %	\pagebreak
 
-%	\part{Construcción del prototipo}\label{part:construccion}
-%		\Juan{Ver pdf ''Grupo01\_informe\_final`` como referencia}
-%		\input{VI}
+	\part{Construcción del prototipo}\label{part:construccion}
+		\Juan{Ver pdf ''Grupo01\_informe\_final`` como referencia}
+		\input{VI_prototipo}
 
-%	\part{Medición del prototipo}\label{part:mediciones}
-%		\input{VII}
+	\part{Validación del prototipo}\label{part:mediciones}
+		\input{VII_valid.tex}
 
 	\part{Conclusiones}\label{part:conclusiones}
 		\input{VIII_conclusiones.tex}

@@ -4,7 +4,7 @@
 
 - Multiplicador de VBE doble.
 
-
+\Juan{Hacer la tabla en internet}
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{*{4}{c}}
@@ -12,10 +12,16 @@
 		Etapa                                  & Alternativa & Ventajas & Desventajas \\ 
 		\midrule
 		\multirow{2}{*}{Comparador de entrada} &             &          &             \\ %\cmidrule(l){2-4} 
-&\cellcolor[HTML]{FFFE65} Par diferencial             &          &             \\
+&\colortab Par diferencial             &          &             \\
 		\midrule
 		\multirow{2}{*}{VAS} &             &          &             \\ %\cmidrule(l){2-4} 
 		                                       &             &          &             \\
+		\midrule
+		\multirow{2}{*}{Etapa de salida} & Clase G            &          &             \\ %\cmidrule(l){2-4} 
+						 &  \colortab Clase G alternativa           & \colortab Menor distorsión	& \colortab Diseño más complejo\\
+		\midrule
+		\multirow{2}{*}{Fuente de corriente} & FES	& Simple	& Error apreciable, malo bajo ripple             \\ %\cmidrule(l){2-4} 
+						&\colortab FES corregida	& \colortab Más estable vs ripple	& \colortab Más componentes \\
 		\bottomrule
 	\end{tabular}
 \end{table}

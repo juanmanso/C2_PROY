@@ -1,7 +1,7 @@
 %!PS-Adobe-3.0 EPSF-3.0
 %%Title: multiplicador.eps
-%%Creator: XCircuit v3.8 rev83
-%%CreationDate: Sat Nov 24 18:47:21 2018
+%%Creator: XCircuit v3.7 rev57
+%%CreationDate: Thu Dec  6 02:52:40 2018
 %%Pages: 1
 %%BoundingBox: 68 68 377 386
 %%DocumentNeededResources: font Helvetica Times-Roman 
@@ -9,15 +9,15 @@
 %%BeginProlog
 %
 %  PostScript prolog for output from xcircuit
-%  Version: 3.8
+%  Version: 3.7
 %
 %  Electrical circuit (and otherwise general) drawing program
 %
 %  Written by Tim Edwards 8/5/93--11/1/10  (tim.edwards@multigig.com)
 %  The Johns Hopkins University (1993-2004)
-%  MultiGiG, Inc. (2004-2012)
+%  MultiGiG, Inc. (2004-present)
 %
-%%BeginResource: procset XCIRCproc 3.8 1
+%%BeginResource: procset XCIRCproc 3.7 2
 %
 % supporting definitions --- these are the primary xcircuit types.
 
@@ -28,18 +28,18 @@
     exch findfont exch makefont dup length dict /ndict exch def
     { 1 index /FID ne { ndict 3 1 roll put } { pop pop } ifelse } forall
     ndict definefont pop} def
-/ul { count 0 gt { dup type /stringtype eq showflag 1 eq and { gsave 
+/ul { dup type /stringtype eq showflag 1 eq and { gsave 
    currentpoint topmat setmatrix 0 0 moveto 2 index stringwidth pop (_)
    false charpath flattenpath pathbbox grestore exch pop 1 index
    sub setlinewidth exch pop currentpoint 3 -1 roll add moveto 0
-   rlineto stroke moveto } if } if } def
-/ol { count 0 gt { dup type /stringtype eq showflag 1 eq and { gsave gsave
+   rlineto stroke moveto } if } def
+/ol { dup type /stringtype eq showflag 1 eq and { gsave gsave
    currentpoint topmat setmatrix 2 index stringwidth pop 3 index
    true charpath flattenpath pathbbox grestore exch pop
    exch pop topmat setmatrix (_) true charpath pathbbox grestore
    exch pop 1 index sub setlinewidth exch pop currentpoint
    exch 4 1 roll exch sub add moveto pop 0 rlineto stroke
-   moveto } if } if } def
+   moveto } if } def
 /stW { gsave currentpoint newpath moveto true charpath flattenpath
 	pathbbox pop exch pop sub grestore } def
 /Ts {mark Tabs aload pop counttomark 1 add array astore /Tabs exch def Tabs
@@ -59,37 +59,33 @@
 /Ss { /fscale fscale 0.67 mul def currentfont 0.67 cf0 0 fscale0 fscale mul
 	0.67 mul Kn } def
 /ns { 0 kY neg Kn /kY 0 def /fscale 1.0 def xfont0 1.0 cf0 } def
-/MR { /twidth exch def } def
 /CR { ns 0 /Bline Bline fscale0 neg add def Bline moveto } def
 /cf { dup type /realtype ne {1.0} if exch findfont exch kY 0 eq
 	{ 40 mul dup /fscale0 exch def cf0 /xfont0 currentfont def}
 	{fscale0 mul fscale mul cf0} ifelse } def
 /ctmk { counttomark dup 2 add -1 roll pop } bind def
-/label { gsave translate 0 0 moveto dup scale neg
-	/rotval exch def /twidth 100000 def /just exch def just 384 and
-	0 gt {/mshow {pop} def} {/mshow {show} def} ifelse just 16 and 0
-	gt {gsave rotval rotate 0 1 dtransform gsave pagemat setmatrix
-	idtransform exch grestore 1 0 dtransform gsave pagemat setmatrix
-	idtransform exch grestore dup abs 1e-9 lt {pop mul 0 gt} {3 1 roll
-	pop pop 0 lt} ifelse grestore {-1 /rotval rotval neg def /just just
-	dup 3 and 1 ne {3 xor} if def} {1} ifelse exch -1e-9 lt {-1 /rotval
-	rotval neg def /just just dup 12 and 4 ne {12 xor} if def} {1}
-	ifelse scale } if /showflag 0 def /fspc pspc def /Bline 0 def /Tabs
-	0 array def /fscale 1.0 def /kY 0 def gsave dup 1 add copy dup
-	1 0 dtransform exch atan rotate {exch dup type /stringtype eq {gsave
-        dup gsave newpath 0 0 moveto true charpath flattenpath pathbbox pop
-	exch pop exch pop grestore currentpoint pop add twidth
-	ge {grestore CR exch 1 add dup 2 add {CR} exch 1 roll exch} {grestore}
-	ifelse true charpath flattenpath} {dup type /arraytype eq {exec} {12
-	string cvs true charpath flattenpath} ifelse} ifelse} repeat exch pop
-	pathbbox grestore 3 -1 roll pop 3 1 roll just 1 and 0 gt {just 2 and
-	0 gt {exch pop neg fspc sub} {exch sub 0.5 mul neg} ifelse} {pop neg
-	fspc add} ifelse exch Bline exch just 4 and 0 gt {just 8 and 0 gt
-	{exch pop neg fspc sub} {add 0.5 mul neg} ifelse} {pop neg fspc add}
-	ifelse rotval rotate Kn currentpoint translate /showflag 1 def /Bline
-	0 def /Tabs 0 array def /fscale 1.0 def /kY 0 def {dup type
-	/stringtype eq {mshow} {dup type /arraytype eq {exec} {12 string cvs
-	mshow} ifelse} ifelse} repeat grestore endclip} def
+/label { gsave translate 0 0 moveto dup scale neg /rotval exch def
+	/just exch def just 384 and 0 gt {/mshow {pop} def} {/mshow {show}
+	def} ifelse just 16 and 0 gt {gsave rotval rotate 0 1 dtransform
+	gsave pagemat setmatrix idtransform exch grestore 1 0 dtransform
+	gsave pagemat setmatrix idtransform exch grestore dup abs 1e-9 lt
+	{pop mul 0 gt} {3 1 roll pop pop 0 lt} ifelse grestore {-1 /rotval
+	rotval neg def /just just dup 3 and 1 ne {3 xor} if def} {1} ifelse
+	exch -1e-9 lt {-1 /rotval rotval neg def /just just dup 12 and
+	4 ne {12 xor} if def} {1} ifelse scale } if /showflag 0 def
+	/fspc pspc def /Bline 0 def /Tabs 0 array def /fscale 1.0 def
+	/kY 0 def gsave dup 1 add copy 0 exch 1 0 dtransform exch atan rotate
+	{exch dup type /stringtype eq {true charpath flattenpath} {dup type
+	/arraytype eq {exec} {12 string cvs true charpath flattenpath} ifelse}
+	ifelse} repeat pop pathbbox grestore 3 -1 roll pop 3 1 roll just
+	1 and 0 gt {just 2 and 0 gt {exch pop neg fspc sub} {exch sub 0.5
+	mul neg} ifelse} {pop neg fspc add} ifelse exch Bline exch just 4
+	and 0 gt {just 8 and 0 gt {exch pop neg fspc sub} {add 0.5 mul neg}
+	ifelse} {pop neg fspc add} ifelse rotval rotate Kn currentpoint
+	translate /showflag 1 def /Bline 0 def /Tabs 0 array def /fscale
+	1.0 def /kY 0 def {dup type /stringtype eq {mshow} {dup type
+	/arraytype eq {exec} {12 string cvs mshow} ifelse} ifelse} repeat
+	grestore endclip} def
 /pinlabel { 4 index 32 and 0 ne hlevel 0 eq or { /pspc 10 def label
 	/pspc 0 def } { pop pop pop pop pop {pop} repeat } ifelse } def
 /pinglobal { pinlabel } def
@@ -276,6 +272,14 @@ begingate
 endgate
 } def
 
+/generic::arrow {
+% nonetwork
+begingate
+1 0.800 0 -40 0 20 2 polygon
+1.000 0 0 40 generic::arrowhead
+endgate
+} def
+
 
 %%EndSetup
 
@@ -316,8 +320,8 @@ endgate
 (Rp) {/Helvetica cf} 2 144 0 1.000 -352 -96 label
 (R2M) {/Helvetica cf} 2 144 0 1.000 -368 -272 label
 (R3M) {/Helvetica cf} 2 144 0 1.000 -128 384 label
-(1,1) {/Helvetica cf} 2 144 0 1.000 272 336 label
-(-1.1) {/Helvetica cf} 2 144 0 1.000 256 -400 label
+(1,1) {/Helvetica cf} 2 149 0 1.000 288 352 label
+(-1,1) {/Helvetica cf} 2 149 0 1.000 288 -384 label
 1.000 180 -448 32 analog::isource
 1 1.000 -256 352 -448 352 -448 80 3 polygon
 1 1.000 -448 -16 -448 -384 -256 -384 3 polygon
@@ -326,10 +330,11 @@ endgate
 (Ipol) {/Helvetica cf} 2 144 0 1.000 -400 16 label
 1 1.000 288 352 35 0.000 360.000 xcarc
 1 1.000 288 -384 35 0.000 360.000 xcarc
-($10 \\Omega$) {/Helvetica cf} 2 144 0 1.000 -160 288 label
+($10 \\Omega$) {/Helvetica cf} 2 144 0 1.000 -112 288 label
 ($3,3 k\\Omega$) {/Helvetica cf} 2 144 0 1.000 -208 160 label
 ($680 \\Omega$) {/Helvetica cf} 2 144 0 1.000 -224 -272 label
 ($1 k\\Omega$) {/Helvetica cf} 2 144 0 1.000 -224 -112 label
+1.000 45 -256 -96 generic::arrow
 pgsave restore showpage
 
 %%Trailer
