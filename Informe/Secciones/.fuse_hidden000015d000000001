@@ -119,12 +119,11 @@ Finalmente, los valores comerciales de resistores que se eligieron se muestran e
 	\label{ec.re}
 \end{equation}
 	
-	Se utilizarán como transistores de salida los \texttt{2SC5198} y \texttt{2SA1941}. A partir de la hoja de datos, se obtiene $\Theta_{ja,Q_{63}} = \SI{150}{\celsius\per\watt}$ y $\beta_{min} = 35$, por lo que se obtiene el valor mínimo para $R_E$ es \eqref{ec.re}.
+	Se utilizarán como transistores de salida los \texttt{TIP41C}. A partir de la hoja de datos, se obtiene $\Theta_{ja,Q_{63}} = \SI{150}{\celsius\per\watt}$ y $\beta_{min} = 15$, por lo que se obtiene el valor mínimo
 
 	\begin{equation}
 		\centering
-		R_E \geq \frac{ \SI{150}{\celsius\per\watt} \cdot \SI{40}{\volt} \cdot \SI{2}{\milli\volt\per\celsius} }{ 35 + 1 } = \SI{0.33}{\ohm}
-		\label{ec.re}
+		R_E \geq \frac{ \SI{150}{\celsius\per\watt} \cdot \SI{30}{\volt} \cdot \SI{2}{\milli\volt\per\celsius} }{ \beta_{min} + 1 } = \SI{0.56}{\ohm}
 	\end{equation}
 
 	\subsection{Compensación de la carga}
@@ -143,7 +142,7 @@ Finalmente, los valores comerciales de resistores que se eligieron se muestran e
 		\caption{Protección contra cortocircuito en la salida.}
 		\label{fig.proteccion}
 	\end{figure}
-	\Flor{Este anda bien en simulación, con 2k2 en vez de 1k8.}
+	\Flor{Este anda bien en simulación.}
 	\begin{figure}[H]
 		\centering
 		\scalebox{0.5}{\input{proteccion2}}
@@ -167,14 +166,7 @@ Finalmente, los valores comerciales de resistores que se eligieron se muestran e
 
 
 	Si se configurase al circuito protector de tal forma que al alcanzar dicho valor corte el circuito, no se podrá obtener la máxima potencia con baja distorsión dado que la característica de los transistores es exponencial y por tanto al acercarse al valor de corte comenzará a extraer corriente del multiplicador de $V_{BE}$. Por otra parte, debido a que la fuente de alimetnación puede variar positivamente en un 20\%, es decir $V_{CCH+}=\SI{40}{\V}$, y que la resistencia equivalente de la carga puede ser menor que \SI{8}{\ohm}, se propone que el circuito de protección se active cuando en la salida circulen $\SI{5}{\ampere}$
-
 	Para dicha corriente y $R_{E} = \SI{.33}{\ohm}$ se obtiene $V_{E} = \SI{1.65}{\V}$. Así se halla que la relación entre las resistencias del divisor resistivo es de \num{1,8}. Se propone entonces los valores de componentes de la Figura \ref{fig.proteccion} que se consiguen comercialmente.
-
-	\begin{align}
-		\centering
-		\Delta V_{Re} &= \SI{0.33}{\ohm} \cdot \SI{5}{\ampere} = \SI{1.65}{\volt} \\
-		\SI{0.6}{\volt} &= \frac{R_1}{ R_1 + R_2 } \cdot \SI{1.65}{\volt} \implies \boxed{R_2 = \num{1,8} R_1}
-	\end{align}
 
 		
 
