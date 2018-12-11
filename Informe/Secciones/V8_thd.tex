@@ -1,45 +1,5 @@
 	Mediante la herramienta de análisis de Fourier provista por \texttt{SPICE Orcad} se analizó la variación de la distorsión armónica \texttt{THD} producida en la salida, en función de la frecuencia y amplitud de la señal de entrada. Los resultados obtenidos se resumen en la tabla.
 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4]{sim_salida1k_max.pdf}
-	\caption{Máxima excursión de salida sin recorte a \SI{1}{\kilo\hertz} $THD = 0,018\%$.}
-	\label{fig:sim_salida_1k_max}
-	\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4]{sim_salida_1k_22V.pdf}
-	\caption{22V, 1V, $THD=0,016\%$.}
-	\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4]{sim_salida_1k_8V.pdf}
-	\caption{8V, $0,35V, THD=0,005\%$.}
-\end{figure}
-
-%%%% 20kHz
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4]{sim_salida_20k_max.pdf}
-	\caption{$26,1V, 0,35V, THD=0,053\%$.}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4]{sim_salida_20k_22V.pdf}
-	\caption{$22V, 1V, THD=0,066\%$.}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4]{sim_salida_1k_8V.pdf}
-	\caption{8V, $0,35V, THD=0,099\%$.}
-\end{figure}
-
-
 \begin{table}[H]
 	\centering
 	\begin{tabular}{ccccc}
@@ -54,6 +14,45 @@
 	\end{tabular}
 	\caption{Valores de $\mathrm{THD}_{\%}$ para distintos valores de frecuencia y potencias sobre la carga.}
 \end{table}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{sim_salida1k_max.pdf}
+	\caption{Máxima excursión de salida sin recorte a \SI{1}{\kilo\hertz} $THD = \num{0.018}\%$.}
+	\label{fig:sim_salida_1k_max}
+	\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{sim_salida_1k_22V.pdf}
+	\caption{22V, 1V, $THD=\num{0.016}\%$.}
+	\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{sim_salida_1k_8V.pdf}
+	\caption{8V, $\SI{.35}{\V}$, $THD=\num{0.005}\%$.}
+\end{figure}
+
+%%%% 20kHz
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{sim_salida_20k_max.pdf}
+	\caption{\SI{26.1}{\V}, \SI{0.35}{\V}, $THD=\num{0.053}\%$.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{sim_salida_20k_22V.pdf}
+	\caption{\SI{22}{\V}, \SI{1}{\V}, $THD=\num{0.066}\%$.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{sim_salida_1k_8V.pdf}
+	\caption{\SI{8}{\V}, \SI{0.35}{\V}, $THD=\num{0.099}\%$.}
+\end{figure}
 
 
 

@@ -1,27 +1,38 @@
-- Comparadores: utilización de operacionales en vez del par diferencial discreto. Componentes difíciles de conseguir
 
-- Separación de VAS con corriente de polarizacion de etapa de salida (separada por un capacitor)
+	A partir del análisis realizado sobre el amplificador \emph{Turner 730} se ve que una implementación posible de la etapa de entrada es un emisor común. Se considera la alternativa de utilizar un par diferencial. A pesar de la dificultad propia del balanceo del par diferencial (selección de componentes similares, cargas, fuentes de corriente, etc.), las ventajas del mismo son mucho mayores al emisor común que se utilizaba en los \emph{70} dada la escasez de transistores. Entre las ventajas se destaca la baja tensión de corrimiento $V_{off}$; las corrientes no fluyen por el lazo de realimentación; linealidad superior a la entrada con 1 solo transistor; buen acoplamiento térmico.\\
 
-- Multiplicador de VBE doble.
+	Por otro lado, para la implementación de los comparadores encargados de la conmutación de las fuentes externas de la etapa de salida clase G alternativa se consideraron amplificadores operaciones y un par diferencial discreto. Los amplificadores operacionales facilitan la implementación del circuito, pero dificulta la producción dada la escasez o falta de provisión de los mismos. La solución es realizar un diseño sencillo con transistores discretos de un par diferencial que a su vez es más ajustable dado que el diseño es propio y se puede personalizar el comparador a la medida de las necesidades del dispositivo.\\
 
-\Juan{Hacer la tabla en internet}
-\begin{table}[h!]
-	\centering
-	\begin{tabular}{*{4}{c}}
-		\toprule
-		Etapa                                  & Alternativa & Ventajas & Desventajas \\ 
-		\midrule
-		\multirow{2}{*}{Comparador de entrada} &             &          &             \\ %\cmidrule(l){2-4} 
-&\colortab Par diferencial             &          &             \\
-		\midrule
-		\multirow{2}{*}{VAS} &             &          &             \\ %\cmidrule(l){2-4} 
-		                                       &             &          &             \\
-		\midrule
-		\multirow{2}{*}{Etapa de salida} & Clase G            &          &             \\ %\cmidrule(l){2-4} 
-						 &  \colortab Clase G alternativa           & \colortab Menor distorsión	& \colortab Diseño más complejo\\
-		\midrule
-		\multirow{2}{*}{Fuente de corriente} & FES	& Simple	& Error apreciable, malo bajo ripple             \\ %\cmidrule(l){2-4} 
-						&\colortab FES corregida	& \colortab Más estable vs ripple	& \colortab Más componentes \\
-		\bottomrule
-	\end{tabular}
-\end{table}
+	\Juan{Qué alternativa sería 'Separación de VAS con corriente de polarización de etapa de salida (separada por un capacitor)'?}
+
+
+%	- Comparadores: utilización de operacionales en vez del par diferencial discreto. Componentes difíciles de conseguir
+%	
+%	- Separación de VAS con corriente de polarizacion de etapa de salida (separada por un capacitor)
+%	
+%	- Multiplicador de VBE doble.
+%	
+%	\Juan{Hacer la tabla en internet}
+%	\begin{table}[h!]
+%		\centering
+%		\begin{tabular}{*{4}{c}}
+%			\toprule
+%			Etapa                                  & Alternativa & Ventajas & Desventajas \\ 
+%			\midrule
+%			\multirow{2}{*}{Comparador de entrada} &             &          &             \\ %\cmidrule(l){2-4} 
+%	&\colortab Par diferencial             &          &             \\
+%			\midrule
+%			\multirow{2}{*}{VAS} &             &          &             \\ %\cmidrule(l){2-4} 
+%			                                       &             &          &             \\
+%			\midrule
+%			\multirow{2}{*}{Etapa de salida} & Clase G            &          &             \\ %\cmidrule(l){2-4} 
+%							 &  \colortab Clase G alternativa           & \colortab Menor distorsión	& \colortab Diseño más complejo\\
+%			\midrule
+%			\multirow{2}{*}{Fuente de corriente} & FES	& Simple	& Error apreciable, malo bajo ripple             \\ %\cmidrule(l){2-4} 
+%							&\colortab FES corregida	& \colortab Más estable vs ripple	& \colortab Más componentes \\
+%			\bottomrule
+%		\end{tabular}
+%	\end{table}
+%	
+%	Carga FES versus bootstrap en el VAS. El bootstrap es dependiente de la ganancia de la etapa de salida y esta puede variar por la carga utilizada. Otra contra es la corriente de polarizacion varia segun varie la fuente 
+%	Cascode versus colector común pre emisor común. Cascode permite VAS con alto beta y buena respuesta en frecuencia. Colector común es más simple y facil de diseñar.

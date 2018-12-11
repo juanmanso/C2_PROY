@@ -51,10 +51,74 @@
 	Se eligen los resistores comerciales $R_{1M} = \SI{3.3}{\kilo\ohm}$, $R_{2M} = \SI{680}{\ohm}$ y un potenciómetro de $\SI{1}{\kilo\ohm}$. 
 
 	La resistencia $R_{3M}$ se anexa para mejorar la independencia de la tensión $V_{CE}$ con la corriente de polarización. Asimismo se agrega un capacitor $C_M$ para no alterar el comportamiento del resto circuito en señal, es decir que se obtiene una impedancia pequeña para un amplio rango de frecuencias. 
+	
+\subsection{Compensación del embalamiento térmico}
 
+	Se logra al agregar una resistencia al emisor de cada transistor equivalente de la etapa de salida. Si la señal de entrada se encuentra en su semiciclo positivo, sólo el transistor equivalente formado por $Q_{63}$ y $Q_{14}$ conduce. Ante un aumento de la temperatura, se produce un incremento de la corriente de colector, por ende aumenta la caída de tensión en $R_{32}$, entonces necesariamente la tensión $V_{BE}$ disminuye, produciendo un decremento en la corriente de colector. De esta manera se logra estabilizar la polarización de la etapa de salida mediante realimentación negativa local. El valor de dichas resistencias ($R_{32}$ y $R_{33}$) debe ser pequeño en comparación al valor de la carga con el fin de no alterar la tensión útil de salida. Asimismo para que la realimentación sea suficiente se debe cumplir la expresión \eqref{ec.re1}:
+
+\begin{equation}
+	\centering
+	R_E \geq \frac{\Theta_{ja,Q_{63}} V_{CC} \cdot \SI{2}{\milli\volt\per\celsius}}{\beta_{min} + 1}
+	\label{ec.re1}
+\end{equation}
+	
+	Se utilizarán como transistores de salida los \texttt{2SC5198} y \texttt{2SA1941}. A partir de la hoja de datos, se obtiene $\Theta_{ja,Q_{63}} = \SI{150}{\celsius\per\watt}$ y $\beta_{min} = 35$, por lo que se obtiene el valor mínimo para $R_E$ es \eqref{ec.re}.
+
+	\begin{equation}
+		\centering
+		R_E \geq \frac{ \SI{150}{\celsius\per\watt} \cdot \SI{40}{\volt} \cdot \SI{2}{\milli\volt\per\celsius} }{ 35 + 1 } = \SI{0.33}{\ohm}
+		\label{ec.re}
+	\end{equation}
+
+
+
+	\subsection{Protección}
+	Se implementó una protección contra cortocircuito de la carga de salida, conformado por los transistores $Q_{52}$ y $Q_{53}$. Dicho circuito sensa la corriente de salida y si supera cierto umbral, la tensión de $V_{BE}$ resulta lo suficientemente elevada como para que el transistor $Q_{53}$ entre en conducción. De esta manera la corriente que circularía por los transistores de salida se desvía hacia los transistores de protección.
+	Dicho circuito se expone en la Figura \ref{fig.proteccion}.
+%
+%	\begin{figure}[H]
+%		\centering
+%		\scalebox{0.5}{\input{proteccion}}
+%		\caption{Protección contra cortocircuito en la salida.}
+%		\label{fig.proteccion}
+%	\end{figure}
+%	\Flor{Este anda bien en simulación, con 2k2 en vez de 1k8.}
+	\begin{figure}[H]
+		\centering
+		\scalebox{0.5}{\input{proteccion2}}
+		\caption{Protección contra cortocircuito en la salida.}
+		\label{fig.proteccion}
+	\end{figure}
+
+
+	La máxima diferencia de potencial que habrá sobre $R_L$ es $V_{CCL+} - V^{Q_{63}}_{CE_{sat}}$ cuando se opera con $V_{CCL+}$ y $V_{CCH+} - V^{Q_{62}}_{CE_{sat}} - V^{Q_{63}}_{CE_{sat}}$ para tensiones mayores a $V_{CCL+}$. Se puede ver que el peor caso es cuando las tensiones son mayores a $V_{CCL+}$ y por lo tanto (suponiendo $V_{CE_{sat}} \approx V_{BE_{ON}} \approx \SI{0.6}{\V}$) la potencia máxima que disipará la carga es:
+		\begin{equation*}
+			P_{RL_{\max}} = \frac{\left(V_{CCH+} - V^{Q_{62}}_{CE_{sat}} - V^{Q_{63}}_{CE_{sat}}\right)^2}{R_L} = \frac{\left(\SI{30}{\V} - \SI{1.2}{\V}\right)^2}{\SI{8}{\ohm}} = \SI{104}{\W}
+		\end{equation*}
+
+	De este modo la máxima corriente que circula sobre los transistores de salida es
+		\begin{equation*}
+			\boxed{I_{O_{\max}} = \frac{P_{RL_{\max}}}{V_{CCH+}} = \SI{3.5}{\A}}
+		\end{equation*}
+
+%	Si se configurase al circuito protector de tal forma que al alcanzar dicho valor corte el circuito, no se podrá obtener la máxima potencia con baja distorsión dado que la característica de los transistores es exponencial y por tanto al acercarse al valor de corte comenzará a extraer corriente del multiplicador de $V_{BE}$. Es por tanto que se propone como peor caso que la fuente varíe positivamente un 20\%, es decir $V_{CCH+}=\SI{40}{\V}$. Realizando los mismos cálculos se optiene $I_{O_{\max}} = \SI{4.65}{\A}$. \\
+%	Para dicha corriente y $R_{E} = \SI{.33}{\ohm}$ se obtiene $V_{E} = \SI{1.535}{\V}$. Así se halla que la relación entre las resistencias del divisor resistivo es de 433. Se propone entonces los valores de componentes de la Figura \ref{fig.proteccion} que se consiguen comercialmente obteninedose efectivamente $I_{O_{\max}}=\SI{4.63}{\A}$.
+
+
+	Si se configurase al circuito protector de tal forma que al alcanzar dicho valor corte el circuito, no se podrá obtener la máxima potencia con baja distorsión dado que la característica de los transistores es exponencial y por tanto al acercarse al valor de corte comenzará a extraer corriente del multiplicador de $V_{BE}$. Por otra parte, debido a que la fuente de alimetnación puede variar positivamente en un 20\%, es decir $V_{CCH+}=\SI{40}{\V}$, y que la resistencia equivalente de la carga puede ser menor que \SI{8}{\ohm}, se propone que el circuito de protección se active cuando en la salida circulen $\SI{5}{\ampere}$.
+
+	Para dicha corriente y $R_{E} = \SI{.33}{\ohm}$ se obtiene $V_{E} = \SI{1.65}{\V}$. Así se halla que la relación entre las resistencias del divisor resistivo es de \num{1,8}. Se propone entonces los valores de componentes de la Figura \ref{fig.proteccion} que se consiguen comercialmente.
+
+	\begin{align}
+		\centering
+		\Delta V_{Re} &= \SI{0.33}{\ohm} \cdot \SI{5}{\ampere} = \SI{1.65}{\volt} \\
+		\SI{0.6}{\volt} &= \frac{R_1}{ R_1 + R_2 } \cdot \SI{1.65}{\volt} \implies \boxed{R_2 = \num{1,8} \: R_1}
+	\end{align}
+
+		
 
 \subsection{Fuente de corriente}
-	El valor mínimo de la corriente necesaria para la etapa de salida se determina con el caso de máxima corriente de salida $I_{o,\max} = \SI{26}{\volt}/ \SI{8}{\ohm} = \SI{3.25}{\ampere}$. Al tratarse de transistores de potencia, el factor $\beta$ es aproximadamente se encuentra entre 30 y 50, por lo que la corriente de base en $Q_1$ sería $I_{B,Q1} \approx \SI{100}{\milli\ampere}$. Dicha corriente es entregada por $Q_3$, siendo la corriente de base $I_{B,Q2} \approx \SI{2}{\milli\ampere}$. A su vez la fuente polariza la etapa amplificadora de tensión (VAS), por lo que se considerará al menos el doble de dicha corriente. Se propone $I_{pol} = \SI{5}{\milli\ampere}$.
+	De la sección anterior se sabe que $I_{O_{\max}}=\SI{3.5}{\A}$. Al tratarse de transistores de potencia, el factor $\beta$ se encuentra entre 30 y 50, por lo que la corriente de base en $Q_1$ sería $I_{B,Q1} \approx \SI{100}{\milli\ampere}$. Dicha corriente es entregada por $Q_3$, siendo la corriente de base $I_{B,Q2} \approx \SI{2}{\milli\ampere}$. A su vez la fuente polariza la etapa amplificadora de tensión (VAS), por lo que se considerará al menos un cuarto más de dicha corriente. Se propone $I_{pol} = \SI{5}{\milli\ampere}$.
 
 	\begin{figure}[H]
 		\centering
@@ -69,12 +133,12 @@
 	\label{ec.ipol}
 \end{equation}
 
-La corriente de polarización queda determinada por la resistencia $R_1$ de la expresión \ref{ec.ipol}. Considerando un $V_{BE,on} = \SI{0.5}{\volt}$ se obtiene $R_1 = \SI{100}{\ohm}$. Por otra parte se despreció la caída de tensión por $R_2$. Dicha resistencia se anexa con el fin de limitar la corriente de base que pasa de un transistor a otro.
+La corriente de polarización queda determinada por la resistencia $R_1$ de la Ecuación \ref{ec.ipol}. Considerando un $V_{BE,on} = \SI{0.5}{\volt}$ se obtiene $R_1 = \SI{100}{\ohm}$. Por otra parte se despreció la caída de tensión por $R_2$. Dicha resistencia se anexa con el fin de limitar la corriente de base que pasa de un transistor a otro.
 
 
 \subsection{Comparadores}
 
-	Las señales de música poseen picos de tensión cuya magnitud es mucho a la media, estando la mayor parte del tiempo en niveles bajos, por lo que se propone un umbral de tensión de 40\% con respecto a la tensión máxima de alimentación, es decir que $V_{cc_L} = \pm \SI{12}{\volt}$, $V_{cc_H} = \pm \SI{30}{\volt}$. 
+	Las señales de música poseen picos de tensión cuya magnitud es mucho mayor al valor medio, estando la mayor parte del tiempo en niveles bajos, por lo que se propone un umbral de tensión de 40\% con respecto a la tensión máxima de alimentación, es decir que $V_{cc_L} = \pm \SI{12}{\volt}$, $V_{cc_H} = \pm \SI{30}{\volt}$.
 
 	\begin{figure}[H]
 		\centering
@@ -83,7 +147,7 @@ La corriente de polarización queda determinada por la resistencia $R_1$ de la e
 		\label{fig.comparador}
 	\end{figure}
 
-	Se propone la configuración de par diferencial de la Figura \ref{fig.comparador} para implementar los comparadores. Se utiliza una fuente de corriente espejo para lograr mayor estabilidad. En vez de comparar con la señal proveniente de la etapa VAS, se compara con la señal de salida $V_{o}$ para evitar cargar dicha etapa con la resistencia de entrada que presenta el par diferencial ($2\cdot r_\pi$). La señal de salida no resulta alterada por tratarse de un colector común que es separador de impedancias (nodo de baja impedancia).\\
+	Se propone la configuración de par diferencial de la Figura \ref{fig.comparador} para implementar los comparadores. Se utiliza una carga espejo para lograr mayor estabilidad. Además en vez de comparar con la señal proveniente de la etapa VAS, se compara con la señal de salida $V_{o}$ para evitar cargar dicha etapa con la resistencia de entrada que presenta el par diferencial ($2\cdot r_\pi$). La señal de salida no resulta alterada por tratarse de un colector común que es separador de impedancias (nodo de baja impedancia).\\
 	\indent Por otra parte, es difícil lograr en la práctica que los transistores que conforman el par diferencial manejen una excursión de tensión de hasta \SI{30}{\volt}, por lo que se utiliza un divisor resistivo en ambas bases de los transistores para atenuar la amplitud de tensión. Es conveniente que la tensión de referencia $V_{th}'$ sea levemente menor que la prevista con el fin de contrarrestar el retardo de tiempo del comparador.
 
 \begin{equation}
@@ -108,76 +172,15 @@ La corriente de polarización queda determinada por la resistencia $R_1$ de la e
 	\end{equation}
 
 Finalmente, los valores comerciales de resistores que se eligieron se muestran en la Figura \ref{fig.comparador}.	
-	
-\subsection{Compensación del embalamiento térmico}
-
-	Se logra al agregar una resistencia al emisor de cada transistor equivalente de la etapa de salida. Si la señal de entrada se encuentra en su semiciclo positivo, sólo el transistor equivalente formado por $Q_{63}$ y $Q_{14}$ conduce. Ante un aumento de la temperatura, se produce un incremento de la corriente de colector, por ende aumenta la caída de tensión en $R_{32}$, entonces necesariamente la tensión $V_{BE}$ disminuye, produciendo un decremento en la corriente de colector. De esta manera se logra estabilizar la polarización de la etapa de salida mediante realimentación negativa local. El valor de dichas resistencias ($R_{32}$ y $R_{33}$) debe ser pequeño en comparación al valor de la carga con el fin de no alterar la tensión útil de salida. Asimismo para que la realimentación sea suficiente se debe cumplir la expresión \eqref{ec.re}:
-
-\begin{equation}
-	\centering
-	R_E \geq \frac{\Theta_{ja,Q_{63}} V_{CC} \cdot \SI{2}{\milli\volt\per\celsius}}{\beta_{min} + 1}
-	\label{ec.re}
-\end{equation}
-	
-	Se utilizarán como transistores de salida los \texttt{2SC5198} y \texttt{2SA1941}. A partir de la hoja de datos, se obtiene $\Theta_{ja,Q_{63}} = \SI{150}{\celsius\per\watt}$ y $\beta_{min} = 35$, por lo que se obtiene el valor mínimo para $R_E$ es \eqref{ec.re}.
-
-	\begin{equation}
-		\centering
-		R_E \geq \frac{ \SI{150}{\celsius\per\watt} \cdot \SI{40}{\volt} \cdot \SI{2}{\milli\volt\per\celsius} }{ 35 + 1 } = \SI{0.33}{\ohm}
-		\label{ec.re}
-	\end{equation}
-
 	\subsection{Compensación de la carga}
+	\Juan{Agregamos ésto?}
+		Dado que la carga del circuito no consiste sólamente de una resistencia, sino más bien de un parlante y un cable, se deben utilizar redes de compensación y \emph{Zobel} para mitigar efectos indeseados del conjunto parlante-cable y poder modelar a los mismos como una resistencia de carga $R_L$.
 		\subsubsection{Red Zobel}
+			La red \emph{Zobel} consta de un capacitor y un resistor en serie, conectados en paralelo a la salida del amplificador y no de la carga. La presencia de una carga inductiva al circuito provoca inestabilidades a alta frecuencias en la etapa de salida aunque sin comprometer la estabilidad	de la realimentación global.\\
+			\indent Haciendo uso de la red \emph{Zobel} se reduce dicha inestabilidad. Se suelen usar valores de resistencia del orden de la carga (entre \SI{4.7}{\ohm} y \SI{10}{\ohm}) mientras que para el capacitor se acostumbra que sea de \SI{100}{\nano\F}. Para este circuito en particular se propone $R_{39}=\SI{10}{\ohm}$ y $C_{15}=\SI{0.1}{\micro\F}$.
 		
 		\subsubsection{Compensación}
-
-	\subsection{Protección}
-	Se implementó una protección contra cortocircuito de la carga de salida, conformado por los transistores $Q_{52}$ y $Q_{53}$. Dicho circuito sensa la corriente de salida y si supera cierto umbral, la tensión de $V_{BE}$ resulta lo suficientemente elevada como para que el transistor $Q_{53}$ entre en conducción. De esta manera la corriente que circularía por los transistores de salida se desvía hacia los transistores de protección.
-	Dicho circuito se expone en la Figura \ref{fig.proteccion}.
-	\Juan{Cambié el circuito porque el otro no funciona}
-
-	\begin{figure}[H]
-		\centering
-		\scalebox{0.5}{\input{proteccion}}
-		\caption{Protección contra cortocircuito en la salida.}
-		\label{fig.proteccion}
-	\end{figure}
-	\Flor{Este anda bien en simulación, con 2k2 en vez de 1k8.}
-	\begin{figure}[H]
-		\centering
-		\scalebox{0.5}{\input{proteccion2}}
-		\caption{Protección contra cortocircuito en la salida.}
-		\label{fig.proteccion}
-	\end{figure}
-
-
-	La máxima diferencia de potencial que habrá sobre $R_L$ es $V_{CCL+} - V^{Q_{63}}_{CE_{sat}}$ cuando se opera con $V_{CCL+}$ y $V_{CCH+} - V^{Q_{62}}_{CE_{sat}} - V^{Q_{63}}_{CE_{sat}}$ para tensiones mayores a $V_{CCL+}$. Se puede ver que el peor caso es cuando las tensiones son mayores a $V_{CCL+}$ y por lo tanto (suponiendo $V_{CE_{sat}} \approx V_{BE_{ON}} \approx \SI{0.6}{\V}$) la potencia máxima que disipará la carga es:
-		\begin{equation*}
-			P_{RL_{\max}} = \frac{\left(V_{CCH+} - V^{Q_{62}}_{CE_{sat}} - V^{Q_{63}}_{CE_{sat}}\right)^2}{R_L} = \frac{\left(\SI{30}{\V} - \SI{1.2}{\V}\right)^2}{\SI{8}{\ohm}} = \SI{104}{\W}
-		\end{equation*}
-
-	De este modo la máxima corriente que circula sobre los transistores de salida es
-		\begin{equation*}
-			I_{O_{\max}} = \frac{P_{RL_{\max}}}{V_{CCH+}} = \SI{3.5}{\A}
-		\end{equation*}
-
-%	Si se configurase al circuito protector de tal forma que al alcanzar dicho valor corte el circuito, no se podrá obtener la máxima potencia con baja distorsión dado que la característica de los transistores es exponencial y por tanto al acercarse al valor de corte comenzará a extraer corriente del multiplicador de $V_{BE}$. Es por tanto que se propone como peor caso que la fuente varíe positivamente un 20\%, es decir $V_{CCH+}=\SI{40}{\V}$. Realizando los mismos cálculos se optiene $I_{O_{\max}} = \SI{4.65}{\A}$. \\
-%	Para dicha corriente y $R_{E} = \SI{.33}{\ohm}$ se obtiene $V_{E} = \SI{1.535}{\V}$. Así se halla que la relación entre las resistencias del divisor resistivo es de 433. Se propone entonces los valores de componentes de la Figura \ref{fig.proteccion} que se consiguen comercialmente obteninedose efectivamente $I_{O_{\max}}=\SI{4.63}{\A}$.
-
-
-	Si se configurase al circuito protector de tal forma que al alcanzar dicho valor corte el circuito, no se podrá obtener la máxima potencia con baja distorsión dado que la característica de los transistores es exponencial y por tanto al acercarse al valor de corte comenzará a extraer corriente del multiplicador de $V_{BE}$. Por otra parte, debido a que la fuente de alimetnación puede variar positivamente en un 20\%, es decir $V_{CCH+}=\SI{40}{\V}$, y que la resistencia equivalente de la carga puede ser menor que \SI{8}{\ohm}, se propone que el circuito de protección se active cuando en la salida circulen $\SI{5}{\ampere}$
-
-	Para dicha corriente y $R_{E} = \SI{.33}{\ohm}$ se obtiene $V_{E} = \SI{1.65}{\V}$. Así se halla que la relación entre las resistencias del divisor resistivo es de \num{1,8}. Se propone entonces los valores de componentes de la Figura \ref{fig.proteccion} que se consiguen comercialmente.
-
-	\begin{align}
-		\centering
-		\Delta V_{Re} &= \SI{0.33}{\ohm} \cdot \SI{5}{\ampere} = \SI{1.65}{\volt} \\
-		\SI{0.6}{\volt} &= \frac{R_1}{ R_1 + R_2 } \cdot \SI{1.65}{\volt} \implies \boxed{R_2 = \num{1,8} R_1}
-	\end{align}
-
-		
-
+		Se puede modelar a un parlante como una red \emph{Zobel} con valores típicos de $C=\SI{2}{\micro\F}$ y $R=\SI{8}{\ohm}$. Las capacidades bajan los márgenes de estabilidad del circuito. Para resolver dicho problema, se introduce un inductor serie a la salida del amplificador que aisle dicha capacidad. Sin embargo, la inductancia y capacidad pueden entrar en resonancia averiando la etapa de salida. Es por tanto que se conecta una resistencia en paralelo al inductor. Se proponen $L_1 = \SI{10}{\micro\henry}$ y $R_{40}=\SI{10}{\ohm}$.
 	\subsection{Estabilización}
 
 	El grupo de resistencias y capacitores marcado en el Figura \ref{fig.cto_completo}, cumple la función de estabilizar la tensión de alimentación del comparador a la entrada y el VAS ante alteraciones en los valores de la fuente de $\SI{30}{\volt}$. La tensión de \SI{12}{\volt} se tomará de la fuente de \SI{30}{\volt} mediante una fuente conmutada, por lo que no necesitaría estabilización.
