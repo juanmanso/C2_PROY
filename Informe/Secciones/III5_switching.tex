@@ -4,9 +4,17 @@ La implementación de las fuentes de tensión de \SI{12}{\volt} y \SI{-12}{\volt
 El diseño propuesto en la figura \ref{fig.fte_12} corresponde a la configuración reductora de tensión cuya entrada es \SI{+30}{\volt}, y su salida \SI{+12}{\volt}. Debido a la dificultad de conseguir el modelo \textit{LM2565-12}, se decidió utilizar la versión ajustable, la cuál implica anexar dos resistencias de realimentación $R_2$ y $R_3$ según el esquema. El inductor $L_2$ y el capacitor $C_3$ permiten reducir el riple de la tensión de salida.
 
 
+%\begin{figure}[H]
+	%\centering
+%	\includegraphics[angle=-90,width=1.1\textwidth, trim = 0.5cm 3.0cm 4cm 4cm]{fte_12_salida.png}
+%	\caption{Salida de la fuente reductora de tensión.}
+%	\label{fig.fte_salida_12}
+%\end{figure}
+
+
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.5]{fte_12_esquema.pdf}
+	\includegraphics[scale=0.5, angle=-90]{fte_12_esquema.pdf}
 	\caption{Fuente reductora de tensión.}
 	\label{fig.fte_12}
 \end{figure}
@@ -14,12 +22,14 @@ El diseño propuesto en la figura \ref{fig.fte_12} corresponde a la configuraci�
 
 Debido a que la fuente de entrada puede variar en un 20\%, en la simulación se anexó una fuente alterna en serie para analizar el comportamiento de la salida ante alteraciones de $V_E$. La salida resultante se muetra en la figura \ref{fig.fte_salida_12}, observándose una variación del orden de decenas de $\SI{}{\milli\volt}$.
 
+
+
 \HgraficarPNG{0.5}{fte_12_salida}{Salida de la fuente reductora de tensión}{fig.fte_salida_12}
 
 
 \subsection{Fuente elevadora de tensión}
 
-Para el circuito elevador, desde -30V a -12V, se propuso el diseño de la figura . 
+Para el circuito elevador, desde \SI{-30}{\volt} a \SI{-12}{\volt}, se propuso el diseño de la figura\ref{fig.fte_elevadora}. 
 No se logró realizar la simulación debido a la inexistencia del modelo de   \texttt{LM2577} en PSpice. 
 La elección de los componentes se detalla en la nota de aplicación , aunque sus valores podrán variar empíricamente.
 
