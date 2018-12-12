@@ -1,14 +1,14 @@
-	A partir de la hoja de datos del \texttt{TIP41} y de las condiciones del ambiente se tiene:
+	A partir de la hoja de datos del \texttt{2SC5198} y de las condiciones del ambiente se tiene:
 	\begin{itemize}
-		\item  Temperatura de Juntura $T_j = \SI{150}{\celsius} $
+		\item  Temperatura de Juntura $T^{\max}_j = \SI{150}{\celsius} $
 		\item  Temperatura de Carcasa $T_c = \SI{25}{\celsius} $
 		\item  Temperatura de Ambiente $T_a = \SI{40}{\celsius} $
-		\item  $\theta_{cs} = \SI{1}{\celsius\per\W}$ 
-		%	\Gus{Esto es porque uno usa mica $\SI{2}{\celsius\per\W}$ y el otro no $\SI{0.5}{\celsius\per\W} - \SI{1}{\celsius\per\W}$}
-		\item  Disipación total del \texttt{TIP41} a $T_{case} = \SI{25}{\celsius}$ se obtiene $\theta_{jc} =  \frac{T_j - T_c}{P_{Ctip41_{\max}}} =\SI{1.92}{\celsius\per\W}$ 
-		\\	se usa el mas grande para no forzar tanto al TIP ( de esta forma te queda un disipador mas grande)
+		\item  $\theta_{cs} = \SI{2}{\celsius\per\W}$ 
+		\item  Disipación total del \texttt{2SC5198} a $T_{case} = \SI{25}{\celsius}$ se obtiene $\theta_{jc} =  \frac{T_j - T_c}{P_{C_{\max}}} =\SI{1.92}{\celsius\per\W}$ 
 	\end{itemize}
 
+		Para no llevar al máximo a la juntura se toma $T_j \leq \SI{120}{\celsius}$, es decir el 70\% del valor máximo. Por otro lado cabe aclarar que la potencia máxima ($P_{C_{\max}}$) que puede soportar el transistor.
+		
 	Dado estos valores se puede hallar:
 
 	\begin{equation}
@@ -16,7 +16,7 @@
 	\end{equation}
 
 	\begin{equation}
-		\theta_{ja} =  \frac{T_j - T_a}{P_{C_{\max}}} =\SI{9.65}{\celsius\per\W}
+		\theta_{ja} =  \frac{T_j - T_a}{P_{C_{\max}}} =\SI{7.02}{\celsius\per\W}
 	\end{equation}
 	
 

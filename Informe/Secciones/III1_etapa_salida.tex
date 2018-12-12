@@ -1,4 +1,3 @@
-	\Juan{¿Hablar de la selección de componentes y valores?}
 	La etapa de salida clase G se caracteriza principalmente por el manejo eficiente de potencia debido a que conmuta la tensión de alimentación entre dos niveles según lo requiera la señal de entrada.
 
 	En la Figura \ref{fig.salida} se muestra un esquema básico de la topología, denominada clase G alternativa.  Los transistores $Q_1$ y $Q_2$ conforman la etapa interior que opera en clase B, siendo $Q_3$ y $Q_4$ los \textit{drivers} y $R_1$ la resistencia de emisor compartida. 
@@ -173,7 +172,6 @@ La corriente de polarización queda determinada por la resistencia $R_1$ de la E
 
 Finalmente, los valores comerciales de resistores que se eligieron se muestran en la Figura \ref{fig.comparador}.	
 	\subsection{Compensación de la carga}
-	\Juan{Agregamos ésto?}
 		Dado que la carga del circuito no consiste sólamente de una resistencia, sino más bien de un parlante y un cable, se deben utilizar redes de compensación y \emph{Zobel} para mitigar efectos indeseados del conjunto parlante-cable y poder modelar a los mismos como una resistencia de carga $R_L$.
 		\subsubsection{Red Zobel}
 			La red \emph{Zobel} consta de un capacitor y un resistor en serie, conectados en paralelo a la salida del amplificador y no de la carga. La presencia de una carga inductiva al circuito provoca inestabilidades a alta frecuencias en la etapa de salida aunque sin comprometer la estabilidad	de la realimentación global.\\
