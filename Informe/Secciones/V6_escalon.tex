@@ -14,7 +14,7 @@
 \end{figure}
 %\HgraficarPNG{0.5}{sim_rta_escalon_gran.png}{Respuesta al escalón en gran señal.}{fig:rta_escalon_gran}
 
-	En las figuras \ref{fig:rta_escalon_peque} y \ref{fig:rta_escalon_gran} se muestra la respuesta al circuito ante ante una señal cuadrada de frecuencia \SI{1}{\kilo\hertz} y amplitud $1\hat{V}$ y $10m\hat{V}$ respectivamente. Se puede observar en ambos casos que el circuito se encuentra correctamente compensado debido a la ausencia de sobrepicos de tensión u oscilaciones (tal como se mostró en la elección del capacitor de compensación, figura \ref{fig:var_cap}). 
+	En las Figuras \ref{fig:rta_escalon_peque} y \ref{fig:rta_escalon_gran} se muestra la respuesta al circuito ante ante una señal cuadrada de frecuencia \SI{1}{\kilo\hertz} y amplitud $1\hat{V}$ y $10m\hat{V}$ respectivamente. Se puede observar en ambos casos que el circuito se encuentra correctamente compensado debido a la ausencia de sobrepicos de tensión u oscilaciones (tal como se mostró en la elección del capacitor de compensación, Figura \ref{fig:var_cap}). 
 	
 	Si bien el modelo de simulación involucra capacidades parásitas, en la práctica éstas pueden diferir, por lo que es posible que el valor del capacitor de compensación deba ser cambiado, buscando un equilibrio entre los valores de  slew rate y ancho de banda.
 	
@@ -51,7 +51,6 @@
 %	\label{fig:sim_rta_escalon_gran_sr}
 %\end{figure}
 	
-	\Juan{No estaba mal calcularlo así...?}
 	El parámetro \textit{Slew Rate} caracteriza el comportamiento de la salida del circuito ante cambios súbitos de tensión en la entrada, ya que la tensión de salida no puede responder de forma instantánea ante alteraciones en la entrada. Para hallar su valor se impone un escalón en la entrada de gran amplitud y se mide la pendiente casi constante resultante. A partir de la Figura \ref{fig:sim_rta_escalon_gran_sr} se obtiene \eqref{ec:sr}.
 
 	\begin{equation}

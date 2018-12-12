@@ -1,17 +1,14 @@
-
-\Juan{Completar}
 	\graficarEPS{0.6}{pd}{Comparador de entrada.}{fig:topologia_pd}
 
-	Se propone utilizar el circuito de la Figura \ref{fig:topologia_pd} como comparador de entrada. En un par diferencial, la transconductancia es máxima cuando las $I_C$ son iguales. Para linealizar la respuesta, es decir hacer constante $g_m$ para un mayor rango de entrada, se debe realimentar los emisores del par. Sin embargo con ésto disminuye la ganancia del bloque y empeora la figura del ruido. Para mantener la ganancia deseada pero con alta linealidad, se debe subir la corriente de polarización. Como ventaja del aumento de corriente es el aumento del \emph{slew rate} a costa de un aumento del ruido por la circulación de más corriente.\\
+	Se propone utilizar el circuito de la Figura \ref{fig:topologia_pd} como comparador de entrada. En un par diferencial, la transconductancia es máxima cuando las $I_C$ son iguales. Por lo tanto, un par diferencial simétrico mejora la ganancia del mismo. Es de vital importancia tener una buena ganancia porque el costo de lograr que sea más lineal es disminuir la ganancia. Entonces para mantener la ganancia deseada pero con alta linealidad, se debe subir la corriente de polarización. Como ventaja del aumento de corriente es el aumento del \emph{slew rate} a costa de un aumento del ruido por la circulación de más corriente.\\
+	\indent Para linealizar la respuesta, es decir hacer constante $g_m$ para un mayor rango de entrada, se debe realimentar los emisores del par. 	Sin embargo con ésto empeora la figura del ruido. El ruido es una función débil de $I_C$ pero está fuertemente relacionado con la impedancia de emisor.\\
 
-	El ruido es sin embargo una función débil de $I_C$. La impedancia de emisor es closely bound
+	Una solución propuesta para disminuir el ruido en la etapa entrante es reemplazar a los transistores por dos de ellos en paralelo. La naturaleza del ruido en los transistores es completamente aleatoria y se esparce a lo largo del espectro. Teniendo los dos transistores en paralelo, al aparecer un ruido aleatorio en uno de ellos, el otro absorve dicho ruido en contrafase y se cancela evitando la propagación del mismo al circuito. \\
+%
+%	Suponiendo que los transistores son fuentes de corriente controladas y el ruido se manifiesta como una fuente de corriente, dichos transistores podrán absorver el ruido en la malla que generan entre sí, evitando que se propague a las etapas siguientes.
+	\indent Otra decisión de diseño es utilizar la fuente de corriente analizada previamente y la carga espejo para lograr tener un par diferencial simétrico. 
 
-	El par diferencial está para compensar el ruido propio de los transistores. La idea es que la naturaleza del ruido es completamente aleatoria y se esparce a lo largo del espectro. Al tener los dos transistores en paralelo, al aparecer un ruido aleatorio en uno de ellos, el otro absorve dicho ruido en contrafase y se cancela. \\
-
-	Suponiendo que los transistores son fuentes de corriente controladas y el ruido se manifiesta como una fuente de corriente, dichos transistores podrán absorver el ruido en la malla que generan entre sí, evitando que se propague a las etapas siguientes.
-
-
-Por otra parte la ganancia de tensión del comparador es
+	En cuanto a la ganancia de tensión del comparador es
 
 \begin{equation}
 	\centering
@@ -19,7 +16,7 @@ Por otra parte la ganancia de tensión del comparador es
 	\label{ec.av_pd}
 \end{equation}
 
-Se propone una corriente de polarización para el par diferencial lo más pequeña posible con el fin de disminuir el ruido. Para contrarrestar la disminución de la ganancia se utilizó una reistencia de emisor $R_E=\SI{100}{\ohm}$.
+%Se propone una corriente de polarización para el par diferencial lo más pequeña posible con el fin de disminuir el ruido. Para contrarrestar la disminución de la ganancia se utilizó una reistencia de emisor $R_E=\SI{100}{\ohm}$.
 
 
 La ganancia de tensión total queda determinada por la ganancia de la VAS y el comparador de entrada \eqref{ec.av_vas} y \eqref{ec.av_pd} ya que la etapa de salida presenta una ganancia aproximadamente unitaria.
@@ -29,24 +26,3 @@ La ganancia de tensión total queda determinada por la ganancia de la VAS y el c
 	a = (-13) \cdot (-2400) = 31200
 	\label{ec.a}
 \end{equation}
-
-Para una tensión de entrada de $1V_{rms}$, se busca que la salida sea aproximadamente la máxima posible \SI{27}{\volt}, por lo que se propone una ganancia a lazo cerrado de 20, establecida por el bloque realimentador \textit{f}.
-
-\begin{equation}
-	\centering
-	f = \frac{RF1}{RF1 + RF2} = \frac{\SI{1.1}{\kilo\ohm}}{\SI{1.1}{\kilo\ohm} + \SI{22}{\kilo\ohm}} \approx 0,048
-\end{equation}
-
-\begin{equation}
-	\centering
-	af = 0,048 \cdot 31200 = 1485 \implies af >> 1 \implies A \approx \frac{1}{f} = 21
-\end{equation}
-
-	
-	
-
-
-
-
-
-

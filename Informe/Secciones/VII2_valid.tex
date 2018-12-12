@@ -1,7 +1,6 @@
 
 	\subsection{Circuito sin etapa de potencia}
 		A continuación se exponen las mediciones realizadas los días \texttt{4/12/2018} y \texttt{5/12/2018} donde se valida el funcionamiento de la primer y segunda etapa del circuito. Para realizar las mismas, se desconectan las conexiones del multiplicador de $V_{BE}$ con los transistores de salida; también se conecta la realimentación global a la salida del VAS dado que el mismo provee la misma tensión que la salida del circuito completo. Sin embargo para emular la conexión de la tercer etapa, se conecta una resistencia de valor comercial \SI{39}{\kilo\ohm} que es aproximadamente igual a la carga que presenta la reflexión de $R_L$ (con valor teórico de \SI{36}{\kilo\ohm}).\\
-		\Juan{Poner bancos de medición}
 		\indent Con dichas consideraciones se procede a realizar las mediciones.
 		\graficarEPS{0.6}{banco_med}{Diagrama del circuito para mediciones sin etapa de potencia.}{fig:banco_med}
 
@@ -38,10 +37,10 @@
 			R_{in}(@\SI{10}{\kHz})  = \frac{\SI{13.2}{\mV}}{\SI{94}{\mV} - \SI{13.2}{\mV}} \, \SI{100}{\kilo\ohm} = \boxed{\SI{16.3}{\kilo\ohm}}
 		\end{equation*}
 		\subsubsection{Ancho de banda de potencia}
-		\Juan{No tendría que ser $SR = \omega \cdot \hat{V} = \SI{96.5}{\kHz}$??}
 
 	\graficarEPS{1.0}{Mediciones/graf_BW_pot}{Respuesta en frecuencia para tensiones de entrada $V_{pp} = \SI{1.1}{\V}$.}{fig:pot_BW_med}
 		
+		A través de la Figura \ref{fig:pot_BW_med} se halla la frecuencia en la cual la respuesta en frecuencia disminuya \SI{3}{\dB}. La frecuencia de corte es por tanto:
 		\begin{equation*}
 			\boxed{f_H \approx \SI{130}{\kHz}}
 		\end{equation*}
@@ -61,7 +60,7 @@
 			\label{fig:analisis_escalon_ss}
 		\end{figure}
 
-		Se conecta un generador a la entrada con un escalón de \SI{1}{\kHz} según el banco de medición de la Figura \ref{fig:banco_bw}. La medición se expone en la Figura \ref{fig:escalon_ss} y el análisis del mismo se detalla en la Figura \ref{fig:analisis_escalon_ss} resultando en
+		Se conecta un generador a la entrada con un escalón de \SI{1}{\kHz}. La medición se expone en la Figura \ref{fig:escalon_ss} y el análisis del mismo se detalla en la Figura \ref{fig:analisis_escalon_ss} resultando en
 		\begin{equation*}
 			\boxed{BW = \SI{139}{\kHz}}
 		\end{equation*}

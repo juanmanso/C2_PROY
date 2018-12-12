@@ -3,33 +3,45 @@
 		\item  Temperatura de Juntura $T^{\max}_j = \SI{150}{\celsius} $
 		\item  Temperatura de Carcasa $T_c = \SI{25}{\celsius} $
 		\item  Temperatura de Ambiente $T_a = \SI{40}{\celsius} $
-		\item  $\theta_{cs} = \SI{2}{\celsius\per\W}$ 
-		\item  Disipación total del \texttt{2SC5198} a $T_{case} = \SI{25}{\celsius}$ se obtiene $\theta_{jc} =  \frac{T_j - T_c}{P_{C_{\max}}} =\SI{1.92}{\celsius\per\W}$ 
+		\item  $\theta_{cs} = \SI{2}{\celsius\per\W}$ al utilizar mica.
+%		\item  Disipación total del \texttt{2SC5198} a $T_{case} = \SI{25}{\celsius}$ se obtiene $\theta_{jc} =  \frac{T_j - T_c}{P_{C_{\max}}} =\SI{1.92}{\celsius\per\W}$ 
 	\end{itemize}
 
-		Para no llevar al máximo a la juntura se toma $T_j \leq \SI{120}{\celsius}$, es decir el 70\% del valor máximo. Por otro lado cabe aclarar que la potencia máxima ($P_{C_{\max}}$) que puede soportar el transistor.
-		
-	Dado estos valores se puede hallar:
+		Para no llevar al máximo a la juntura se toma $T_j \leq \SI{120}{\celsius}$, es decir el 70\% del valor máximo. Por otro lado cabe aclarar que la potencia máxima ($P_{C_{\max}}$) que puede soportar el transistor.\\
+		\indent Para obtener $\theta_{ja}$ de la hoja de datos se analiza el gráfico provisto por la misma y utilizando la potencia máxima según la \emph{datasheet} (\SI{100}{\W}) se obtiene
+			\begin{equation*}
+				\theta_{jc} = \frac{\SI{150}{\celsius} - \SI{25}{\celsius}}{\SI{100}{\W}} = \SI{1.25}{\W}
+			\end{equation*}
+		\indent Con todos los datos de la hoja de datos, se procede a calcular $\theta_{sa}$
 
-	\begin{equation}
+	\begin{equation*}
 		P_{C_{\max}} = \frac{V^2_{CC}}{\pi^2 R_L} = \SI{11.4}{\W}
-	\end{equation}
+	\end{equation*}
 
-	\begin{equation}
-		\theta_{ja} =  \frac{T_j - T_a}{P_{C_{\max}}} =\SI{7.02}{\celsius\per\W}
-	\end{equation}
+	\begin{equation*}
+		\Rightarrow \theta_{ja} =  \frac{T_j - T_a}{P_{C_{\max}}} = \frac{\SI{120}{\celsius} - \SI{40}{\celsius}}{\SI{11.4}{\W}}=\SI{7.02}{\celsius\per\W}
+	\end{equation*}
 	
 
-	\begin{equation}
+	\begin{equation*}
 		\theta_{ja} = \theta_{jc} + \theta_{cs} + \theta_{sa}
-	\end{equation}
+	\end{equation*}
 
 	Despejando:
 
-	\begin{equation}
-		\theta_{sa} = \theta_{ja} - \theta_{jc} - \theta_{cs} = \boxed{\SI{6.72}{\celsius\per\W}}
-	\end{equation}
+	\begin{equation*}
+		\theta_{sa} = \theta_{ja} - \theta_{jc} - \theta_{cs} = \boxed{\SI{3.77}{\celsius\per\W}}
+	\end{equation*}
 
-	Buscando disipadores en \url{www.disipadores.com} se halló que el \texttt{Z36} es el más cercano a las especificaciones requeridas (con $\theta$ alrededor de \SI{8.5}{\celsius\per\W}). Otra alternativa es el disipador con aletas \texttt{Z66} que es más largo y tiene $\theta = \SI{7.5}{\celsius\per\W}$.
+%	Buscando disipadores en \url{www.disipadores.com} se halló que el más cercano a las especificaciones requeridas tiene $\theta$ alrededor de \SI{3.3}{\celsius\per\W}. Sin embargo al conectarse más de un transistor y suponiendo que $\Delta T_{ja}$ es igual para cada uno de ellos:
+	Sin embargo al conectarse más de un transistor y suponiendo que $\Delta T_{ja}$ es igual para cada uno de ellos:
+	\begin{equation*}
+		\theta_{sa} (\textit{n elementos}) = \frac{\theta_{sa} (\textit{1 elemento})}{n}
+	\end{equation*}
+
+	Por lo tanto
+	\begin{equation*}
+		\boxed{\theta_{sa} (\textit{total}) = \SI{1.65}{\W}}
+	\end{equation*}
 
 
