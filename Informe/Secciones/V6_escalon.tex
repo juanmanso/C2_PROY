@@ -1,25 +1,24 @@
+	Con el objetivo de hallar los parámetros característicos del cirucito \textit{slew rate} y ancho de banda, se simula la respuesta al escalón para dos casos, pequeña y gran señal.
+
 \subsection{Respuesta la escalón para pequeña señal}
 
 \HgraficarPNG{0.5}{sim_rta_escalon_peque.png}{Respuesta al escalón en pequeña señal.}{fig:rta_escalon_peque}
 
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[scale=0.4]{sim_rta_escalon_senial_peque.pdf}
-%	\caption{Respuesta al escalón en pequeña señal.}
-%	\label{fig:rta_escalon_peque}
-%\end{figure}
-
 \subsection{Respuesta al escalón para gran señal}
 
-\HgraficarPNG{0.5}{sim_rta_escalon_gran.png}{Respuesta al escalón en gran señal.}{fig:rta_escalon_gran}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{sim_rta_escalon_gran.png}
+	\caption{Respuesta al escalón en gran señal}
+	\label{fig:rta_escalon_gran}
+\end{figure}
+%\HgraficarPNG{0.5}{sim_rta_escalon_gran.png}{Respuesta al escalón en gran señal.}{fig:rta_escalon_gran}
 
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[scale=0.4]{sim_rta_escalon_gran_senial.pdf}
-	%\caption{Respuesta al escalón en gran señal.}
-	%\label{fig:rta_escalon_gran}
-%\end{figure}
-
+	En las figuras \ref{fig:rta_escalon_peque} y \ref{fig:rta_escalon_gran} se muestra la respuesta al circuito ante ante una señal cuadrada de frecuencia \SI{1}{\kilo\hertz} y amplitud $1\hat{V}$ y $10m\hat{V}$ respectivamente. Se puede observar en ambos casos que el circuito se encuentra correctamente compensado debido a la ausencia de sobrepicos de tensión u oscilaciones (tal como se mostró en la elección del capacitor de compensación, figura \ref{fig:var_cap}). 
+	
+	Si bien el modelo de simulación involucra capacidades parásitas, en la práctica éstas pueden diferir, por lo que es posible que el valor del capacitor de compensación deba ser cambiado, buscando un equilibrio entre los valores de  slew rate y ancho de banda.
+	
+	A continuación se calculan los valores de \textit{slew rate} y ancho de banda en base a lo simulado.
 \subsection{Ancho de banda}
 
 	Este parámetro se obtiene a partir de la simulación de la respuesta al escalón del circuito en pequeña señal (\SI{10}{\milli\volt}).
