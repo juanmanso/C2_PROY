@@ -2,11 +2,11 @@
 	Suponinedo una ganancia baja en la primer etapa del circuito implementada como un par diferencial, las capacidades reflejadas por \emph{Miller} son menores implicando constantes de tiempo menores. Asi, ante la gran ganancia de tensión que debe tener la etapa de VAS será la misma que imponga la frecuencia de corte superior de la zona de frecuencias medias.\\
 	\indent Se plantea que el VAS consista en un colector-común seguido de un emisor-común degenerado localmente realimentado todo el VAS por el capacitor $C_{10}$ como se ve en la Figura \ref{fig:topologia_vas}. La ventaja de esta topología es el aumento del beta, implicando un aumento en la ganancia de la etapa. A su vez, una alta ganancia permite una mayor linealización de dicha etapa. Otra ventaja es que al utilizar el colector-común, el emisor-común no extrae mucha corriente del par diferencial ($\beta$-veces menor) desbalanceandolo. Finalmente, la realimentación con $C_{10}$ aumenta la linealidad del VAS como fue dicho previamente pero también mitiga el efecto de las capacidades $C_{\pi}$ de los transistores. Dicho capacitor es el que define el polo dominante y al variar dicho valor, varía la compensación del circuito.\\
 
-	Con la topología definida y a partir del diseño de la etapa de salida, se tiene el requerimiento de una corriente de al menos \SI{5}{\milli\ampere} para la polarización de la etapa amplificadora de tensión (VAS). Proponiendo una realimentación local con $R_E = \SI{10}{\ohm}$ se obtiene la ganancia de tensión es la dada por la Ecuación \eqref{ec.av_vas}, siendo $R_{ca}$ la resistencia equivalente de la etapa de salida que puede aproximarse $\beta \cdot \beta \cdot R_L = 75 \cdot 60 \cdot \SI{8}{\ohm} = \SI{36}{\kilo\ohm}$ y tomando como ganancia del colector-común la unidad
+	Con la topología definida y a partir del diseño de la etapa de salida, se tiene el requerimiento de una corriente de al menos \SI{5}{\milli\ampere} para la polarización de la etapa amplificadora de tensión (VAS). Proponiendo una realimentación local con $R_23 = \SI{10}{\ohm}$ se obtiene la ganancia de tensión es la dada por la Ecuación \eqref{ec.av_vas}, siendo $R_{ca}$ la resistencia equivalente de la etapa de salida que puede aproximarse $\beta \cdot \beta \cdot R_L = 75 \cdot 60 \cdot \SI{8}{\ohm} = \SI{36}{\kilo\ohm}$ y tomando como ganancia del colector-común la unidad
 
 \begin{equation}
 	\centering
-	A_{v,vas} = \frac{-g_m \cdot R_{ca}}{1+g_m \cdot R_E} = -2400
+	A_{v,vas} = \frac{-g_m \cdot R_{ca}}{1+g_m \cdot R_23} = -2400
 	\label{ec.av_vas}
 \end{equation}
 	
