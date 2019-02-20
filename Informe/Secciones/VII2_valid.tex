@@ -97,6 +97,7 @@
 
 
 		\subsubsection{Distorsión armónica}
+		
 			Se realizó un análsis de \emph{FFT} del circuito ingresando con una señal de \SI{1}{\kHz}, pero no se pueden sacar conclusiones de la medición de la Figura \ref{fig:fft_med} porque el piso de ruido es muy alto y no se puede ver el efecto de los harmónicos. Para ello habría que utilizar un \emph{software} que permita ingresar señales particulares y ver el comportamiento en frecuencia del circuito ante esos estímulos.
 
 		\graficarPNG{0.1}{./Mediciones/FFT}{Análisis del circuito por Fourier.}{fig:fft_med}
@@ -106,6 +107,10 @@
 		Se introdujo una señal de amplitud tal que la salida no recorte. Dicha señal corresponde a una de amplitud pico a pico \SI{1.1}{\V}. A la salida se obtiene $V_{pp} = \SI{32.4}{\V}$.
 
 		\HgraficarPNG{0.1}{./Mediciones/Maxima_excursion}{Medición de máxima excursión de salida sin recorte.}{fig:excursion_med}
+
+		\subsection{Circuito completo}
+		\graficarEPS{0.6}{banco_med_full}{Diagrama del circuito para mediciones con etapa de potencia.}{fig:banco_med_full}
+		A continuación se presentan las mediciones realizadas durante la semana del \texttt{18/02/2019}. Se realizó el conexionado del circuito de modo tal que se tiene el circuito completo como se muestra en la Figura \ref{fig:banco_med_full}. 
 
 		\section{Cambios durante las mediciones}
 			Cortocircuitamos el inductor y la carga en su lugar posta.

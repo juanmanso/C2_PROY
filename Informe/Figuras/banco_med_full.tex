@@ -1,0 +1,24 @@
+% XCircuit output "banco_med_full.tex" for LaTeX input from banco_med_full.eps
+\def\putbox#1#2#3#4{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{\scalebox{#3}{#4}}}}}
+\def\rightbox#1{\makebox[0in][r]{#1}}
+\def\centbox#1{\makebox[0in]{#1}}
+\def\topbox#1{\raisebox{-0.60\baselineskip}[0in][0in]{#1}}
+\def\midbox#1{\raisebox{-0.20\baselineskip}[0in][0in]{#1}}
+   \scalebox{1}{
+   \normalsize
+   \parbox{8.35938in}{
+   \includegraphics[scale=1]{banco_med_full}\\
+   % translate x=924 y=684 scale 0.38
+   \putbox{3.87in}{2.62in}{1.20}{\centbox{\midbox{\textsc{VAS}}}}%
+   \putbox{6.45in}{2.79in}{1.20}{\centbox{\midbox{\textsc{Etapa}}}}%
+   \putbox{6.45in}{2.54in}{1.20}{\centbox{\midbox{\textsc{de salida}}}}%
+   \putbox{1.62in}{2.79in}{1.20}{\centbox{\midbox{\textsc{Comparador}}}}%
+   \putbox{1.62in}{2.54in}{1.20}{\centbox{\midbox{\textsc{de entrada}}}}%
+   \putbox{3.87in}{1.54in}{1.20}{\centbox{\midbox{\textsc{Realimentador}}}}%
+   \putbox{5.37in}{0.70in}{1.20}{\midbox{$R_{\textit{carga del VAS}}$}}%
+   \putbox{7.79in}{0.87in}{1.20}{\midbox{$R_L$}}%
+   \putbox{0.95in}{2.87in}{1.20}{\rightbox{\textbf{+}}}%
+   \putbox{1.70in}{2.20in}{1.20}{\topbox{\textbf{-}}}%
+   } % close 'parbox'
+   } % close 'scalebox'
+   \vspace{-\baselineskip} % this is not necessary, but looks better

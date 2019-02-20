@@ -1,7 +1,8 @@
 	La etapa de salida clase G se caracteriza principalmente por el manejo eficiente de potencia debido a que conmuta la tensión de alimentación entre dos niveles según lo requiera la señal de entrada.
 
-	En la Figura \ref{fig.salida} se muestra un esquema básico de la topología, denominada clase G alternativa.  Los transistores $Q_63$ y $Q_64$ conforman la etapa interior que opera en clase B, siendo $Q_14$ y $Q_15$ los \textit{drivers} y sus resistencias de emisor compartidas. 
+	En la Figura \ref{fig.salida} se muestra un esquema básico de la topología, denominada clase G alternativa.  Los transistores $Q_{63}$ y $Q_{64}$ conforman la etapa interior que opera en clase B, siendo $Q_{14}$ y $Q_{15}$ los \textit{drivers} y sus resistencias de emisor compartidas. 
 
+	\Juan{Hay que modificar para que coincida con lo de Nico}
 	\begin{figure}[H]
 		\centering
 		\scalebox{0.5}{\input{salida}}
@@ -9,24 +10,26 @@
 		\label{fig.salida}
 	\end{figure}
 
-	Los comparadores se encuentran conectados a la señal de entrada y a una tensión umbral $V_{th}$ de referencia. Cuando la señal de entrada excede la tensión $+V_{th}$, el comparador (superior) hace que los transistores $Q_16$ y $Q_62$ se polaricen en saturación. Es decir que actúan como una llave que activa la alimentación $V_{cc_H}$. A su vez el diodo $D_1$ quedará polarizado en inversa ya que la tensión en el cátodo es $+V_{cc_H}$, mayor que la tensión de ánodo $V_{cc_L}$. Por lo tanto, el circuito queda alimentado solo mediante $+V_{cc_H}$ y la potencia es manejada por dos transistores $Q_62$ y $Q_63$.
+	Los comparadores se encuentran conectados a la señal de entrada y a una tensión umbral $V_{th}$ de referencia. Cuando la señal de entrada excede la tensión $+V_{th}$, el comparador (superior) hace que los transistores $Q_{16}$ y $Q_{62}$ se polaricen en saturación. Es decir que actúan como una llave que activa la alimentación $V_{cc_H}$. A su vez el diodo $D_1$ quedará polarizado en inversa ya que la tensión en el cátodo es $+V_{cc_H}$, mayor que la tensión de ánodo $V_{cc_L}$. Por lo tanto, el circuito queda alimentado solo mediante $+V_{cc_H}$ y la potencia es manejada por dos transistores $Q_{62}$ y $Q_{63}$.
 
-	De forma análoga funcionan el comparador inferior, $Q_17$, $Q_65$ y $D_2$ para el semiciclo negativo de la señal de entrada. La salida se ilustra en la Figura \ref{fig.teo_salida}.
+	De forma análoga funcionan el comparador inferior, $Q_{17}$, $Q_{65}$ y $D_2$ para el semiciclo negativo de la señal de entrada. La salida se ilustra en la Figura \ref{fig.teo_salida}.
 
 
 	\HgraficarEPS{0.5}{salidaB}{Forma de la señal de salida, y tensiones umbrales}{fig.teo_salida}
+	\Juan{Hay que modificar para que coincida con lo de Nico}
 	\begin{figure}[H]
 		\centering
 		\scalebox{0.5}{\input{salida_2}}
 		\caption{Topología final de la etapa de salida.}
 		\label{fig.salida_2}
 	\end{figure}
-	Sin embargo, la topología propuesta en la Figura \ref{fig.salida} presenta un inconveniente. Cuando $Q_62$ entra en conducción, se produce una alteración repentina en la tensión $V_{CE}$ del transistor de potencia de salida $Q_1$, que por efecto Early también modifica la corriente de colector. Esta alteración afecta la ganancia, produciendo picos de tensión en la señal de salida. Esta alinealidad se elimina al conectar los transistores internos $Q_14$ y $Q_15$ a la tensión $+V_{cc_H}$ y $-V_{cc_H}$ respectivamente, según indica la Figura \ref{fig.salida_2}.
+	Sin embargo, la topología propuesta en la Figura \ref{fig.salida} presenta un inconveniente. Cuando $Q_{62}$ entra en conducción, se produce una alteración repentina en la tensión $V_{CE}$ del transistor de potencia de salida $Q_1$, que por efecto Early también modifica la corriente de colector. Esta alteración afecta la ganancia, produciendo picos de tensión en la señal de salida. Esta alinealidad se elimina al conectar los transistores internos $Q_{14}$ y $Q_{15}$ a la tensión $+V_{cc_H}$ y $-V_{cc_H}$ respectivamente, según indica la Figura \ref{fig.salida_2}.
 
 \subsection{Multiplicador de $V_{BE}$}
 
-	Las tensiones $V_{bias1}$ y $V_{bias2}$ permiten \textit{prepolarizar} a los transistores $Q_63$ y $Q_64$ con el fin de atenuar la distorsión de cruce por cero característica del clase B. Se deben ajustar de forma tal que la corriente de la malla de salida sea aproximadamente igual en el colector de ambos transistores ($Q_63$ y $Q_64$). Asimismo se debe considerar que si $I_{CQ}$ es muy elevada se desperdicia potencia, y si es muy pequeña se obtendrá una distorsión de cruce por cero apreciable. Ambas tensiones se implementaron con un multiplicador de $V_{BE}$ cuyo circuito se presenta en la Figura \ref{fig.multiplicador}.
+Las tensiones $V_{bias1}$ y $V_{bias2}$ permiten \textit{prepolarizar} a los transistores $Q_{63}$ y $Q_{64}$ con el fin de atenuar la distorsión de cruce por cero característica del clase B. Se deben ajustar de forma tal que la corriente de la malla de salida sea aproximadamente igual en el colector de ambos transistores ($Q_{63}$ y $Q_{64}$). Asimismo se debe considerar que si $I_{CQ}$ es muy elevada se desperdicia potencia, y si es muy pequeña se obtendrá una distorsión de cruce por cero apreciable. Ambas tensiones se implementaron con un multiplicador de $V_{BE}$ cuyo circuito se presenta en la Figura \ref{fig.multiplicador}.
 
+	\Juan{Idem}
 	\begin{figure}[H]
 		\centering
 		\scalebox{0.5}{\input{multiplicador}}
@@ -111,13 +114,13 @@
 	\begin{align}
 		\centering
 		\Delta V_{Re} &= \SI{0.33}{\ohm} \cdot \SI{5}{\ampere} = \SI{1.65}{\volt} \\
-		\SI{0.6}{\volt} &= \frac{R_60}{ R_60 + R_59 } \cdot \SI{1.65}{\volt} \implies \boxed{R_59 = \num{1,8} \: R_60}
+		\SI{0.6}{\volt} &= \frac{R_{60}}{ R_{60} + R_{59} } \cdot \SI{1.65}{\volt} \implies \boxed{R_{59} = \num{1,8} \: R_{60}}
 	\end{align}
 
 		
 
 \subsection{Fuente de corriente}
-	De la sección anterior se sabe que $I_{O_{\max}}=\SI{3.5}{\A}$. Al tratarse de transistores de potencia, el factor $\beta$ se encuentra entre 30 y 50, por lo que la corriente de base en $Q_63$ sería $I_{B,Q63} \approx \SI{100}{\milli\ampere}$. Dicha corriente es entregada por $Q_14$, siendo la corriente de base $I_{B,Q14} \approx \SI{2}{\milli\ampere}$. A su vez la fuente polariza la etapa amplificadora de tensión (VAS), por lo que se considerará al menos un cuarto más de dicha corriente. Se propone $I_{pol} = \SI{5}{\milli\ampere}$.
+	De la sección anterior se sabe que $I_{O_{\max}}=\SI{3.5}{\A}$. Al tratarse de transistores de potencia, el factor $\beta$ se encuentra entre 30 y 50, por lo que la corriente de base en $Q_{63}$ sería $I_{B,Q63} \approx \SI{100}{\milli\ampere}$. Dicha corriente es entregada por $Q_{14}$, siendo la corriente de base $I_{B,Q14} \approx \SI{2}{\milli\ampere}$. A su vez la fuente polariza la etapa amplificadora de tensión (VAS), por lo que se considerará al menos un cuarto más de dicha corriente. Se propone $I_{pol} = \SI{5}{\milli\ampere}$.
 
 	\begin{figure}[H]
 		\centering
@@ -151,12 +154,12 @@ La corriente de polarización queda determinada por la resistencia $R_6$ de la E
 
 \begin{equation}
 	\centering
-	V_{th}' = V_{th} \cdot \frac{R_63}{R_63 + R_64} \implies \SI{1.5}{\volt} = \SI{12}{\volt} \cdot \frac{R_63}{R_63 + R_64} \implies \boxed{R_64 = 7 \cdot R_63}
+	V_{th}' = V_{th} \cdot \frac{R_{63}}{R_{63} + R_{64}} \implies \SI{1.5}{\volt} = \SI{12}{\volt} \cdot \frac{R_{63}}{R_{63} + R_{64}} \implies \boxed{R_{64} = 7 \cdot R_{63}}
 \end{equation}
 
 \begin{equation}
 	\centering
-	V_o' = V_o \cdot \frac{R_62}{R_62 + R_61} \implies \SI{2}{\volt} = \SI{12}{\volt} \cdot \frac{R_62}{R_62 + R_61} \implies \boxed{R_61 = 5 \cdot R_62}
+	V_o' = V_o \cdot \frac{R_{62}}{R_{62} + R_{61}} \implies \SI{2}{\volt} = \SI{12}{\volt} \cdot \frac{R_{62}}{R_{62} + R_{61}} \implies \boxed{R_{61} = 5 \cdot R_{62}}
 	\end{equation}
 
 	El valor de la resistencia de emisor $R_{51}$ se elige en función de la máxima tensión posible en $V_o$ y la corriente que circularía en reposo. Con $R_{51} = \SI{500}{\ohm}$ se obtiene:
