@@ -26,6 +26,13 @@
 			
 		\begin{figure}[ H]
 			\centering
+			\includegraphics[scale=0.6]{./Figuras/bco_zo.eps}
+			\caption{Banco de medición de impedancia de entrada.}
+			\label{fig:rin_bco_med}
+		\end{figure}
+			
+		\begin{figure}[ H]
+			\centering
 			\includegraphics[width=0.8\textwidth]{./Mediciones/Rin_1k.jpg}
 			\caption{Medición de las tensiones de generador de prueba y el nodo de entrada.}
 			\label{fig:rin_med}
@@ -38,7 +45,7 @@
 			\label{fig:analisis_rin_med}
 		\end{figure}
 
-		Para la medición de resistencia de entrada, se inyecta una señal conocida al circuito con resistencia serie lo más similar posible a la resistencia de entrada propia del amplificador. La tensión medida está relacionada con el divisor resistivo generado entre $R_{p}$ y $R_{in}$ de forma tal que se puede hallar indirectamente dicha resistencia. La medición se expone en la Figura \ref{fig:rin_med} y en la Figura \ref{fig:analisis_rin_med} se realiza la explicación y cálculo de dicha resistencia resultando $\boxed{R_{in}=\SI{84}{\kilo\ohm}}$.\\
+		Para la medición de resistencia de entrada, se inyecta una señal conocida al circuito con resistencia serie ($R_{prueba}$) lo más similar posible a la resistencia de entrada propia del amplificador, según se indica en el La tensión medida está relacionada con el divisor resistivo generado entre $R_{p}$ y $R_{in}$ de forma tal que se puede hallar indirectamente dicha resistencia. La medición se expone en la Figura \ref{fig:rin_med} y en la Figura \ref{fig:analisis_rin_med} se realiza la explicación y cálculo de dicha resistencia resultando $\boxed{R_{in}=\SI{84}{\kilo\ohm}}$.\\
 
 		Del mismo modo se realizó la medición de $R_{in}$ para frecuencia de \SI{10}{\kHz} resultando en:
 		\begin{equation*}
@@ -106,6 +113,13 @@
 			
 		Se introdujo una señal de amplitud tal que la salida no recorte. Dicha señal corresponde a una de amplitud pico a pico \SI{1.1}{\V}. A la salida se obtiene $V_{pp} = \SI{32.4}{\V}$.
 
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.6]{./Figuras/bco_ganancia.eps}
+			\caption{Banco de medición de la ganancia.}
+			\label{fig:bco_ganancia}
+		\end{figure}
+
 		\HgraficarPNG{0.1}{./Mediciones/Maxima_excursion}{Medición de máxima excursión de salida sin recorte.}{fig:excursion_med}
 
 		\subsection{Circuito completo}
@@ -122,7 +136,14 @@
 
 		\subsubsection{Máxima excursión}
 		Se introdujo una señal de amplitud (máxima) tal que la salida no recorte. Dicha señal corresponde a una
-		de amplitud pico a pico 2.14 $V_{pp}$. A la salida se obtiene $V_{pp}$ = 50 V.
+		de amplitud pico a pico 2.14 $V_{pp}$. A la salida se obtiene $V_{pp}$ = 50 V. El banco de medición se muestra en la Figura \ref{bco:ganancia}.
+
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.5]{Figuras/bco_ganancia.eps}
+			\caption{Medición de máxima excursión de salida antes del recorte.}
+			\label{fig:bco_ganancia}
+		\end{figure}
 
 		\begin{figure}[h!]
 			\centering
