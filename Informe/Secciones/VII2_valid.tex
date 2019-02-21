@@ -112,13 +112,13 @@
 		\graficarEPS{0.6}{banco_med_full}{Diagrama del circuito para mediciones con etapa de potencia.}{fig:banco_med_full}
 		A continuación se presentan las mediciones realizadas durante la semana del \texttt{18/02/2019}. Se realizó el conexionado del circuito de modo tal que se tiene el circuito completo como se muestra en la Figura \ref{fig:banco_med_full}. 
 
-		\section{Cambios durante las mediciones}
-			Cortocircuitamos el inductor y la carga en su lugar posta.
+		%\section{Cambios durante las mediciones}
+			%Cortocircuitamos el inductor y la carga en su lugar posta.
 
-			Medicion slew rate: entramos con \SI{200}{\mV} y \SI{250}{\mV} y frecuencai \SI{1}{\kHz}.
+			%Medicion slew rate: entramos con \SI{200}{\mV} y \SI{250}{\mV} y frecuencai \SI{1}{\kHz}.
 
 		\subsubsection{Polarización}
-			Con el fin de obtener un valor bajo de THD, se ajustó el potenciómetro del multiplicador de $V_{BE}$, obtenéndose los siguientes valores
+			Con el fin de obtener un valor bajo de THD, se ajustó el potenciómetro del multiplicador de $V_{BE}$, obtenéndose los valores de la tabla \ref{tab.valores}.
 
 		\subsubsection{Máxima excursión}
 		Se introdujo una señal de amplitud (máxima) tal que la salida no recorte. Dicha señal corresponde a una
@@ -145,8 +145,9 @@
 		28.39      & 28.18       & 12.25    & 1.363    & -26.86   & 1.311    & -1.27    & 27.1      & 10.2      & 27.75    & 9.2       \\ \hline
 		29.21      & 29.13       & 12.29    & 1.363    & -27.82   & 1.311    & -1.275   & 26.2      & 10.4      & 28.58    & 9.3       \\ \hline
 		\end{tabular}
+		\label{tab.valores}
 		\end{table}
-		\Gus{hay que calcular las corrientes y sus variaciones y poner los puntos A B C .... en xcircuit que estaban marcados}
+		%\Gus{hay que calcular las corrientes y sus variaciones y poner los puntos A B C .... en xcircuit que estaban marcados}
 		\subsubsection{Distorsión total armónica}
 
 		El banco de medición para la distorsión total armónica se muestra en la figura \ref{fig:thd_bco}. Los valores se obtuvieron mediante el software \textit{SpectraPlus}. Se utilizó la placa de audio de la PC para generar la señal, ya que un generador de laboratorio presenta un valor elevado de \texttt{THD}. Asimismo es necesario utilizar un atenuador resistivo debido a que la PC no admite como entrada un valor mayor a 1Vrms. 
@@ -185,7 +186,8 @@
 
 		De manera análoga a la simulación, se calculó la IMD mediante el \textit{software SpectraPlus} con el mismo banco de medición que la Figura \ref{fig:thd_bco}. Las mediciones se realizaron a \SI{5}{\kilo\hertz} para las potencias \SI{0.1}{\watt}, \SI{1}{\watt}, \SI{10}{\watt}
 
-			\begin{table}
+			\begin{table}[H]
+				\centering
 				\begin{tabular}{cc}
 				\toprule
 				Potencia [W] & IMD [\%]\\
@@ -197,26 +199,34 @@
 				\bottomrule
 				\end{tabular}
 			\end{table}
-			\Flor{Valores para 100 y 5kHz como la simulación. Tambien está 60 7k hecha}
+			%\Flor{Valores para 100 y 5kHz como la simulación. Tambien está 60 7k hecha}
 
 
 
 		\subsubsection{Slew-Rate y Ancho de banda de Potencia}
 		Se mide a maxima potencia a $1Khz$ y se calcula la pendiente a la salida que se genera por la respuesta al escalón.
-		\Gus{Fotoo , mañana}
+		%\Gus{Fotoo , mañana}
 
 		\begin{equation*}
 			SR  = \frac{\varDelta v}{\varDelta t} = 7.4 \frac{V}{us}
 		\end{equation*}
 
-		\subsubsection{Eficiencia}
+		%\subsubsection{Eficiencia}
+
+		\subsection{Respuesta en frecuencia}
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{./Figuras/bw_total.pdf}
+			\caption{Respuesta en frecuencia a 1W.}
+		\end{figure}
 
 		\subsubsection{Relación Señal a Ruido}
 		Para realizar la medición de la SNR se utilizó el programa Spectra Plus en el cual se midio con ruido blanco para geerar el piso que presenta la placa de sonido y luego se generó una señal a $1KHz$ y $1W$ midiendo la salida con el banco de medición de la Figura \ref{fig:thd_bco} .
 
 
 
-			\begin{figure}
+			\begin{figure}[H]
 				\centering
 				\includegraphics[scale=0.6]{./Figuras/ruido_balnco.jpg}
 			\caption{Piso de ruido.}
