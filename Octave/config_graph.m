@@ -8,6 +8,7 @@ format long;
 
 % Agrego las funcinoes definidas en la carpeta "funciones"
 addpath("./Funciones")
+addpath("./Mediciones")
 
 
 
