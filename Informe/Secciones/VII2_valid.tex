@@ -40,10 +40,26 @@
 
 		\begin{figure}[ H]
 			\centering
-			\includegraphics[width=1.0\textwidth]{./Mediciones/Rin_1k_calculo.png}
-			\caption{Análisis detallado de la medición de $R_{in}$.}
-			\label{fig:analisis_rin_med}
+			\includegraphics[width=1.0\textwidth]{./Mediciones/Rin.png}
+			\caption{Circuito equivalente para la medición de $R_{in}$.}
+			\label{fig:Rin_cequiv}
 		\end{figure}
+
+		\begin{equation*}
+			\hat{{v}_{Rp}}  = \hat{{v}_{i}} \cdot {\frac{R_i}{{R_i}+{R_p}}}
+		\end{equation*}
+
+		\begin{equation*}
+			\Rightarrow \hat{{v}_{Rp}} \cdot (R_i+R_p)  = \hat{{v}_{i}} \cdot {R_i} 
+		\end{equation*}
+
+		\begin{equation*}
+			\Rightarrow \hat{{v}_{Rp}} \cdot R_i+\hat{{v}_{Rp}} \cdot R_p  = \hat{{v}_{i}} \cdot {R_i} 
+		\end{equation*}
+
+		\begin{equation*}
+			\Rightarrow R_i = \frac{\hat{{v}_{Rp}}}{\hat{{v}_{i}}-\hat{{v}_{Rp}}} \cdot R_p  = \frac{\SI{42}{\mV}}{\SI{92}{\mV} - \SI{42}{\mV}} \cdot \SI{42}{\kilo\ohm}  = \boxed{\SI{84}{\kilo\ohm}}
+		\end{equation*}
 
 		Para la medición de resistencia de entrada, se inyecta una señal conocida al circuito con resistencia serie ($R_{prueba}$) lo más similar posible a la resistencia de entrada propia del amplificador, según se indica en el La tensión medida está relacionada con el divisor resistivo generado entre $R_{p}$ y $R_{in}$ de forma tal que se puede hallar indirectamente dicha resistencia. La medición se expone en la Figura \ref{fig:rin_med} y en la Figura \ref{fig:analisis_rin_med} se realiza la explicación y cálculo de dicha resistencia resultando $\boxed{R_{in}=\SI{84}{\kilo\ohm}}$.\\
 

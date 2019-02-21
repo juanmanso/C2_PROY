@@ -2,7 +2,6 @@
 
 	En la Figura \ref{fig.salida} se muestra un esquema básico de la topología, denominada clase G alternativa.  Los transistores $Q_{63}$ y $Q_{64}$ conforman la etapa interior que opera en clase B, siendo $Q_{14}$ y $Q_{15}$ los \textit{drivers} y sus resistencias de emisor compartidas. 
 
-	%\Juan{Hay que modificar para que coincida con lo de Nico}
 	\begin{figure}[H]
 		\centering
 		\scalebox{0.5}{\input{salida}}
@@ -16,20 +15,18 @@
 
 
 	\HgraficarEPS{0.5}{salidaB}{Forma de la señal de salida, y tensiones umbrales}{fig.teo_salida}
-	%\Juan{Hay que modificar para que coincida con lo de Nico}
 	\begin{figure}[H]
 		\centering
 		\scalebox{0.5}{\input{salida_2}}
 		\caption{Topología final de la etapa de salida.}
 		\label{fig.salida_2}
 	\end{figure}
-	Sin embargo, la topología propuesta en la Figura \ref{fig.salida} presenta un inconveniente. Cuando $Q_{62}$ entra en conducción, se produce una alteración repentina en la tensión $V_{CE}$ del transistor de potencia de salida $Q_1$, que por efecto Early también modifica la corriente de colector. Esta alteración afecta la ganancia, produciendo picos de tensión en la señal de salida. Esta alinealidad se elimina al conectar los transistores internos $Q_{14}$ y $Q_{15}$ a la tensión $+V_{cc_H}$ y $-V_{cc_H}$ respectivamente, según indica la Figura \ref{fig.salida_2}.
+	Sin embargo, la topología propuesta en la Figura \ref{fig.salida} presenta un inconveniente. Cuando $Q_{62}$ entra en conducción, se produce una alteración repentina en la tensión $V_{CE}$ del transistor de potencia de salida $Q_63$, que por efecto Early también modifica la corriente de colector. Esta alteración afecta la ganancia, produciendo picos de tensión en la señal de salida. Esta alinealidad se elimina al conectar los transistores internos $Q_{14}$ y $Q_{15}$ a la tensión $+V_{cc_H}$ y $-V_{cc_H}$ respectivamente, según indica la Figura \ref{fig.salida_2}.
 
 \subsection{Multiplicador de $V_{BE}$}
 
 Las tensiones $V_{bias1}$ y $V_{bias2}$ permiten \textit{prepolarizar} a los transistores $Q_{63}$ y $Q_{64}$ con el fin de atenuar la distorsión de cruce por cero característica del clase B. Se deben ajustar de forma tal que la corriente de la malla de salida sea aproximadamente igual en el colector de ambos transistores ($Q_{63}$ y $Q_{64}$). Asimismo se debe considerar que si $I_{CQ}$ es muy elevada se desperdicia potencia, y si es muy pequeña se obtendrá una distorsión de cruce por cero apreciable. Ambas tensiones se implementaron con un multiplicador de $V_{BE}$ cuyo circuito se presenta en la Figura \ref{fig.multiplicador}.
 
-	%\Juan{Idem}
 	\begin{figure}[H]
 		\centering
 		\scalebox{0.5}{\input{multiplicador}}
