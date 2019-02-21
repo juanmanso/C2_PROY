@@ -117,6 +117,36 @@
 
 			Medicion slew rate: entramos con \SI{200}{\mV} y \SI{250}{\mV} y frecuencai \SI{1}{\kHz}.
 
+		\subsubsection{Polarización}
+			Con el fin de obtener un valor bajo de THD, se ajustó el potenciómetro del multiplicador de $V_{BE}$, obtenéndose los siguientes valores
+
+		\subsubsection{Máxima excursión}
+
+		\subsubsection{Distorsión total armónica}
+
+		El banco de medición para la distorsión total armónica se muestra en la figura \ref{fig:thd_bco}. Los valores se obtuvieron mediante el software \textit{SpectraPlus}. Se utilizó la placa de audio de la PC para generar la señal, ya que un generador de laboratorio presenta un valor elevado de \texttt{THD}. Asimismo es necesario utilizar un atenuador resistivo debido a que la PC no admite como entrada un valor mayor a 1Vrms. 
+
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[scale=0.6]{./Figuras/banco_thd.eps}
+			\caption{Banco de medición de \texttt{THD}.}
+			\label{fig:thd_bco}
+		\end{figure}
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.6]{./Figuras/thd.pdf}
+			\caption{THD en función de la frecuencia.}
+			\label{fig:thd}
+		\end{figure}
+
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.6]{./Figuras/thd_zoom.pdf}
+			\caption{THD en función de la potencia.}
+		\end{figure}
+
+
 
 %		\subsubsection{Compensación}
 %
@@ -126,7 +156,41 @@
 %
 %		\subsubsection{Margen de fase}
 %
-%		\subsubsection{Distorsión por intermodulación}
+		\subsubsection{Distorsión por intermodulación}
+
+		De manera análoga a la simulación, se calculó la IMD mediante el \textit{software SpectraPlus} con el mismo banco de medición que la Figura \ref{fig:thd_bco}. Las mediciones se realizaron a \SI{5}{\kilo\hertz} para las potencias \SI{0.1}{\watt}, \SI{1}{\watt}, \SI{10}{\watt}
+
+			\begin{table}
+				\begin{tabular}{cc}
+				\toprule
+				Potencia [W] & IMD [\%]\\
+				\midrule
+				0,1 & 0.0593 \\
+				1 & 0,0254 \\
+				10 & 0,0127 \\
+				40 & 0,0253 \\
+				\bottomrule
+				\end{tabular}
+			\end{table}
+			\Flor{Valores para 100 y 5kHz como la simulación. Tambien está 60 7k hecha}
+
+		\subsubsection{Eficiencia}
+
+		\subsubsection{Relación Señal a Ruido}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{./Figuras/SNR_1K_1W.jpg}
+			\end{figure}
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{./Figuras/SNR_1K_1W_imagen2.jpg}
+			\end{figure}
+
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.3]{./Figuras/ruido_balnco.jpg}
+			\end{figure}
 %		
 %		\subsubsection{Rechazo de Ruido de la Fuente de Alimentación}
 %
