@@ -204,7 +204,7 @@
 			\caption{Puntos de medición.}
 			\label{fig:esq_med}
 		\end{figure}
-		\begin{table}[]
+		\begin{table}
 			
 		Se calcula la corriente sobre cada componente de importancia
 		\begin{equation*}
@@ -251,6 +251,70 @@
 %		\subsubsection{Respuesta en frecuencia}
 %
 		\subsubsection{Impedancia de salida}
+
+		Para la medición de la resistencia de salida se utilizó el banco de medición de la Figura \ref{fig:bco_zo} con una resistencia de prueba de \SI{8}{\ohm} y un capacitor de \SI{10}{\micro\farad}. Se utilizaron varias frecuencias, obteniéndose las Figuras.
+
+\Flor{Fotos de Zo}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{./Figuras/bco_zo_salida.eps}
+	\caption{Resistencia de salida.}
+	\label{fig:bco_zo}
+\end{figure}
+
+A partir de las mediciones realizadas, el valor de $R_o$ en función de las tensiones máximas medidas es \eqref{ec:zo_med}
+
+\begin{equation}
+	\centering
+	\hat{v}_1 = \frac{R_p}{R_o + R_p} \implies R_o = \frac{R_p \cdot (\hat{v}_1 - \hat{v}_2)}{\hat{v}_1}
+	\label{eq:zo_med}
+\end{equation}
+
+
+Los resultados obtenidos se resumen en el gráfico \ref{fig:zo_med}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{./Figuras/med_zo.pdf}
+	\caption{Resistencia de salida.}
+	\label{fig:zo_med}
+\end{figure}
+
+
+\subsubsection{Temperatura}
+También se midió la temperatura del disipador con el multímetro para el caso de máxima potencia. Los resultados en función del tiempo se muestran en la tabla \ref{tab.temp}. Luego de aproximadamente un minuto, la temperatura no presentó variaciones notables. 
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{cccccc}
+	\toprule
+		Temperatura [\SI{}{\degree}C] & 33 & 33 & 34 & 35 & 38 \\
+		\midrule
+		Tiempo [s] & 5 & 17 & 46 & 54 & 70 \\
+		\bottomrule
+	\end{tabular}
+	\label{tab.temp}
+	\caption{Temperatura en la salida ($T_{ambiente}= \SI{27}{\degree}C$).}
+\end{table}
+
+
+\subsubsection{Ancho de banda de potencia}
+
+Utilizando el mismo banco de medición de la ganancia, se analizó la variación de la frecuencia de corte en función de la potencia disipada en la carga, obteniéndose \ref{tab.bw_pote}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{cccc}
+		\toprule
+		Potencia [W] & 1 & 10 & 40 \\
+		\midrule
+		Frecuencia [\SI{}{\kilo\hertz}] & 153,8 & 153 & 120 \\
+		\bottomrule
+	\end{tabular}
+	\label{tab.bw_pote}
+\end{table}
 %
 %		\subsubsection{Margen de fase}
 %
