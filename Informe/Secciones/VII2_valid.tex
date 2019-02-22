@@ -61,12 +61,13 @@
 			\Rightarrow R_i = \frac{\hat{{v}_{Rp}}}{\hat{{v}_{i}}-\hat{{v}_{Rp}}} \cdot R_p  = \frac{\SI{42}{\mV}}{\SI{92}{\mV} - \SI{42}{\mV}} \cdot \SI{42}{\kilo\ohm}  = \boxed{\SI{84}{\kilo\ohm}}
 		\end{equation*}
 
-		Para la medición de resistencia de entrada, se inyecta una señal conocida al circuito con resistencia serie ($R_{prueba}$) lo más similar posible a la resistencia de entrada propia del amplificador, según se indica en el La tensión medida está relacionada con el divisor resistivo generado entre $R_{p}$ y $R_{in}$ de forma tal que se puede hallar indirectamente dicha resistencia. La medición se expone en la Figura \ref{fig:rin_med} y en la Figura \ref{fig:analisis_rin_med} se realiza la explicación y cálculo de dicha resistencia resultando $\boxed{R_{in}=\SI{84}{\kilo\ohm}}$.\\
+		Para la medición de resistencia de entrada, se inyecta una señal conocida al circuito con resistencia serie ($R_{prueba}$) lo más similar posible a la resistencia de entrada propia del amplificador. La tensión medida está relacionada con el divisor resistivo generado entre $R_{p}$ y $R_{in}$ de forma tal que se puede hallar indirectamente dicha resistencia. La medición se expone en la Figura \ref{fig:rin_med} y en la Figura \ref{fig:Rin_cequiv} se realiza la explicación y cálculo de dicha resistencia resultando $\boxed{R_{in}=\SI{84}{\kilo\ohm}}$.\\
 
 		Del mismo modo se realizó la medición de $R_{in}$ para frecuencia de \SI{10}{\kHz} resultando en:
 		\begin{equation*}
 			R_{in}(@\SI{10}{\kHz})  = \frac{\SI{13.2}{\mV}}{\SI{94}{\mV} - \SI{13.2}{\mV}} \, \SI{100}{\kilo\ohm} = \boxed{\SI{16.3}{\kilo\ohm}}
 		\end{equation*}
+		Este último resultado es coherente con la Figura \ref{fig.sim_rin} de la simulación del mismo parámetro, la cual muestra que la impedancia de entrada cae al aumentar la frecuencia.
 		\subsubsection{Ancho de banda de potencia}
 
 	\graficarEPS{1.0}{Mediciones/graf_BW_pot}{Respuesta en frecuencia para tensiones de entrada $V_{pp} = \SI{1.1}{\V}$.}{fig:pot_BW_med}
@@ -96,18 +97,21 @@
 			\boxed{BW = \frac{\SI{0.35}{}}{\SI{2.52}{\micro\second}} = \SI{139}{\kHz}}
 		\end{equation*}
 
-		\subsubsection{\emph{Slew Rate}}
-		Se realiza una medición similar a la anterior, salvo que en este caso la entrada es un escalón que va de \SI{-.6}{\V} a \SI{.6}{\V}. Así a partir de la medición de la Figura \ref{fig:sr_med} se obtiene un \emph{Slew Rate} similar al simulado de $\boxed{SR = \frac{\SI{10.74}{\V}-(\SI{-10.74}{\V})}{\SI{2.7}{\micro\second}} = \SI{8}{\V\per\micro\second}}$.
+		Dicho valor es menor al simulado (Ecuación \eqref{ec:bw}) y puede deberse también a elementos reactivos generados involutariamente como las pistas.
 
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[width=0.8\textwidth]{./Mediciones/SR2.jpg}
-			\caption{Respuesta al escalón en gran señal para hallar el \emph{Slew Rate}.}
-			\label{fig:sr_med}
-		\end{figure}
-
+%		\subsubsection{\emph{Slew Rate}}
+%		Se realiza una medición similar a la anterior, salvo que en este caso la entrada es un escalón que va de \SI{-.6}{\V} a \SI{.6}{\V}. Así a partir de la medición de la Figura \ref{fig:sr_med} se obtiene un \emph{Slew Rate} similar al simulado de $\boxed{SR = \frac{\SI{10.74}{\V}-(\SI{-10.74}{\V})}{\SI{2.7}{\micro\second}} = \SI{8}{\V\per\micro\second}}$.
+%
+%		\begin{figure}[h!]
+%			\centering
+%			\includegraphics[width=0.8\textwidth]{./Mediciones/SR2.jpg}
+%			\caption{Respuesta al escalón en gran señal para hallar el \emph{Slew Rate}.}
+%			\label{fig:sr_med}
+%		\end{figure}
+%
 		\subsubsection{Variación de la Fuente de Alimentación}
-		\begin{table}
+		\begin{table}[h!]
+			\centering
 			\begin{tabular}{|l|l|l|l|l|l|}
 				\hline
 				& \multicolumn{2}{c|}{$V_{H+} = \SI{28.7}{\V} \; V_{H-} = \SI{28.7}{\V}$ } & \multicolumn{2}{c|}{$V_{H+} = \SI{25.2}{\V} \; V_{H-} = \SI{25.1}{\V}$ } & \multirow{2}{1cm}{Variacion $[\%]$}	\\ \hline
@@ -122,7 +126,7 @@
 			\label{tab.valores}
 		\end{table}
 
-		En este caso se alimentó el circuito con $V_{CCH+}$ y $V_{CCH-}$ pero se supone que dichas fuentes no son muy buenas. Por tanto se midieron las caídas de potencial sobre las resistencias con los valores de alimentación común y con alimentaciones menores al 10\%. Los resultados y mediciones se exponen en la Figura \ref{fig:var_fuente_med} mostrando errores menores al \num{1.8}\%.
+		En este caso se alimentó el circuito con $V_{CCH+}$ y $V_{CCH-}$ pero se supone que dichas fuentes no son muy buenas. Por tanto se midieron las caídas de potencial sobre las resistencias con los valores de alimentación común y con alimentaciones menores al 10\%. Los resultados y mediciones se exponen en la Tabla \label{tab.valores} mostrando errores menores al \num{1.8}\%.
 
 
 		\subsubsection{Distorsión armónica}
@@ -144,266 +148,4 @@
 
 		\HgraficarPNG{0.1}{./Mediciones/Maxima_excursion}{Medición de máxima excursión de salida sin recorte.}{fig:excursion_med}
 
-		\subsection{Circuito completo}
-		\graficarEPS{0.6}{banco_med_full}{Diagrama del circuito para mediciones con etapa de potencia.}{fig:banco_med_full}
-		A continuación se presentan las mediciones realizadas durante la semana del \texttt{18/02/2019}. Se realizó el conexionado del circuito de modo tal que se tiene el circuito completo como se muestra en la Figura \ref{fig:banco_med_full}. 
 
-		%\section{Cambios durante las mediciones}
-			%Cortocircuitamos el inductor y la carga en su lugar posta.
-
-			%Medicion slew rate: entramos con \SI{200}{\mV} y \SI{250}{\mV} y frecuencai \SI{1}{\kHz}.
-
-		\subsubsection{Polarización}
-			Con el fin de obtener un valor bajo de THD, se ajustó el potenciómetro del multiplicador de $V_{BE}$, obtenéndose los valores de la tabla \ref{tab.valores}.
-
-		\subsubsection{Máxima excursión}
-		Se introdujo una señal de amplitud (máxima) tal que la salida no recorte. Dicha señal corresponde a una
-		de amplitud pico a pico 2.14 $V_{pp}$. A la salida se obtiene $V_{pp}$ = 50 V. El banco de medición se muestra en la Figura \ref{bco:ganancia}.
-
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[scale=0.5]{Figuras/bco_ganancia.eps}
-			\caption{Medición de máxima excursión de salida antes del recorte.}
-			\label{fig:bco_ganancia}
-		\end{figure}
-
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[scale=0.1]{Mediciones/PotenciaMaxima.jpg}
-			\caption{Medición de máxima excursión de salida antes del recorte.}
-			\label{fig:MaxExcur}
-		\end{figure}
-
-		\subsubsection{Variación de la fuente}
-		Al variar la fuente de alimentación entre -25 y 33 V, se miden los distintos puntos de polarizacion, tal que las corrientes de polarización no varien mas de un 10 por ciento.
-		
-		\subsubsection{Variación de la fuente}
-		Al variar la fuente de alimentación entre -25 y 33 V, se miden los distintos puntos de polarizacion, tal que las corrientes de polarización no varien mas de un 10 por ciento.
-		\begin{table}[]
-		\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
-		\hline
-		Vcc{[}V{]} & -Vcc{[}V{]} & A{[}V{]} & B{[}V{]} & C{[}V{]} & D{[}V{]} & E{[}V{]} & F{[}mV{]} & G{[}mV{]} & H{[}V{]} & I{[}mV{]} \\ \hline
-		30.11      & 30          & 12.36    & 1.369    & -29.07   & 1.31     & -1.275   & 27.3      & 11.8      & 29.43    & 10.6      \\ \hline
-		31.22      & 30.99       & 12.39    & 1.364    & -29.68   & 1.308    & -1.271   & 25.5      & 7.6       & 30.57    & 10.5      \\ \hline
-		32.71      & 32.56       & 12.4     & 1.362    & -31.24   & 1.310    & -1.275   & 27.2      & 10.6      & 32.06    & 10.6      \\ \hline
-		24.98      & 25          & 12.06    & 1.358    & -23.69   & 1.309    & -1.270   & 24.6      & 6.3       & 24.37    & 9.9       \\ \hline
-		26.99      & 27.02       & 12.18    & 1.363    & -25.7    & 1.309    & 1.27     & 26.1      & 9.6       & 26.37    & 10.3      \\ \hline
-		28.39      & 28.18       & 12.25    & 1.363    & -26.86   & 1.311    & -1.27    & 27.1      & 10.2      & 27.75    & 9.2       \\ \hline
-		29.21      & 29.13       & 12.29    & 1.363    & -27.82   & 1.311    & -1.275   & 26.2      & 10.4      & 28.58    & 9.3       \\ \hline
-		\end{tabular}
-		\label{tab.valores}
-		\end{table}
-
-
-
-		En el esquema \ref{fig:esq_med} se marcan los puntos correspondientes a las mediciones de polarización de la tabla \ref{tab.valores}.
-
-		\begin{figure}[H]
-			\centering
-			\includegraphics[scale=0.6]{./Figuras/esquema_puntos.pdf}
-			\caption{Puntos de medición.}
-			\label{fig:esq_med}
-		\end{figure}
-		\begin{table}
-			
-		Se calcula la corriente sobre cada componente de importancia
-		\begin{equation*}
-		I_i = \frac{V_n - V_{n-1}}{R_i} 
-		\end{equation*}
-
-		\begin{tabular}{|l|l|l|l|}
-		\hline
-		Parametro & Valor de polarización & Maxima variación & Variación Porcentual \\ \hline
-		$I_{R12}$      & 4.99mA       		  & (4) 4.864 ma  				&  2.5 \\ \hline
-		$V_{BE}$      & 2.585 V      		  &  2.579 V				& 0.02  \\ \hline
-		$I_{R6}$      & 6.8 mA      		  &  6.4 mA		    & 5.88  \\ \hline
-		\end{tabular}
-		\label{tab.valores}
-		\end{table}
-		\subsubsection{Distorsión total armónica}
-
-		El banco de medición para la distorsión total armónica se muestra en la figura \ref{fig:thd_bco}. Los valores se obtuvieron mediante el software \textit{SpectraPlus}. Se utilizó la placa de audio de la PC para generar la señal, ya que un generador de laboratorio presenta un valor elevado de \texttt{THD}. Asimismo es necesario utilizar un atenuador resistivo debido a que la PC no admite como entrada un valor mayor a 1Vrms. 
-
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[scale=0.6]{./Figuras/banco_thd.eps}
-			\caption{Banco de medición de \texttt{THD}.}
-			\label{fig:thd_bco}
-		\end{figure}
-
-		\begin{figure}[H]
-			\centering
-			\includegraphics[scale=0.6]{./Figuras/thd.pdf}
-			\caption{THD en función de la frecuencia.}
-			\label{fig:thd}
-		\end{figure}
-
-		\begin{figure}[H]
-			\centering
-			\includegraphics[scale=0.6]{./Figuras/thd_zoom.pdf}
-			\caption{THD en función de la potencia.}
-		\end{figure}
-
-
-
-%		\subsubsection{Compensación}
-%
-%		\subsubsection{Respuesta en frecuencia}
-%
-		\subsubsection{Impedancia de salida}
-
-		Para la medición de la resistencia de salida se utilizó el banco de medición de la Figura \ref{fig:bco_zo} con una resistencia de prueba de \SI{8}{\ohm} y un capacitor de \SI{10}{\micro\farad}. Se utilizaron varias frecuencias, obteniéndose las Figuras.
-
-\Flor{Fotos de Zo}
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.5]{./Figuras/bco_zo_salida.eps}
-	\caption{Resistencia de salida.}
-	\label{fig:bco_zo}
-\end{figure}
-
-A partir de las mediciones realizadas, el valor de $R_o$ en función de las tensiones máximas medidas es \eqref{ec:zo_med}
-
-\begin{equation}
-	\centering
-	\hat{v}_1 = \frac{R_p}{R_o + R_p} \implies R_o = \frac{R_p \cdot (\hat{v}_1 - \hat{v}_2)}{\hat{v}_1}
-	\label{eq:zo_med}
-\end{equation}
-
-
-Los resultados obtenidos se resumen en el gráfico \ref{fig:zo_med}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.5]{./Figuras/med_zo.pdf}
-	\caption{Resistencia de salida.}
-	\label{fig:zo_med}
-\end{figure}
-
-
-\subsubsection{Temperatura}
-También se midió la temperatura del disipador con el multímetro para el caso de máxima potencia. Los resultados en función del tiempo se muestran en la tabla \ref{tab.temp}. Luego de aproximadamente un minuto, la temperatura no presentó variaciones notables. 
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{cccccc}
-	\toprule
-		Temperatura [\SI{}{\degree}C] & 33 & 33 & 34 & 35 & 38 \\
-		\midrule
-		Tiempo [s] & 5 & 17 & 46 & 54 & 70 \\
-		\bottomrule
-	\end{tabular}
-	\label{tab.temp}
-	\caption{Temperatura en la salida ($T_{ambiente}= \SI{27}{\degree}C$).}
-\end{table}
-
-
-\subsubsection{Ancho de banda de potencia}
-
-Utilizando el mismo banco de medición de la ganancia, se analizó la variación de la frecuencia de corte en función de la potencia disipada en la carga, obteniéndose \ref{tab.bw_pote}.
-
-\begin{table}[H]
-	\centering
-	\begin{tabular}{cccc}
-		\toprule
-		Potencia [W] & 1 & 10 & 40 \\
-		\midrule
-		Frecuencia [\SI{}{\kilo\hertz}] & 153,8 & 153 & 120 \\
-		\bottomrule
-	\end{tabular}
-	\label{tab.bw_pote}
-\end{table}
-%
-%		\subsubsection{Margen de fase}
-%
-		\subsubsection{Distorsión por intermodulación}
-
-		De manera análoga a la simulación, se calculó la IMD mediante el \textit{software SpectraPlus} con el mismo banco de medición que la Figura \ref{fig:thd_bco}. Las mediciones se realizaron a \SI{5}{\kilo\hertz} para las potencias \SI{0.1}{\watt}, \SI{1}{\watt}, \SI{10}{\watt}
-
-			\begin{table}[H]
-				\centering
-				\begin{tabular}{cc}
-				\toprule
-				Potencia [W] & IMD [\%]\\
-				\midrule
-				0,1 & 0.0593 \\
-				1 & 0,0254 \\
-				10 & 0,0127 \\
-				40 & 0,0253 \\
-				\bottomrule
-				\end{tabular}
-			\end{table}
-			%\Flor{Valores para 100 y 5kHz como la simulación. Tambien está 60 7k hecha}
-
-
-
-		\subsubsection{Slew-Rate y Ancho de banda de Potencia}
-		Se mide a maxima potencia a $1Khz$ y se calcula la pendiente a la salida que se genera por la respuesta al escalón.
-	
-
-		\begin{figure}[H]
-			\centering
-			\includegraphics[scale=0.1]{./Mediciones/SlewRatePotencia.jpg}
-			\caption{Slew Rate.}
-		\end{figure}
-
-		\begin{equation*}
-			SR  = \frac{\varDelta v}{\varDelta t} = 11.213 \frac{V}{us}
-		\end{equation*}
-
-		\subsubsection{Eficiencia}
-
-		\subsection{Respuesta en frecuencia}
-
-		\begin{figure}[H]
-			\centering
-			\includegraphics[scale=0.5]{./Figuras/bw_total.pdf}
-			\caption{Respuesta en frecuencia a 1W.}
-		\end{figure}
-
-		\subsubsection{Relación Señal a Ruido}
-		Para realizar la medición de la SNR se utilizó el programa Spectra Plus en el cual se midio con ruido blanco para geerar el piso que presenta la placa de sonido y luego se generó una señal a $1KHz$ y $1W$ midiendo la salida con el banco de medición de la Figura \ref{fig:thd_bco} .
-
-
-
-			\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.6]{./Figuras/ruido_balnco.jpg}
-			\caption{Piso de ruido.}
-			\end{figure}
-
-			\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.6]{./Figuras/SNR_1K_1W_imagen2.jpg}
-			\caption{Salida a 1 W y 1 Khz.}
-			\end{figure}
-
-
-			Calculando:
-
-			\begin{equation*}
-			SNR_{db}  = 20 \dot log(\frac{V_{ruido}}{V_o}) = V_{ruido_{dB}} - V_{o_{dB}}
-			\end{equation*}
-
-			Por lo tanto: 
-
-			\begin{equation*}
-			SNR_{db}  = 98.75 - 8.21 = 90.54 dB  
-			\end{equation*}
-
-			\subsubsection{Eficiencia}
-
-%			\graficarEPS{0.6}{graf_eficiencia}{Gráfico de la eficiencia en función de la potencia disipada por la carga}{fig:eficiencia}
-%			\begin{figure}[H]
-%				\centering
-%				\scalebox{0.6}{\input{graf_eficiencia}
-%			\end{figure}
-
-%		
-%		\subsubsection{Rechazo de Ruido de la Fuente de Alimentación}
-%
-%		\subsubsection{Máxima eficiencia del amplificador}
-%
-%		\subsubsection{Comportamiento térmico}
