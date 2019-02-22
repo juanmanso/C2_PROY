@@ -84,20 +84,20 @@
 			\label{fig:escalon_ss}
 		\end{figure}
 
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[width=1.0\textwidth]{./Mediciones/BW_calculo.png}
-			\caption{Análisis detallado de la medición de respuesta al escalón en señal.}
-			\label{fig:analisis_escalon_ss}
-		\end{figure}
+%		\begin{figure}[h!]
+%			\centering
+%			\includegraphics[width=1.0\textwidth]{./Mediciones/BW_calculo.png}
+%			\caption{Análisis detallado de la medición de respuesta al escalón en señal.}
+%			\label{fig:analisis_escalon_ss}
+%		\end{figure}
 
-		Se conecta un generador a la entrada con un escalón de \SI{1}{\kHz}. La medición se expone en la Figura \ref{fig:escalon_ss} y el análisis del mismo se detalla en la Figura \ref{fig:analisis_escalon_ss} resultando en
+		Se conecta un generador a la entrada con un escalón de \SI{1}{\kHz}. Analizando la medición expuesta en la Figura \ref{fig:escalon_ss} se llega al siguiente resultado:
 		\begin{equation*}
-			\boxed{BW = \SI{139}{\kHz}}
+			\boxed{BW = \frac{\SI{0.35}{}}{\SI{2.52}{\micro\second}} = \SI{139}{\kHz}}
 		\end{equation*}
 
 		\subsubsection{\emph{Slew Rate}}
-		Se realiza una medición similar a la anterior, salvo que en este caso la entrada es un escalón que va de \SI{-.6}{\V} a \SI{.6}{\V}. Así a partir de la medición de la Figura \ref{fig:sr_med} como se detallan los valores en la Figura \ref{fig:analisis_sr_med} se obtiene un \emph{Slew Rate} similar al simulado de $\boxed{SR = \SI{8}{\V\per\micro\second}}$.
+		Se realiza una medición similar a la anterior, salvo que en este caso la entrada es un escalón que va de \SI{-.6}{\V} a \SI{.6}{\V}. Así a partir de la medición de la Figura \ref{fig:sr_med} se obtiene un \emph{Slew Rate} similar al simulado de $\boxed{SR = \frac{\SI{10.74}{\V}-(\SI{-10.74}{\V})}{\SI{2.7}{\micro\second}} = \SI{8}{\V\per\micro\second}}$.
 
 		\begin{figure}[h!]
 			\centering
@@ -106,16 +106,22 @@
 			\label{fig:sr_med}
 		\end{figure}
 
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[width=1.0\textwidth]{./Mediciones/SR_calculo.png}
-			\caption{Análisis detallado de la medición del \emph{Slew Rate}.}
-			\label{fig:analisis_sr_med}
-		\end{figure}
-
 		\subsubsection{Variación de la Fuente de Alimentación}
 		
-		\graficarPNG{0.4}{./Mediciones/Variacion_fuente}{Mediciones de las caídas de potencial para 2 juegos de tensiones de alimentación.}{fig:var_fuente_med}
+			\begin{tabular}{|l|l|l|l|l|l|}
+				\hline
+				& \multicolumn{2}{c|}{$V_{H+} = \SI{28.7}{\V} \; V_{H-} = \SI{28.7}{\V}$ } & \multicolumn{2}{c|}{$V_{H+} = \SI{25.2}{\V} \; V_{H-} = \SI{25.1}{\V}$ } & \multirow{2}{1cm}{Variacion $[\%]$}	\\ \hline
+				R	& $\varDelta V{[}V{]}$	& I{[}mA{]}	& $\varDelta V{[}V{]}$	& I{[}mA{]}	&	\\ \hline
+				$R_{12} = \SI{2.2}{\kilo\ohm}$      & 11.08 	& 5    & 10.88	& 4.95	& 1.00	\\ \hline
+				$R_{14} = \SI{100}{\ohm}$	& 248.2m 	& 2.492	& 245m 	& 2.45	& 1.70	\\ \hline
+				$R_{13} = \SI{100}{\ohm}$	& 252.7m 	& 2.527	& 248.8m 	& 2.488	& 1.50	\\ \hline
+				$R_{25} = \SI{68}{\ohm}$		& 168m 	& 2.47	& 165.3m 	& 2.43	& 1.60	\\ \hline
+				$R_{21} = \SI{68}{\ohm}$		& 169.4m	& 2.49	& 167m 	& 2.46	& 1.20	\\ \hline
+				$R_{6} = \SI{100}{\ohm}$		& 0.630	& 6.38	& 0.63	& 6.30	& 1.25	\\ \hline
+			\end{tabular}
+			\label{tab.valores}
+		\end{table}
+
 		En este caso se alimentó el circuito con $V_{CCH+}$ y $V_{CCH-}$ pero se supone que dichas fuentes no son muy buenas. Por tanto se midieron las caídas de potencial sobre las resistencias con los valores de alimentación común y con alimentaciones menores al 10\%. Los resultados y mediciones se exponen en la Figura \ref{fig:var_fuente_med} mostrando errores menores al \num{1.8}\%.
 
 
