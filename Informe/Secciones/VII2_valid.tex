@@ -176,12 +176,15 @@
 
 		\subsubsection{Variación de la fuente}
 		Al variar la fuente de alimentación entre -25 y 33 V, se miden los distintos puntos de polarizacion, tal que las corrientes de polarización no varien mas de un 10 por ciento.
+		
+		\subsubsection{Variación de la fuente}
+		Al variar la fuente de alimentación entre -25 y 33 V, se miden los distintos puntos de polarizacion, tal que las corrientes de polarización no varien mas de un 10 por ciento.
 		\begin{table}[]
 		\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
 		\hline
 		Vcc{[}V{]} & -Vcc{[}V{]} & A{[}V{]} & B{[}V{]} & C{[}V{]} & D{[}V{]} & E{[}V{]} & F{[}mV{]} & G{[}mV{]} & H{[}V{]} & I{[}mV{]} \\ \hline
 		30.11      & 30          & 12.36    & 1.369    & -29.07   & 1.31     & -1.275   & 27.3      & 11.8      & 29.43    & 10.6      \\ \hline
-		31.24      & 30.99       & 12.39    & 1.364    & -29.68   & 1.308    & -1.271   & 25.5      & 7.6       & 28.12    & 10.5      \\ \hline
+		31.22      & 30.99       & 12.39    & 1.364    & -29.68   & 1.308    & -1.271   & 25.5      & 7.6       & 30.57    & 10.5      \\ \hline
 		32.71      & 32.56       & 12.4     & 1.362    & -31.24   & 1.310    & -1.275   & 27.2      & 10.6      & 32.06    & 10.6      \\ \hline
 		24.98      & 25          & 12.06    & 1.358    & -23.69   & 1.309    & -1.270   & 24.6      & 6.3       & 24.37    & 9.9       \\ \hline
 		26.99      & 27.02       & 12.18    & 1.363    & -25.7    & 1.309    & 1.27     & 26.1      & 9.6       & 26.37    & 10.3      \\ \hline
@@ -191,6 +194,8 @@
 		\label{tab.valores}
 		\end{table}
 
+
+
 		En el esquema \ref{fig:esq_med} se marcan los puntos correspondientes a las mediciones de polarización de la tabla \ref{tab.valores}.
 
 		\begin{figure}[H]
@@ -199,8 +204,22 @@
 			\caption{Puntos de medición.}
 			\label{fig:esq_med}
 		\end{figure}
+		\begin{table}[]
+			
+		Se calcula la corriente sobre cada componente de importancia
+		\begin{equation*}
+		I_i = \frac{V_n - V_{n-1}}{R_i} 
+		\end{equation*}
 
-		\Gus{hay que calcular las corrientes y sus variaciones}
+		\begin{tabular}{|l|l|l|l|}
+		\hline
+		Parametro & Valor de polarización & Maxima variación & Variación Porcentual \\ \hline
+		$I_{R12}$      & 4.99mA       		  & (4) 4.864 ma  				&  2.5 \\ \hline
+		$V_{BE}$      & 2.585 V      		  &  2.579 V				& 0.02  \\ \hline
+		$I_{R6}$      & 6.8 mA      		  &  6.4 mA		    & 5.88  \\ \hline
+		\end{tabular}
+		\label{tab.valores}
+		\end{table}
 		\subsubsection{Distorsión total armónica}
 
 		El banco de medición para la distorsión total armónica se muestra en la figura \ref{fig:thd_bco}. Los valores se obtuvieron mediante el software \textit{SpectraPlus}. Se utilizó la placa de audio de la PC para generar la señal, ya que un generador de laboratorio presenta un valor elevado de \texttt{THD}. Asimismo es necesario utilizar un atenuador resistivo debido a que la PC no admite como entrada un valor mayor a 1Vrms. 
